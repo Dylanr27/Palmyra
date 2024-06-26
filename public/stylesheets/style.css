@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*header*/
+
+.header-container {
+    background-color: #161616;
+    color: white;
+    padding-top: 20px; /* Adds padding to the top */
+    padding-bottom: 20px; /* Adds padding to the bottom */
+    text-align: center; /* Centers the content */
+    font-family: "DM Sans", sans-serif;
+}
+
+section {
+    padding: 20px; /* Adds padding around the section */
+}
+
+.header-container p {
+    font-size: 1.5em; /* Increases the font size */
+}
+
+button {
+    padding: 10px 20px; /* Adds padding around the button */
+    background-color: white; /* Button background color */
+    color: black; /* Button text color */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+button:hover {
+    background-color: #f2f2f2; /* Lightens the button on hover */
+}
+
+.hero-image {
+    width: 100%; /* Sets the width of the image to 100% of its container */
+    height: auto; /* Allows the image to maintain its aspect ratio */
+}
+
+.story-label
+{
+    text-align: center;
+}
+
+/* Grid layout */
+
+.story-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two column by default */
+    gap: 20px; /* Space between grid items */
+}
+
+.story-card
+{
+    padding: 20px; /* Adds padding around the grid */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around each card */
+    border-radius: 10px; /* Rounds the corners of the cards */
+    background-color: #fff; /* Sets the background color of the cards */
+    margin: 20px 0; /* Adds margin to the top and bottom */
+}
+
+.story-container img {
+    width: 100%; /* Sets the width of the image to 100% of its container */
+    height: auto; /* Allows the image to maintain its aspect ratio */
+}
+
+.story-container h3 {
+    font-size: 1.5em; /* Increases the font size */
+    text-align: center; /* Centers the text */
+}
+
+.story-container p {
+    font-size: 1.2em; /* Increases the font size */
+    text-align: center; /* Centers the text */
+}
+
+/* Responsive design */
+
+@media screen and (max-width: 768px) {
+    .header-container p
+    {
+        font-size: 1.2em;
+    }
+
+    .story-container {
+        grid-template-columns: auto;
+    }
+}
+
+
+
+
