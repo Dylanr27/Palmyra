@@ -1,4 +1,5 @@
-* {
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,161 +8,325 @@
 
 /*header*/
 
-.header-container {
+.header-container
+{
     background-color: #161616;
     color: white;
-    padding-top: 20px; /* Adds padding to the top */
-    padding-bottom: 20px; /* Adds padding to the bottom */
-    text-align: center; /* Centers the content */
+    padding-top: 20px;
+    /* Adds padding to the top */
+    padding-bottom: 20px;
+    /* Adds padding to the bottom */
+    text-align: center;
+    /* Centers the content */
 }
 
-section {
-    padding: 20px; /* Adds padding around the section */
+section
+{
+    padding: 20px;
+    /* Adds padding around the section */
 }
 
-.header-container p {
-    font-size: 1.5em; /* Increases the font size */
+.header-container p
+{
+    font-size: 1.5em;
+    /* Increases the font size */
 }
 
-button {
-    padding: 10px 20px; /* Adds padding around the button */
-    background-color: white; /* Button background color */
-    color: black; /* Button text color */
-    border: none; /* Removes the border */
-    border-radius: 5px; /* Rounds the corners of the button */
-    cursor: pointer; /* Changes the cursor to a pointer on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+button
+{
+    padding: 10px 20px;
+    /* Adds padding around the button */
+    background-color: white;
+    /* Button background color */
+    color: black;
+    /* Button text color */
+    border: none;
+    /* Removes the border */
+    border-radius: 5px;
+    /* Rounds the corners of the button */
+    cursor: pointer;
+    /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
 }
 
-button:hover {
-    background-color: #f2f2f2; /* Lightens the button on hover */
+button:hover
+{
+    background-color: #f2f2f2;
+    /* Lightens the button on hover */
 }
 
-.hero-image {
-    width: 100%; /* Sets the width of the image to 100% of its container */
-    height: auto; /* Allows the image to maintain its aspect ratio */
+.hero-image
+{
+    width: 100%;
+    /* Sets the width of the image to 100% of its container */
+    height: auto;
+    /* Allows the image to maintain its aspect ratio */
 }
 
-.section-label{
+.section-label
+{
     text-align: center;
     color: #c47e43;
     font-size: 2rem;
     font-style: bold;
+    padding: 3rem;
 }
 
 /* Story card layout */
 
-.story-container {
+.story-container
+{
     display: grid;
-    grid-template-columns: 1fr 1fr; /* two column by default */
-    gap: 20px; /* Space between grid items */
+    grid-template-columns: 1fr 1fr;
+    /* two column by default */
+    gap: 20px;
+    /* Space between grid items */
 }
 
 .story-card
 {
-    padding: 20px; /* Adds padding around the grid */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around each card */
-    border-radius: 10px; /* Rounds the corners of the cards */
-    background-color: #fff; /* Sets the background color of the cards */
-    margin: 20px 0; /* Adds margin to the top and bottom */
+    padding: 20px;
+    /* Adds padding around the grid */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Adds a subtle shadow around each card */
+    border-radius: 10px;
+    /* Rounds the corners of the cards */
+    background-color: #fff;
+    /* Sets the background color of the cards */
+    margin: 20px 0;
+    /* Adds margin to the top and bottom */
 }
 
-.story-container, .story-card {
+.story-container,
+.story-card
+{
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition for fading out */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* Smooth transition for fading out */
 }
 
-.story-container.visible, .story-card.visible {
+.story-container.visible,
+.story-card.visible
+{
     animation: fadeIn 1s ease-out forwards;
 }
 
-.story-card img {
-    width: 100%; /* Sets the width of the image to 100% of its container */
-    height: auto; /* Allows the image to maintain its aspect ratio */
+.story-card img
+{
+    width: 100%;
+    /* Sets the width of the image to 100% of its container */
+    height: auto;
+    /* Allows the image to maintain its aspect ratio */
     padding: 5px;
 }
 
-.story-card h3 {
-    font-size: 1.5em; /* Increases the font size */
-    text-align: center; /* Centers the text */
+.story-card h3
+{
+    font-size: 1.5em;
+    /* Increases the font size */
+    text-align: center;
+    /* Centers the text */
     padding: 5px;
 
 }
 
-.story-card p {
-    font-size: 1.2em; /* Increases the font size */
-    text-align: center; /* Centers the text */
+.story-card p
+{
+    font-size: 1.2em;
+    /* Increases the font size */
+    text-align: center;
+    /* Centers the text */
     padding: 5px;
 }
 
 /* Gallery Layout */
 
-.gallery-container {
-    column-count: 3; /* Creates two columns */
-    column-gap: 10px; /* Adds space between the columns */
-    max-width: 70%; /* Limits the width and ensures it's centered */
-    margin: auto; /* Centers the div horizontally */
-    padding: 10px; /* Adds padding around the grid */
+.gallery-container
+{
+    column-count: 3;
+    /* Creates two columns */
+    column-gap: 10px;
+    /* Adds space between the columns */
+    max-width: 70%;
+    /* Limits the width and ensures it's centered */
+    margin: auto;
+    /* Centers the div horizontally */
+    padding: 10px;
+    /* Adds padding around the grid */
 }
 
-.gallery-image {
-    width: 100%; /* Makes images responsive to the size of their container */
-    height: auto; /* Maintains aspect ratio */
-    display: inline-block; /* Necessary for images to respect column layout */
-    margin-bottom: 10px; /* Adds space between the images vertically */
-    break-inside: avoid; /* Prevents images from being split across columns */
+.gallery-image
+{
+    width: 100%;
+    /* Makes images responsive to the size of their container */
+    height: auto;
+    /* Maintains aspect ratio */
+    display: inline-block;
+    /* Necessary for images to respect column layout */
+    margin-bottom: 10px;
+    /* Adds space between the images vertically */
+    break-inside: avoid;
+    /* Prevents images from being split across columns */
 }
 
-.gallery-image.visible {
+.gallery-image.visible
+{
     animation: fadeIn 1s ease-out forwards;
 }
 
 /* Menu-Container */
 
-.menu-container ul{
-    display: grid; /* Displays the items in a row */
+.menu-container ul
+{
+    display: grid;
+    /* Displays the items in a row */
     /* change whats below to make it so there it cant have more than 3 items in a row */
-    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Creates a responsive grid */
-    justify-content: center; /* Centers the items horizontally */
-    gap: 3rem; /* Adds space between the items */
-    list-style: none;;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    /* Creates a responsive grid */
+    justify-content: center;
+    /* Centers the items horizontally */
+    gap: 2rem;
+    /* Adds space between the items */
+    list-style: none;
+    ;
 }
 
-.menu-container ul p {
+.menu-listing-heading
+{
+    display: grid;
+    grid-template-columns: 60% 30% 10%;
+    padding-bottom: 0.5rem;
+}
+
+.menu-container ul li
+{
+    border: 1px solid #e0e0e0;
+    /* Light grey border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    border-radius: 8px;
+    /* Rounded corners */
+    padding: 1rem;
+    /* Spacing inside the card */
+}
+
+.menu-container ul p
+{
     color: #635e5e;
+}
+
+/* contact-container */
+
+.contact-container
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    /* Adds padding around the grid */
+}
+
+.contact-form div
+{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea
+{
+    font-weight: 400;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 28px 10px 10px 10px;
+    color: rgb(71, 71, 71);
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.contact-form label
+{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: grey;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-form input:focus + label,
+.contact-form textarea:focus + label,
+.contact-form input:not(:placeholder-shown) + label,
+.contact-form textarea:not(:placeholder-shown) + label
+{
+    top: 10px;
+    /* Move towards the top inside the field */
+    left: 10px;
+    color: #c47e43;
+    font-size: 14px;
+    /* Optionally, adjust the size */
+    transform: translateY(0%);
+    /* Reset transform */
+}
+
+.contact-container-info
+{
+    padding-left: 20px;
+}
+
+.contact-container-info h3
+{
+    margin-bottom: 1rem;
+}
+
+.contact-container-info p
+{
+    margin-bottom: 1rem;
 }
 
 /* Responsive design */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px)
+{
     .header-container p
     {
         font-size: 1.2em;
     }
 
-    .story-container {
+    .story-container
+    {
         grid-template-columns: auto;
     }
 
-    .gallery-container{
+    .gallery-container
+    {
         column-count: 2;
         max-width: 90%;
     }
 
-    .menu-container ul {
+    .menu-container ul
+    {
         grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
 }
 
 /*Keyframes for animations*/
 
-@keyframes fadeIn {
-    from {
+@keyframes fadeIn
+{
+    from
+    {
         opacity: 0;
         transform: translateY(-10px);
     }
-    to {
+
+    to
+    {
         opacity: 1;
         transform: translateY(0);
     }
@@ -170,15 +335,25 @@ button:hover {
 
 /* Reduced motion */
 
-@media (prefers-reduced-motion: reduce) {
-    .story-container, .story-container img, .story-container h3, .story-container p {
-        animation: none !important; /* Disables animations */
-        transition: none !important; /* Disables transitions */
+@media (prefers-reduced-motion: reduce)
+{
+
+    .story-container,
+    .story-container img,
+    .story-container h3,
+    .story-container p
+    {
+        animation: none !important;
+        /* Disables animations */
+        transition: none !important;
+        /* Disables transitions */
     }
 
     /* Reset any transform for elements that might have been animated */
-    .story-container img, .story-container h3, .story-container p {
+    .story-container img,
+    .story-container h3,
+    .story-container p
+    {
         transform: none !important;
     }
 }
-
