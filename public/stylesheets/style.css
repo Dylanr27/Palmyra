@@ -116,6 +116,22 @@ button:hover {
 .gallery-image.visible {
     animation: fadeIn 1s ease-out forwards;
 }
+
+/* Menu-Container */
+
+.menu-container ul{
+    display: grid; /* Displays the items in a row */
+    /* change whats below to make it so there it cant have more than 3 items in a row */
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Creates a responsive grid */
+    justify-content: center; /* Centers the items horizontally */
+    gap: 3rem; /* Adds space between the items */
+    list-style: none;;
+}
+
+.menu-container ul p {
+    color: #635e5e;
+}
+
 /* Responsive design */
 
 @media screen and (max-width: 900px) {
@@ -131,6 +147,10 @@ button:hover {
     .gallery-container{
         column-count: 2;
         max-width: 90%;
+    }
+
+    .menu-container ul {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
 }
 
