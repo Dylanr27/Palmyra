@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
 }
 
 /*header*/
@@ -12,7 +13,6 @@
     padding-top: 20px; /* Adds padding to the top */
     padding-bottom: 20px; /* Adds padding to the bottom */
     text-align: center; /* Centers the content */
-    font-family: "DM Sans", sans-serif;
 }
 
 section {
@@ -42,12 +42,14 @@ button:hover {
     height: auto; /* Allows the image to maintain its aspect ratio */
 }
 
-.story-label
-{
+.section-label{
     text-align: center;
+    color: #c47e43;
+    font-size: 2rem;
+    font-style: bold;
 }
 
-/* Grid layout */
+/* Story card layout */
 
 .story-container {
     display: grid;
@@ -64,24 +66,59 @@ button:hover {
     margin: 20px 0; /* Adds margin to the top and bottom */
 }
 
-.story-container img {
+.story-container, .story-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition for fading out */
+}
+
+.story-container.visible, .story-card.visible {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.story-card img {
     width: 100%; /* Sets the width of the image to 100% of its container */
     height: auto; /* Allows the image to maintain its aspect ratio */
+    padding: 5px;
 }
 
-.story-container h3 {
+.story-card h3 {
     font-size: 1.5em; /* Increases the font size */
     text-align: center; /* Centers the text */
+    padding: 5px;
+
 }
 
-.story-container p {
+.story-card p {
     font-size: 1.2em; /* Increases the font size */
     text-align: center; /* Centers the text */
+    padding: 5px;
 }
 
+/* Gallery Layout */
+
+.gallery-container {
+    column-count: 3; /* Creates two columns */
+    column-gap: 10px; /* Adds space between the columns */
+    max-width: 70%; /* Limits the width and ensures it's centered */
+    margin: auto; /* Centers the div horizontally */
+    padding: 10px; /* Adds padding around the grid */
+}
+
+.gallery-image {
+    width: 100%; /* Makes images responsive to the size of their container */
+    height: auto; /* Maintains aspect ratio */
+    display: inline-block; /* Necessary for images to respect column layout */
+    margin-bottom: 10px; /* Adds space between the images vertically */
+    break-inside: avoid; /* Prevents images from being split across columns */
+}
+
+.gallery-image.visible {
+    animation: fadeIn 1s ease-out forwards;
+}
 /* Responsive design */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .header-container p
     {
         font-size: 1.2em;
@@ -90,8 +127,38 @@ button:hover {
     .story-container {
         grid-template-columns: auto;
     }
+
+    .gallery-container{
+        column-count: 2;
+        max-width: 90%;
+    }
+}
+
+/*Keyframes for animations*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
+/* Reduced motion */
 
+@media (prefers-reduced-motion: reduce) {
+    .story-container, .story-container img, .story-container h3, .story-container p {
+        animation: none !important; /* Disables animations */
+        transition: none !important; /* Disables transitions */
+    }
+
+    /* Reset any transform for elements that might have been animated */
+    .story-container img, .story-container h3, .story-container p {
+        transform: none !important;
+    }
+}
 
