@@ -19,7 +19,7 @@ document.addEventListener( 'DOMContentLoaded', function ()
 } );
 
 // Example of what star system may look like: Function to set rating
-function setRating ( element, rating )
+function setRating( element, rating )
 {
     // Assuming 5 stars and rating is out of 5
     const percentage = ( rating / 5 ) * 100;
@@ -37,5 +37,3 @@ ratings.forEach( rating =>
     // Example: Set the first rating to 4 stars
     setRating( rating, 5 );
 } );
-
-

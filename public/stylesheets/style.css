@@ -59,7 +59,8 @@ section
 
 /* Hero image parent selector */
 
-.image-container{
+.image-container
+{
     padding: 0;
 }
 
@@ -84,14 +85,18 @@ section
     padding-top: 0;
 }
 
-hr {
-    display: block; /* Changed from inline-block to block */
+.section-hr
+{
+    display: block;
+    /* Changed from inline-block to block */
     border-bottom-width: 2px;
     border-style: solid;
     width: 50px;
     border-color: rgb(218, 218, 218);
-    margin: 0 auto; /* Center the hr */
+    margin: 0 auto;
+    /* Center the hr */
 }
+
 /* Story card layout */
 
 .story-container
@@ -233,12 +238,12 @@ hr {
 
 .menu-container ul p
 {
-    color: #868383;
+    color: #666666;
 }
 
-/* contact-container */
+/* contact-section */
 
-.contact-container
+.contact-section
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -246,19 +251,19 @@ hr {
     padding: 20px;
 }
 
-.contact-form div
+.contact-container div
 {
     position: relative;
     margin-bottom: 20px;
 }
 
-.contact-form h3
+.contact-container h3
 {
     margin-bottom: 1rem;
 }
 
-.contact-form input,
-.contact-form textarea
+.contact-container input,
+.contact-container textarea
 {
     width: 100%;
     border: 1px solid #e0e0e0;
@@ -270,7 +275,7 @@ hr {
     background-color: transparent;
 }
 
-.contact-form label
+.contact-container label
 {
     position: absolute;
     top: 50%;
@@ -282,10 +287,10 @@ hr {
     pointer-events: none;
 }
 
-.contact-form input:focus + label,
-.contact-form textarea:focus + label,
-.contact-form input:not(:placeholder-shown) + label,
-.contact-form textarea:not(:placeholder-shown) + label 
+.contact-container input:focus + label,
+.contact-container textarea:focus + label,
+.contact-container input:not(:placeholder-shown) + label,
+.contact-container textarea:not(:placeholder-shown) + label
 {
     top: 10px;
     left: 10px;
@@ -294,27 +299,27 @@ hr {
     transform: translateY(0%);
 }
 
-.contact-form-attachment-section
+.contact-container-attachment-section
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.contact-form-attachment-section a,
-.contact-form-attachment-section p
+.contact-container-attachment-section a,
+.contact-container-attachment-section p
 {
     margin-bottom: 0;
     font-size: 18px;
 }
 
-.contact-form a
+.contact-container a
 {
     color: #c47e43;
     text-decoration: none;
 }
 
-.contact-form button
+.contact-container button
 {
     background-color: #c47e43;
     color: white;
@@ -327,45 +332,55 @@ hr {
     margin-top: 0.5rem;
 }
 
-.contact-form button:hover
+.contact-container button:hover
 {
     background-color: #ec964f;
 }
 
 
-.contact-container-info
+.contact-section-info
 {
     padding-left: 20px;
 }
 
-.contact-container-info h3
+.contact-section-info h3
 {
     margin-bottom: 1rem;
 }
 
-.contact-container-info p
+.contact-section-info p
 {
     margin-bottom: 1rem;
 }
 
-.snapshot-section {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2;    /* Firefox */
-    column-count: 2;         /* Standard syntax */
-    -webkit-column-gap: 10px; /* Chrome, Safari, Opera */
-    -moz-column-gap: 10px;    /* Firefox */
-    column-gap: 10px;         /* Standard syntax */
+.snapshot-section
+{
+    -webkit-column-count: 2;
+    /* Chrome, Safari, Opera */
+    -moz-column-count: 2;
+    /* Firefox */
+    column-count: 2;
+    /* Standard syntax */
+    -webkit-column-gap: 10px;
+    /* Chrome, Safari, Opera */
+    -moz-column-gap: 10px;
+    /* Firefox */
+    column-gap: 10px;
+    /* Standard syntax */
     max-width: 70%;
     margin: auto;
     padding: 10px;
 }
 
-.snapshot-section img {
+.snapshot-section img
+{
     width: 100%;
     height: auto;
-    display: block; /* Changed from inline-block to block */
+    display: block;
+    /* Changed from inline-block to block */
     margin-bottom: 10px;
-    break-inside: avoid; /* This will prevent the images from being split across columns */
+    break-inside: avoid;
+    /* This will prevent the images from being split across columns */
 }
 
 /* Social */
@@ -386,50 +401,103 @@ hr {
 
 /* Review Section */
 
-.review-section {
+.review-section
+{
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
-    gap: 20px; /* Space between cards */
-    padding: 20px; /* Padding around the entire section */
+    grid-template-columns: repeat(2, 1fr);
+    /* Creates two columns */
+    gap: 20px;
+    /* Space between cards */
+    padding: 20px;
+    /* Padding around the entire section */
 }
 
-.review-card {
-    background-color: #fff; /* White background */
-    border: 1px solid #ddd; /* Light border */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
-    padding: 20px; /* Padding inside each card */
-    border-radius: 5px; /* Rounded corners */
+.review-card
+{
+    background-color: #fff;
+    /* White background */
+    border: 1px solid #ddd;
+    /* Light border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    padding: 20px;
+    /* Padding inside each card */
+    border-radius: 5px;
+    /* Rounded corners */
 }
 
-.review-card h3 {
-    margin-top: 0; /* Removes the top margin from the h3 */
-    margin-bottom: 10px; /* Space between the name and the hr */
+.review-card h3
+{
+    margin-top: 0;
+    /* Removes the top margin from the h3 */
+    margin-bottom: 10px;
+    /* Space between the name and the hr */
 }
 
-.review-card hr {
-    border: 0; /* Removes the default border */
-    height: 1px; /* Sets the height of the line */
-    background-color: #ddd; /* Light grey line */
-    width: 98%; /* Line takes up 80% of the card width */
-    margin: 0 auto; /* Centers the line horizontally */
-    display: block; /* Ensures the hr is displayed as a block element */
+.review-card hr
+{
+    border: 0;
+    /* Removes the default border */
+    height: 1px;
+    /* Sets the height of the line */
+    background-color: #ddd;
+    /* Light grey line */
+    width: 98%;
+    /* Line takes up 80% of the card width */
+    margin: 0 auto;
+    /* Centers the line horizontally */
+    display: block;
+    /* Ensures the hr is displayed as a block element */
 }
 
-.review-card p {
+.review-card p
+{
     font-size: 16px;
-    margin-top: 10px; /* Space between the hr and the content */
+    margin-top: 10px;
+    /* Space between the hr and the content */
 }
 
-.star-rating {
+.star-rating
+{
     font-size: 20px;
-    color: #ccc; /* Gray color; change as needed */
-    direction: rtl; /* Right-to-left to allow easy filling of stars from the left */
-    text-align: left; /* Align the stars to the left */
+    color: #ccc;
+    /* Gray color; change as needed */
+    direction: rtl;
+    /* Right-to-left to allow easy filling of stars from the left */
+    text-align: left;
+    /* Align the stars to the left */
 }
 
 /* Example class for a 5-star rating, assuming you'll dynamically add classes based on actual ratings */
-.star-rating.full-rating {
-    color: gold; /* Change color to gold for full rating */
+.star-rating.full-rating
+{
+    color: gold;
+    /* Change color to gold for full rating */
+}
+
+/* events section */
+
+.event-row
+{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+
+.event-date
+{
+    color: #c47e43;
+}
+
+.event-title
+{
+    margin-bottom: 1rem;
+}
+
+.event-row p
+{
+    color: #666666
 }
 
 /* Responsive design */
@@ -457,7 +525,7 @@ hr {
         grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
 
-    .contact-container
+    .contact-section
     {
         display: grid;
         grid-template-columns: auto;
@@ -465,27 +533,43 @@ hr {
         padding: 20px;
     }
 
-    .contact-form h3
+    .contact-container h3
     {
         text-align: center;
     }
 
-    .contact-container-info
+    .contact-section-info
     {
         padding-left: 0;
     }
 
-    .contact-container-info h3,
-    .contact-container-info p
+    .contact-section-info h3,
+    .contact-section-info p
     {
         text-align: center;
     }
 
-    .contact-container-info h3,
-    .contact-container-info p
+    .contact-section-info h3,
+    .contact-section-info p
     {
         margin-bottom: 0.5rem;
     }
+
+    .event-row
+    {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .review-section
+    {
+        grid-template-columns: auto;
+    }
+
 }
 
 /*Keyframes for animations*/
