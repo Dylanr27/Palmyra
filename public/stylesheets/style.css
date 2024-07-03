@@ -7,29 +7,39 @@
     font-size: 20px;
 }
 
-/*header*/
-
-.header-container
-{
-    background-color: #161616;
-    color: white;
-    padding-top: 20px;
-    /* Adds padding to the top */
-    padding-bottom: 20px;
-    /* Adds padding to the bottom */
-    text-align: center;
-    /* Centers the content */
-}
-
 section
 {
     padding: 20px;
     /* Adds padding around the section */
 }
 
+/*header*/
+
+.header-container
+{
+    background-color: #161616;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    /* Centers the content */
+}
+
+.header-container header
+{
+    padding: 10px;
+}
+
+.header-container h1
+{
+    font-size: 2em;
+}
+
 .header-container p
 {
+    padding: 10px;
     font-size: 1.5em;
+    width: 80%;
+    margin: auto;
     /* Increases the font size */
 }
 
@@ -338,19 +348,22 @@ section
 }
 
 
-.contact-section-info
+.contact-container-info
 {
     padding-left: 20px;
 }
 
-.contact-section-info h3
+.contact-container-info h3,
+.contact-container-info p,
+.contact-container-info a
 {
     margin-bottom: 1rem;
 }
 
-.contact-section-info p
+.contact-container-info a
 {
-    margin-bottom: 1rem;
+    color: #c47e43;
+    text-decoration: none;
 }
 
 .snapshot-section
@@ -483,11 +496,32 @@ section
     justify-content: space-between;
     gap: 20px;
     padding: 20px;
+    width: 100%;
+}
+
+.event-row > div:first-child {
+    justify-content: flex-start;
+}
+
+.event-row > div:nth-child(2) {
+    justify-content: center;
+}
+
+.event-row > div:last-child {
+    justify-content: flex-end;
 }
 
 .event-date
 {
     color: #c47e43;
+    max-width: 125px;
+}
+
+.event-body
+{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .event-title
@@ -507,6 +541,7 @@ section
     .header-container p
     {
         font-size: 1.2em;
+        width: 100%;
     }
 
     .story-container
@@ -527,7 +562,6 @@ section
 
     .contact-section
     {
-        display: grid;
         grid-template-columns: auto;
         gap: 3rem;
         padding: 20px;
@@ -538,19 +572,24 @@ section
         text-align: center;
     }
 
-    .contact-section-info
+    .contact-container-info
     {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding-left: 0;
     }
 
-    .contact-section-info h3,
-    .contact-section-info p
+    .contact-container-info h3,
+    .contact-container-info p,
+    .contact-container-info a
     {
         text-align: center;
     }
 
-    .contact-section-info h3,
-    .contact-section-info p
+    .contact-container-info h3,
+    .contact-container-info p,
+    .contact-container-info a
     {
         margin-bottom: 0.5rem;
     }
@@ -560,6 +599,11 @@ section
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .event-date
+    {
+        max-width: 100%;
     }
 }
 
@@ -614,3 +658,5 @@ section
         transform: none !important;
     }
 }
+
+

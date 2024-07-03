@@ -19,7 +19,7 @@ document.addEventListener( 'DOMContentLoaded', function ()
 } );
 
 // Example of what star system may look like: Function to set rating
-function setRating( element, rating )
+function setRating ( element, rating )
 {
     // Assuming 5 stars and rating is out of 5
     const percentage = ( rating / 5 ) * 100;
@@ -37,3 +37,32 @@ ratings.forEach( rating =>
     // Example: Set the first rating to 4 stars
     setRating( rating, 5 );
 } );
+
+
+// Function to set maximum width for elements of given class
+function setCommonMaxWidthForClass ( className )
+{
+    const elements = document.querySelectorAll( className );
+    let maxWidth = 0;
+
+    // Find the maximum width among elements
+    elements.forEach( ( element ) =>
+    {
+        const width = element.offsetWidth;
+        if ( width > maxWidth )
+        {
+            maxWidth = width;
+        }
+    } );
+
+    // Set the maximum width to all elements
+    elements.forEach( ( element ) =>
+    {
+        element.style.width = `${ maxWidth }px`;
+    } );
+}
+
+// Apply the maximum width setting for each class
+setCommonMaxWidthForClass( '.event-body' );
+setCommonMaxWidthForClass( '.event-date' );
+setCommonMaxWidthForClass( '.event-time' );
