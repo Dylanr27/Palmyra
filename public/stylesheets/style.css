@@ -499,15 +499,18 @@ section
     width: 100%;
 }
 
-.event-row > div:first-child {
+.event-row > div:first-child
+{
     justify-content: flex-start;
 }
 
-.event-row > div:nth-child(2) {
+.event-row > div:nth-child(2)
+{
     justify-content: center;
 }
 
-.event-row > div:last-child {
+.event-row > div:last-child
+{
     justify-content: flex-end;
 }
 
@@ -658,5 +661,3 @@ section
         transform: none !important;
     }
 }
-
-
