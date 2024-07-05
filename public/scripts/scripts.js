@@ -18,26 +18,26 @@ document.addEventListener( 'DOMContentLoaded', function ()
     elements.forEach( el => observer.observe( el ) );
 } );
 
-// Example of what star system may look like: Function to set rating
-function setRating ( element, rating )
-{
-    // Assuming 5 stars and rating is out of 5
-    const percentage = ( rating / 5 ) * 100;
-    element.style.direction = 'ltr'; // Switch back to left-to-right for linear-gradient
-    element.style.background = `linear-gradient(90deg, gold ${ percentage }%, #ccc ${ percentage }%)`;
-    element.style.webkitBackgroundClip = 'text';
-    element.style.display = 'inline-block'; // Override direction effects on background
-    element.style.color = 'transparent'; // Hide original text color
-}
-
-// Example usage
-const ratings = document.querySelectorAll( '.star-rating' );
-ratings.forEach( rating =>
-{
-    // Example: Set the first rating to 4 stars
-    setRating( rating, 5 );
-} );
-
+/*Google Reviews*/
+(
+    function ( d, s, id ) 
+    {
+        var js;
+        if ( d.getElementById( id ) ) 
+        {
+            return;
+        }
+        js = d.createElement( s );
+        js.id = id;
+        js.src = "https://embedsocial.com/cdn/aht.js";
+        d.getElementsByTagName( "head" )[ 0 ].appendChild( js );
+    }
+        (
+            document,
+            "script",
+            "EmbedSocialWidgetScript"
+        )
+);
 
 // Function to set maximum width for elements of given class
 function setCommonMaxWidthForClass ( className )
@@ -66,3 +66,4 @@ function setCommonMaxWidthForClass ( className )
 setCommonMaxWidthForClass( '.event-body' );
 setCommonMaxWidthForClass( '.event-date' );
 setCommonMaxWidthForClass( '.event-time' );
+

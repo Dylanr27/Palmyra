@@ -4,9 +4,12 @@ const port = 3000;
 const path = require( 'path' );
 const bodyParser = require( 'body-parser' );
 const emailService = require( './services/EmailService' );
+// const eventRoutes = require( './routes/event' ); // Adjust the path as necessary
 
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( { extended: true } ) );
+
+// app.use( '/events', eventRoutes ); // Use the event routes
 
 app.use( express.static( 'public' ) );
 
