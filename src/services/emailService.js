@@ -1,14 +1,15 @@
-require( 'dotenv' ).config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const sgMail = require( '@sendgrid/mail' );
+import sgMail from '@sendgrid/mail';
 
-sgMail.setApiKey( process.env.SENDGRID_API_KEY ); // Replace with your actual SendGrid API Key
+sgMail.setApiKey( process.env.SENDGRID_API_KEY );
 
-exports.sendEmail = ( name, email, message ) =>
+const sendEmail = ( name, email, message ) =>
 {
     const msg = {
-        to: process.env.EMAIL_RECIPIENT, // Change to your recipient
-        from: process.env.EMAIL_SENDER, // Change to your verified sender
+        to: process.env.EMAIL_RECIPIENT,
+        from: process.env.EMAIL_SENDER,
         subject: `New Palmyra feedback from ${ name }`,
         text: `You have received a new message from ${ name }\nEmail: (${ email }):\n${ message }`,
     };
@@ -17,3 +18,5 @@ exports.sendEmail = ( name, email, message ) =>
 
     return sgMail.send( msg );
 };
+
+export default sendEmail;

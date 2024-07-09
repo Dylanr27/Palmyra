@@ -451,6 +451,7 @@ section
 {
     color: #c47e43;
     max-width: 125px;
+    text-align: center;
 }
 
 .event-body
@@ -468,6 +469,11 @@ section
 .event-row p
 {
     color: #666666
+}
+
+.event-location
+{
+    padding-top: 1rem;
 }
 
 /* Responsive design */

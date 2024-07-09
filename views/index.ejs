@@ -22,14 +22,8 @@
 
         </header>
 
-        <p>Experience the taste of our carefully crafted dishes, made from cherished family recipes and locally-sourced ingredients
-        </p>
-
-        <!-- <a href="menu.html">
-
-            <button class="menu-button">Explore our Menu</button>
-
-        </a> -->
+        <p>Experience the taste of our carefully crafted dishes, made from
+            cherished family recipes and locally-sourced ingredients</p>
 
     </section>
 
@@ -301,7 +295,16 @@
 
         <section class="review-section">
 
-            <div class="embedsocial-widget" data-ref="bc76810a17253eccad357e47fcb16bc0"> <a href="https://embedsocial.com/google-reviews-widget/" title="Add Google reviews on a website" target="_blank" class="powered-by-es es-slider" > <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial" > <span> Google reviews widget </span> </a> </div>
+            <div class="embedsocial-widget"
+                data-ref="bc76810a17253eccad357e47fcb16bc0">
+                <a href="https://embedsocial.com/google-reviews-widget/"
+                    title="Add Google reviews on a website" target="_blank"
+                    class="powered-by-es es-slider">
+                    <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp"
+                        alt="EmbedSocial">
+                    <span> Google reviews widget </span>
+                </a>
+            </div>
 
         </section>
 
@@ -431,71 +434,70 @@
 
         <hr class="section-hr">
 
-        <section>
+        <section class="event-section">
+
             <ul>
-                <li class="event-row">
-                    <div>
-                        <h3 class="event-date">6/27/2024 - 6/30/2024</h3>
-                    </div>
-                    <div class="event-body">
-                        <h3 class="event-title">Spokane HoopFest</h3>
-                        <p>Downtown Spokane</p>
-                        <p>Riverfront park / Central Plaza operating booth 91</p>
-                        <p>Located next to the Registration Tent</p>
-                        <p>421 W Riverside, Suite 115</p>
-                    </div>
-                    <div>
-                        <h3 class="event-time">7am-7pm</h3>
-                    </div>
-                </li>
 
-                <hr>
+                <% events.forEach(function(event) { %>
 
-                <li class="event-row">
-                    <div>
-                        <h3 class="event-date">7/03/2024</h3>
-                    </div>
-                    <div class="event-body">
-                        <h3 class="event-title">Delridge Farmer's Market</h3>
-                        <p>9421 18th ave SW Seattle WA </p>
-                    </div>
-                    <div>
-                        <h3 class="event-time">10am-2pm</h3>
-                    </div>
-                </li>
+                    <li class="event-row">
 
-                <hr>
+                        <div class="event-date">
 
-                <li class="event-row">
-                    <div>
-                        <h3 class="event-date">7/13/2024</h3>
-                    </div>
-                    <div class="event-body">
-                        <h3 class="event-title">Delridge Farmer's Market</h3>
-                        <p>9421 18th ave SW Seattle WA </p>
-                    </div>
-                    <div>
-                        <h3 class="event-time">10am-2pm</h3>
-                    </div>
-                </li>
+                            <% const parts=event.formattedDate.split(", "); %>
 
-                <hr>
+                                <% parts.forEach(function(part, index) { %>
 
-                <li class="event-row">
-                    <div>
-                        <h3 class="event-date">8/04/2024</h3>
-                    </div>
-                    <div class="event-body">
-                        <h3 class="event-title">Jet City Lab</h3>
-                        <p>4547 California Ave SW Seattle WA</p>
-                    </div>
-                    <div>
-                        <h3 class="event-time">10am-2pm</h3>
-                    </div>
-                </li>
-                
+                                    <% if(part.trim().length > 0) { %>
+
+                                        <h3>
+                                            <%= part %><%= index < parts.length - 1 ? ',' : '' %>
+                                        </h3>
+
+                                    <% } %>
+
+                                <% }); %>
+                            </div>
+                            <div class=" event-body">
+
+                                <h3 class="event-title">
+                                    <%= event.title %>
+                                </h3>
+
+                                <% event.description.split(". ").forEach(function(sentence) { %>
+
+                                    <% if(sentence.trim().length > 0) { %>
+
+                                        <p><%= sentence %>.</p>
+
+                                    <% } %>
+
+                                <% }); %>
+
+                                <p class=" event-location">
+                                    <%= event.location %>
+                                        </p>
+
+                        </div>
+
+                        <div>
+
+                            <h3 class=" event-time">
+                                <%= event.timeFrame %>
+                            </h3>
+
+                        </div>
+
+                    </li>
+
+                    <hr>
+
+                    <% }); %>
+
             </ul>
+
         </section>
+
     </main>
 
 </body>

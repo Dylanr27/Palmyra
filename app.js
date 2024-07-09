@@ -1,35 +1,39 @@
-const express = require( 'express' );
+import express from 'express';
+import connectDB from './src/config/database.js';
+import bodyParser from 'body-parser';
+import { config } from 'dotenv';
+import feedbackRouter from './src/routes/feedback.js';
+import { insertData } from './scripts/seedDb.js';
+import eventRoutes from './src/routes/event-routes.js';
+import eventController from './src/controllers/event-controller.js';
+
+config();
+connectDB().then( insertData );
+
 const app = express();
-const port = 3000;
-const path = require( 'path' );
-const bodyParser = require( 'body-parser' );
-const emailService = require( './services/EmailService' );
-// const eventRoutes = require( './routes/event' ); // Adjust the path as necessary
+app.use( express.json() );
+const port = process.env.PORT || 3000;
+
+app.set( 'view engine', 'ejs' );
 
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( { extended: true } ) );
-
-// app.use( '/events', eventRoutes ); // Use the event routes
-
 app.use( express.static( 'public' ) );
+app.use( '/events', eventRoutes );
 
-app.get( '/', ( req, res ) =>
+app.get( '/', async ( req, res ) =>
 {
-    res.sendFile( path.join( __dirname, 'views', 'index.html' ) );
+    try
+    {
+        const events = await eventController.listEvents();
+        res.render( 'index', { events: events } );
+    } catch ( error )
+    {
+        console.error( 'Failed to fetch events:', error );
+        res.status( 500 ).send( 'Server error' );
+    }
 } );
 
-// Route to send feedback
-app.post( '/submit-feedback', ( req, res ) =>
-{
-    const { name, email, message } = req.body;
-    emailService.sendEmail( name, email, message )
-        .then( () =>
-        {
-            console.log( 'Email sent!' );
-            res.redirect( '/' );
-        } )
-        .catch( ( error ) => res.status( 500 ).send( error.message ) );
-} );
+app.use( '/submit-feedback', feedbackRouter );
 
-app.listen( port, () =>
-    console.log( `App listening at http://localhost:${ port }` ) );
+app.listen( port, () => console.log( `App listening at http://localhost:${ port }` ) );
