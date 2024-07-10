@@ -1,6 +1,6 @@
 // models/Event.js
 import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import { Schema } from 'mongoose';
 
 const addressSchema = new Schema( {
     street: { type: String, required: true },

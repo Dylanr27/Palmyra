@@ -1,6 +1,8 @@
 import Event from '../models/Event.js';
 
-async function listEvents()
+
+
+async function listEvents ()
 {
     try
     {
@@ -13,25 +15,95 @@ async function listEvents()
     }
 }
 
-
-function createEvent( req, res )
+// Helper function to adjust date to UTC midnight
+function adjustDateToUtcMidnight ( dateString )
 {
-    // Logic to create a new event
+    const date = new Date( dateString );
+    date.setMinutes( date.getMinutes() + date.getTimezoneOffset() );
+    return date;
 }
 
-function getEvent( req, res )
+// Create a new event
+async function createEvent ( req, res )
 {
-    // Logic to get a single event by ID
+    try
+    {
+        // Adjust the date to UTC midnight
+        if ( req.body.date )
+        {
+            req.body.date = adjustDateToUtcMidnight( req.body.date );
+        }
+
+        const newEvent = new Event( req.body );
+        await newEvent.save();
+        res.status( 201 ).send( newEvent );
+    } catch ( error )
+    {
+        console.error( 'Failed to create event:', error );
+        res.status( 400 ).send( error );
+    }
 }
 
-function updateEvent( req, res )
+// Get a single event by ID
+async function getEvent ( req, res )
 {
-    // Logic to update an event by ID
+    try
+    {
+        console.log( req.params.id );
+        const event = await Event.findById( req.params.id );
+        if ( !event )
+        {
+            return res.status( 404 ).send();
+        }
+        res.render( 'event-views/event-upsert', { event: event } );
+    } catch ( error )
+    {
+        console.error( 'Failed to get event:', error );
+        res.status( 500 ).send( error );
+    }
 }
 
-function deleteEvent( req, res )
+// Update an event by ID
+async function updateEvent ( req, res )
 {
-    // Logic to delete an event by ID
+    try
+    {
+        // Adjust the date to UTC midnight
+        if ( req.body.date )
+        {
+            req.body.date = adjustDateToUtcMidnight( req.body.date );
+        }
+
+        const event = await Event.findByIdAndUpdate( req.params.id, req.body, { new: true, runValidators: true } );
+        if ( !event )
+        {
+            return res.status( 404 ).send();
+        }
+        res.redirect( '/' );
+    } catch ( error )
+    {
+        console.error( 'Failed to update event:', error );
+        res.status( 400 ).send( error );
+    }
 }
 
+// Delete an event by ID
+async function deleteEvent ( req, res )
+{
+    try
+    {
+        const event = await Event.findByIdAndDelete( req.params.id );
+        if ( !event )
+        {
+            return res.status( 404 ).send();
+        }
+        res.send( event );
+    } catch ( error )
+    {
+        console.error( 'Failed to delete event:', error );
+        res.status( 500 ).send( error );
+    }
+}
+
+// Export the controller functions
 export default { listEvents, createEvent, getEvent, updateEvent, deleteEvent };

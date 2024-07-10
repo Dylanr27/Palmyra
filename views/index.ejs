@@ -465,7 +465,6 @@
                                 </h3>
 
                                 <% event.description.split(". ").forEach(function(sentence) { %>
-
                                     <% if(sentence.trim().length > 0) { %>
 
                                         <p><%= sentence %>.</p>
@@ -490,9 +489,11 @@
 
                     </li>
 
+                    <a href="/events/<%= event._id %>" class="event-link button-style">Edit Event</a>
+
                     <hr>
 
-                    <% }); %>
+                <% }); %>
 
             </ul>
 

@@ -20,6 +20,7 @@ app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 app.use( express.static( 'public' ) );
 app.use( '/events', eventRoutes );
+app.use( '/submit-feedback', feedbackRouter );
 
 app.get( '/', async ( req, res ) =>
 {
@@ -33,7 +34,5 @@ app.get( '/', async ( req, res ) =>
         res.status( 500 ).send( 'Server error' );
     }
 } );
-
-app.use( '/submit-feedback', feedbackRouter );
 
 app.listen( port, () => console.log( `App listening at http://localhost:${ port }` ) );

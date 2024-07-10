@@ -76,9 +76,8 @@ section
 
 .hero-image
 {
-    width: 110%;
+    width: 100%;
     height: auto;
-    margin-left: -5%;
 }
 
 .section-label
@@ -450,10 +449,14 @@ section
 .event-date
 {
     color: #c47e43;
-    max-width: 125px;
     text-align: center;
+    padding-right: 1rem;
 }
 
+.event-title
+{
+    margin-bottom: 1rem;
+}
 .event-body
 {
     flex-direction: column;
@@ -461,9 +464,8 @@ section
     text-align: center;
 }
 
-.event-title
-{
-    margin-bottom: 1rem;
+.event-time{
+    padding-left: 1rem;
 }
 
 .event-row p
@@ -546,6 +548,19 @@ section
     .event-date
     {
         max-width: 100%;
+        padding: 0;
+    }
+
+    .event-body
+    {
+        padding: 0.4rem;
+        max-width: 80%;
+        justify-content: center;
+    }
+
+    .event-time
+    {
+        padding: 0;
     }
 }
 
