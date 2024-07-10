@@ -436,6 +436,8 @@
 
         <section class="event-section">
 
+            <a class="event-btn" href="/events/create">Create Event</a>
+
             <ul>
 
                 <% events.forEach(function(event) { %>
@@ -489,11 +491,19 @@
 
                     </li>
 
-                    <a href="/events/<%= event._id %>" class="event-link button-style">Edit Event</a>
+                    <a href="/events/<%= event._id %>"
+                        class="event-link button-style">Edit Event
+                    </a>
+
+                    <button
+                        onClick="Delete('/events/delete/<%= event._id %>')">Delete
+                        Event
+                    </button>
+
 
                     <hr>
 
-                <% }); %>
+                    <% }); %>
 
             </ul>
 
@@ -502,7 +512,7 @@
     </main>
 
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="scripts/scripts.js"></script>
-
 </html>

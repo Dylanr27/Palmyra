@@ -40,7 +40,7 @@ document.addEventListener( 'DOMContentLoaded', function ()
 );
 
 // Function to set maximum width for elements of given class
-function setCommonMaxWidthForClass ( className )
+function setCommonMaxWidthForClass( className )
 {
     const elements = document.querySelectorAll( className );
     let maxWidth = 0;
@@ -67,3 +67,31 @@ setCommonMaxWidthForClass( '.event-body' );
 setCommonMaxWidthForClass( '.event-date' );
 setCommonMaxWidthForClass( '.event-time' );
 
+function Delete( url )
+{
+    
+    Swal.fire( {
+        title: "Are you sure you want to delete this event?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    } ).then( ( result ) =>
+    {
+        if ( result.isConfirmed )
+        {
+            console.log("URL: " + url);
+            $.ajax( {
+                url: url,
+                type: 'DELETE',
+                success: function ( data )
+                {
+                    dataTable.ajax.reload();
+                    toastr.success( data.message );
+                }
+            } );
+        }
+    } );
+}

@@ -2,7 +2,7 @@ import Event from '../models/Event.js';
 
 
 
-async function listEvents ()
+async function listEvents()
 {
     try
     {
@@ -16,15 +16,27 @@ async function listEvents ()
 }
 
 // Helper function to adjust date to UTC midnight
-function adjustDateToUtcMidnight ( dateString )
+function adjustDateToUtcMidnight( dateString )
 {
     const date = new Date( dateString );
     date.setMinutes( date.getMinutes() + date.getTimezoneOffset() );
     return date;
 }
 
+function createEventForm( req, res )
+{
+    try
+    {
+        res.render( 'event-views/event-upsert' );
+    } catch ( error )
+    {
+        console.error( 'Failed to create event:', error );
+        res.status( 400 ).send( error );
+    }
+}
+
 // Create a new event
-async function createEvent ( req, res )
+async function createEvent( req, res )
 {
     try
     {
@@ -36,7 +48,7 @@ async function createEvent ( req, res )
 
         const newEvent = new Event( req.body );
         await newEvent.save();
-        res.status( 201 ).send( newEvent );
+        res.redirect( '/' );
     } catch ( error )
     {
         console.error( 'Failed to create event:', error );
@@ -45,11 +57,10 @@ async function createEvent ( req, res )
 }
 
 // Get a single event by ID
-async function getEvent ( req, res )
+async function getEvent( req, res )
 {
     try
     {
-        console.log( req.params.id );
         const event = await Event.findById( req.params.id );
         if ( !event )
         {
@@ -64,7 +75,7 @@ async function getEvent ( req, res )
 }
 
 // Update an event by ID
-async function updateEvent ( req, res )
+async function updateEvent( req, res )
 {
     try
     {
@@ -88,7 +99,7 @@ async function updateEvent ( req, res )
 }
 
 // Delete an event by ID
-async function deleteEvent ( req, res )
+async function deleteEvent( req, res )
 {
     try
     {
@@ -97,7 +108,7 @@ async function deleteEvent ( req, res )
         {
             return res.status( 404 ).send();
         }
-        res.send( event );
+        res.redirect( '/' );
     } catch ( error )
     {
         console.error( 'Failed to delete event:', error );
@@ -106,4 +117,4 @@ async function deleteEvent ( req, res )
 }
 
 // Export the controller functions
-export default { listEvents, createEvent, getEvent, updateEvent, deleteEvent };
+export default { listEvents, createEventForm, createEvent, getEvent, updateEvent, deleteEvent };
