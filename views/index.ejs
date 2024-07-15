@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palmyra</title>
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/nav-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,24 +15,14 @@
 
 <body>
 
-    <section class="header-container">
-
-        <header>
-
-            <h1>Savor the Flavor of Our Exquisite Cuisine</h1>
-
-        </header>
-
-        <p>Experience the taste of our carefully crafted dishes, made from
-            cherished family recipes and locally-sourced ingredients</p>
-
-    </section>
-
+    <%- include ('partials/_navbar.ejs') %>
+    
     <section class="image-container">
 
         <img class="hero-image"
             src="https://img1.wsimg.com/isteam/ip/a1af8e8c-05e2-4da9-94ff-bea8f3f2e717/IMG_1823.jpg/:/rs=w:1279,m"
             alt="Palmyra Authentic Mediterranean Food Logo">
+
     </section>
 
     <main>
@@ -42,69 +33,7 @@
 
         <section class="story-container">
 
-            <article class="story-card">
-
-                <img src="images/falafel-img.webp"
-                    alt="picture of 3 falafels on a bed of vegetables"
-                    class="story-image">
-
-                <h3>Our Story</h3>
-
-                <p>At Palmyra, we are passionate about creating delicious and
-                    healthy food options for our community. Our journey began
-                    amidst
-                    the challenges of the Syrian war, driven by a simple idea:
-                    to
-                    share the authentic flavors of our cherished family recipes
-                    with
-                    busy families and individuals who want to eat well but don't
-                    have the time or energy to cook. Starting from scratch, we
-                    have
-                    crafted a menu that honors our heritage and uses fresh,
-                    locally-sourced ingredients. With the help of our talented
-                    team,
-                    we have transformed this idea into a successful business
-                    that
-                    serves hundreds of happy customers every day.
-                </p>
-
-            </article>
-
-            <article class="story-card">
-
-                <img src="images/hummus-img.webp"
-                    alt="picture of hummus with olives, parsley, and tahini on top"
-                    class="story-image">
-
-                <h3>Our Philosophy</h3>
-
-                <p>We believe that food should be both delicious and nutritious.
-                    That's why we use only the freshest ingredients and prepare
-                    everything from scratch. Our falafel dough is made fresh
-                    from
-                    scratch, never imported or frozen, and cooked right away
-                    with
-                    freshly ground spices. Our hummus starts from fresh
-                    chickpeas,
-                    not canned, ensuring an authentic and vibrant taste. We
-                    pride
-                    ourselves on serving fresh food, not fast food. We are
-                    dedicated
-                    to conveying the rich culinary heritage of Syria, making it
-                    accessible to people anytime. Just like in Syria, where
-                    people
-                    can stop by and enjoy a light but fresh meal, we offer a
-                    variety
-                    of wholesome and flavorful options for those looking for a
-                    quick
-                    and healthy lunch, a family dinner, or catering for your
-                    next
-                    event. Whether you're craving a taste of home or exploring
-                    new
-                    flavors, we have you covered.
-                </p>
-
-            </article>
+            <%- include ('partials/_about-us.ejs') %>
 
         </section>
 
@@ -113,34 +42,11 @@
             Palmyra's Delicious Dishes
         </h2>
 
-        <section>
+        <hr class="section-hr">
 
-            <div class="gallery-container">
+        <section class="gallery-section">
 
-                <img src="images/burrito-1.webp"
-                    alt="picture of a plate of falafel, hummus, and tabbouleh"
-                    class="gallery-image">
-
-                <img src="images/burrito-2.webp"
-                    alt="picture of a plate of falafel, hummus, and tabbouleh"
-                    class="gallery-image">
-
-                <img src="images/frying-pan.webp"
-                    alt="picture of a plate of falafel, hummus, and tabbouleh"
-                    class="gallery-image">
-
-                <img src="images/hummus-2.webp"
-                    alt="picture of a plate of falafel, hummus, and tabbouleh"
-                    class="gallery-image">
-
-                <img src="images/family.webp"
-                    alt="picture of a plate of falafel, hummus, and tabbouleh"
-                    class="gallery-image">
-
-                <img src="images/burrito-3.webp"
-                    alt="picture of a plate of falafel, hummus, and tabbouleh"
-                    class="gallery-image">
-            </div>
+            <%- include ('partials/_business-snapshots.ejs') %>
 
         </section>
 
@@ -148,144 +54,11 @@
             Our Delicious Food Menu
         </h2>
 
-        <section class="menu-container">
+        <hr class="section-hr">
 
-            <div>
+        <section class="menu-section">
 
-                <ul>
-
-                    <li>
-
-                        <div class="menu-listing-heading">
-
-                            <h3>Mama Knows Best (Falafel Sandwich)</h3>
-
-                            <div></div>
-
-                            <h3>$13</h3>
-
-                        </div>
-
-                        <p>Made from scratch, contains chickpeas, spices, fresh
-                            onion and garlic.
-                        </p>
-
-                        <p>Comes with tomatoes, pickles( cucumbers, turnips)
-                            lettuce, jalapeño and cucumbers.
-                        </p>
-
-                        <p>Tahini sauce(contains yogurt, and sesame)
-                            hummus paste (made fresh).
-                        </p>
-
-                    </li>
-
-                    <li>
-
-                        <div class="menu-listing-heading">
-
-                            <h3>Can't Go Wrong (Hummus side)</h3>
-
-                            <div></div>
-
-                            <h3>$8</h3>
-
-                        </div>
-
-                        <p>Made from fresh chickpeas, olive oil, tahini (has
-                            sesame), serrano peppers and parsley.
-                        </p>
-
-                        <p>Comes with one pita bread.</p>
-
-                        <p>Pickles of your choice 5 cents.</p>
-
-                    </li>
-
-                    <li>
-
-                        <div class="menu-listing-heading">
-
-                            <h3>Dulma</h3>
-
-                            <div></div>
-
-                            <h3>$4</h3>
-
-                        </div>
-
-                        <p>3 stuffed grape leaves.</p>
-
-                    </li>
-
-                    <li>
-
-                        <div class="menu-listing-heading">
-
-                            <h3>Rainbow Falafel Salad</h3>
-
-                            <div></div>
-
-                            <h3>$10</h3>
-
-                        </div>
-
-                        <p>Contains 3 pieces of falafel, side of hummus, side of
-                            tahini sauce and side salad.
-                        </p>
-
-                    </li>
-
-                    <li>
-
-                        <div class="menu-listing-heading">
-
-                            <h3>Slice of Pita bread</h3>
-
-                            <div></div>
-
-                            <h3>$1</h3>
-
-                        </div>
-
-                        <p>One piece of pita bread for the hummus or the falafel
-                        </p>
-
-                    </li>
-
-                    <li class="menu-listing-heading">
-
-                        <h3>Bag of Pita Chips</h3>
-
-                        <div></div>
-
-                        <h3>$1.50</h3>
-
-                    </li>
-
-                    <li class="menu-listing-heading">
-
-                        <h3>Can of Sprite</h3>
-
-                        <div></div>
-
-                        <h3>$1.90</h3>
-
-                    </li>
-
-                    <li class="menu-listing-heading">
-
-                        <h3>Bottle of Water</h3>
-
-                        <div></div>
-
-                        <h3>$1.50</h3>
-
-                    </li>
-
-
-
-                </ul>
+            <%- include ('partials/_menu.ejs') %>
 
         </section>
 
@@ -295,96 +68,17 @@
 
         <section class="review-section">
 
-            <div class="embedsocial-widget"
-                data-ref="bc76810a17253eccad357e47fcb16bc0">
-                <a href="https://embedsocial.com/google-reviews-widget/"
-                    title="Add Google reviews on a website" target="_blank"
-                    class="powered-by-es es-slider">
-                    <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp"
-                        alt="EmbedSocial">
-                    <span> Google reviews widget </span>
-                </a>
-            </div>
+            <%- include ('partials/_review-widget.ejs') %>
 
         </section>
 
         <h2 class="section-label">Contact Us</h2>
 
+        <hr class="section-hr">
+
         <section class="contact-section">
 
-            <div class="contact-container">
-
-                <h3>Drop us a line!</h3>
-
-                <form id="contact-form" action="/submit-feedback" method="POST">
-
-                    <div>
-
-                        <input type="text" id="name" name="name" required
-                            placeholder=" ">
-
-                        <label for="name">Name</label>
-
-                    </div>
-
-                    <div>
-
-                        <input type="email" id="email" name="email" required
-                            placeholder=" ">
-
-                        <label for="email">Email</label>
-
-                    </div>
-
-                    <div>
-
-                        <textarea id="message" name="message" rows="4" required
-                            placeholder=" "></textarea>
-
-                        <label for="message">Message</label>
-
-                    </div>
-
-                    <div class="contact-form-attachment-section">
-
-                        <a href="#">Attach Files</a>
-
-                        <div></div>
-
-                        <p>Attachments(0)</p>
-
-                    </div>
-
-                    <button type="submit" value="Send">Send</button>
-
-                </form>
-
-            </div>
-
-            <div class="contact-container-info">
-
-                <h3>Better yet, come see us in person!</h3>
-
-                <p>We love our customers, so feel free to visit during normal
-                    business
-                </p>
-
-                <h3>Palmyra Mediterranean Food</h3>
-
-                <a href="tel:+1.971.589.19803">+1.971.589.19803</a>
-
-                <p>We mainly operate at Farmer Markets, call us to let you know
-                    which one or send us a message. We do take orders online for
-                    Wednesdays and Thursdays. We still working on improving and
-                    providing exact times.
-                </p>
-
-                <h3>Hours of Operation</h3>
-
-                <p>Monday-Friday: By Appointment<br>Sat-Sun: 09:00 am - 05:00 pm
-                </p>
-
-            </div>
+            <%- include ('partials/_contact.ejs') %>
 
         </section>
 
@@ -396,12 +90,7 @@
 
         <section class="snapshot-section">
 
-            <img src="images/frying.jpg" alt="picture of falafels being fried">
-
-            <img src="images/falafel-mix.jpg" alt="picture of the falafel">
-
-            <img src="images/toppings.jpg"
-                alt="picture of falafel ingredients and hummus toppings">
+            <%- include ('partials/_customer-snapshots.ejs') %>
 
         </section>
 
@@ -413,18 +102,7 @@
 
         <section class="social-section">
 
-            <a href="https://www.facebook.com/palmyraLLC?mibextid=LQQJ4d">
-
-                <img src="images/facebook-logo.png">
-
-            </a>
-
-            <a href="https://www.instagram.com/palmyrafoodservice/">
-
-                <img src="images/instagram-logo.jpg">
-
-            </a>
-
+            <%- include ('partials/_social.ejs') %>
 
         </section>
 
@@ -436,76 +114,9 @@
 
         <section class="event-section">
 
-            <a class="event-btn" href="/events/create">Create Event</a>
+            <a hidden class="event-btn" href="/events/create">Create New Event</a>
 
-            <ul>
-
-                <% events.forEach(function(event) { %>
-
-                    <li class="event-row">
-
-                        <div class="event-date">
-
-                            <% const parts=event.formattedDate.split(", "); %>
-
-                                <% parts.forEach(function(part, index) { %>
-
-                                    <% if(part.trim().length > 0) { %>
-
-                                        <h3>
-                                            <%= part %><%= index < parts.length - 1 ? ',' : '' %>
-                                        </h3>
-
-                                    <% } %>
-
-                                <% }); %>
-                            </div>
-                            <div class=" event-body">
-
-                                <h3 class="event-title">
-                                    <%= event.title %>
-                                </h3>
-
-                                <% event.description.split(". ").forEach(function(sentence) { %>
-                                    <% if(sentence.trim().length > 0) { %>
-
-                                        <p><%= sentence %>.</p>
-
-                                    <% } %>
-
-                                <% }); %>
-
-                                <p class=" event-location">
-                                    <%= event.location %>
-                                        </p>
-
-                        </div>
-
-                        <div>
-
-                            <h3 class=" event-time">
-                                <%= event.timeFrame %>
-                            </h3>
-
-                        </div>
-
-                    </li>
-
-                    <a href="/events/<%= event._id %>"
-                        class="event-link button-style">Edit Event
-                    </a>
-
-                    <button
-                        onClick="Delete('/events/delete/<%= event._id %>')">Delete
-                        Event
-                    </button>
-
-
-                    <hr>
-
-                    <% }); %>
-
-            </ul>
+            <%- include ('partials/_events.ejs') %>
 
         </section>
 

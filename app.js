@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import connectDB from './src/config/database.js';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
@@ -21,6 +22,13 @@ app.use( bodyParser.urlencoded( { extended: true } ) );
 app.use( express.static( 'public' ) );
 app.use( '/events', eventRoutes );
 app.use( '/submit-feedback', feedbackRouter );
+
+app.use( session({
+    secret: process.env.SESSION_SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}) );
 
 app.get( '/', async ( req, res ) =>
 {

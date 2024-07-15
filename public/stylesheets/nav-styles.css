@@ -1,0 +1,153 @@
+nav
+{
+    background-color: rgb(10, 10, 10);
+    color: #ffffff;
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    padding: 0.2rem;
+    z-index: 1000;
+}
+
+.logo
+{
+    display: flex;
+    flex-direction: column;
+    border: #ffffff 1px solid;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    margin-left: 1rem;
+    align-items: center;
+}
+
+nav h1
+{
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.5rem;
+    font-style: italic;
+}
+
+nav h2
+{
+    font-size: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    font-style: italic;
+}
+
+nav ul
+{
+    display: flex;
+    list-style-type: none;
+    margin-right: 1rem;
+}
+
+
+nav a {
+  color: #ffffff; /* Light text color for contrast */
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s ease, transform 0.3s ease; /* Updated to use transform */
+  display: inline-block; /* Ensure transform applies correctly */
+  font-style: italic;
+}
+
+nav a:hover {
+  color: #c47e43; /* Highlight color on hover */
+  transform: scale(1.2); /* Scales up the link on hover */
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between; /* This will spread the items */
+  list-style: none;
+  flex-grow: 1; /* Allows the list to grow and occupy available space */
+  padding-left: 20px; /* Optional: Adds some space before the first item if the second section is removed */
+}
+
+nav li {
+  /* Ensure list items align properly with transformed links */
+  align-items: center;
+  display: flex;
+}
+
+.burger div
+{
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 5px 4rem 5px 5px;
+}
+
+.burger
+{
+  display: none;
+}
+
+@media screen and (max-width: 768px)
+{
+  @media screen and (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      overflow: auto; /* Allows scrolling within the nav if needed */
+    }
+  
+    nav ul {
+      position: fixed; /* Changed to fixed to ensure it's relative to the viewport */
+      right: 0;
+      width: 43vw; /* Adjusted to take up half the screen for better visibility */
+      max-height: 92vh; /* Ensures it does not extend beyond the viewport height */
+      overflow-y: auto; /* Allows scrolling within the ul if the content exceeds the max height */
+      top: 8vh; /* Adjusted top position */
+      background-color: rgb(10, 10, 10);
+      flex-direction: column;
+      align-items: center;
+      margin-right: 0;
+    }
+  
+    .burger {
+      display: block;
+      cursor: pointer;
+    }
+  }
+}
+
+/* burger animations */
+
+
+/* nav ul
+{
+  display: none;
+}
+
+nav ul.active
+{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  background-color: black;
+  width: 100%;
+}
+
+nav ul.active li
+{
+  padding: 10px;
+}
+
+nav ul.active li a
+{
+  padding: 10px;
+}
+
+.burger
+{
+  display: block;
+  cursor: pointer;
+} */
+

@@ -27,7 +27,7 @@ function createEventForm( req, res )
 {
     try
     {
-        res.render( 'event-views/event-upsert' );
+        res.render( 'event-upsert' );
     } catch ( error )
     {
         console.error( 'Failed to create event:', error );
@@ -66,7 +66,7 @@ async function getEvent( req, res )
         {
             return res.status( 404 ).send();
         }
-        res.render( 'event-views/event-upsert', { event: event } );
+        res.render( 'event-upsert', { event: event } );
     } catch ( error )
     {
         console.error( 'Failed to get event:', error );
