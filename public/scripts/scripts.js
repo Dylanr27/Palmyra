@@ -1,3 +1,24 @@
+toggleNavActive = () => 
+{
+    const list = document.getElementById( "nav-list" );
+
+    list.classList.toggle( "active" );
+}
+
+// Add event listener to the document
+document.addEventListener( 'click', function ( event )
+{
+    const list = document.getElementById( "nav-list" );
+
+    const burger = document.getElementById( "burger" );
+
+    // If the clicked element is not the navigation list and the list is active, remove the "active" class
+    if ( ( event.target !== list || event.target !== burger ) && classList.contains( "active" ) )
+    {
+        list.classList.remove( "active" );
+    }
+} );
+
 document.addEventListener( 'DOMContentLoaded', function ()
 {
     const observer = new IntersectionObserver( ( entries ) =>
@@ -40,7 +61,7 @@ document.addEventListener( 'DOMContentLoaded', function ()
 );
 
 // Function to set maximum width for elements of given class
-function setCommonMaxWidthForClass( className )
+function setCommonMaxWidthForClass ( className )
 {
     const elements = document.querySelectorAll( className );
     let maxWidth = 0;
@@ -67,9 +88,9 @@ setCommonMaxWidthForClass( '.event-body' );
 setCommonMaxWidthForClass( '.event-date' );
 setCommonMaxWidthForClass( '.event-time' );
 
-function Delete( url )
+function Delete ( url )
 {
-    
+
     Swal.fire( {
         title: "Are you sure you want to delete this event?",
         text: "You won't be able to revert this!",
@@ -82,7 +103,7 @@ function Delete( url )
     {
         if ( result.isConfirmed )
         {
-            console.log("URL: " + url);
+            console.log( "URL: " + url );
             $.ajax( {
                 url: url,
                 type: 'DELETE',
