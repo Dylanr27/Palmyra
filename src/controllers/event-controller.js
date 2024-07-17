@@ -6,16 +6,16 @@ async function listEvents()
 {
     try
     {
-        const events = await Event.find(); // Fetch all events
-        return events; // Return the events
+        const events = await Event.find();
+        return events;
     } catch ( error )
     {
         console.error( 'Failed to fetch events:', error );
-        throw error; // Throw the error to be handled by the caller
+        throw error;
     }
 }
 
-// Helper function to adjust date to UTC midnight
+
 function adjustDateToUtcMidnight( dateString )
 {
     const date = new Date( dateString );
@@ -35,12 +35,12 @@ function createEventForm( req, res )
     }
 }
 
-// Create a new event
+
 async function createEvent( req, res )
 {
     try
     {
-        // Adjust the date to UTC midnight
+        
         if ( req.body.date )
         {
             req.body.date = adjustDateToUtcMidnight( req.body.date );
@@ -56,7 +56,7 @@ async function createEvent( req, res )
     }
 }
 
-// Get a single event by ID
+
 async function getEvent( req, res )
 {
     try
@@ -74,12 +74,12 @@ async function getEvent( req, res )
     }
 }
 
-// Update an event by ID
+
 async function updateEvent( req, res )
 {
     try
     {
-        // Adjust the date to UTC midnight
+        
         if ( req.body.date )
         {
             req.body.date = adjustDateToUtcMidnight( req.body.date );
@@ -98,7 +98,7 @@ async function updateEvent( req, res )
     }
 }
 
-// Delete an event by ID
+
 async function deleteEvent( req, res )
 {
     try
@@ -116,5 +116,5 @@ async function deleteEvent( req, res )
     }
 }
 
-// Export the controller functions
+
 export default { listEvents, createEventForm, createEvent, getEvent, updateEvent, deleteEvent };

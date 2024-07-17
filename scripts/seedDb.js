@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import Event from '../src/models/Event.js';
+import MenuItem from '../src/models/Menu-Item.js';
+import Photo from '../src/models/Photo.js';
 import { config } from 'dotenv';
 
 config();
@@ -67,29 +69,121 @@ const eventData = [
     }
 ];
 
-// Function to insert data and close connection
-const insertData = async () =>
-{
-    try
+const menuItemData = [
     {
-        // Check if the event table already has entries
-        const existingEntries = await Event.find();
-        if ( existingEntries.length > 0 )
-        {
-            console.log( 'Event table already seeded. No action taken.' );
-            return; // Exit the function early if entries exist
+        name: 'Mama Knows Best (Falafel Sandwich)',
+        price: 13.00,
+        description: 'Made from scratch, contains chickpeas, spices, fresh onion and garlic. Comes with tomatoes, pickles( cucumbers, turnips) lettuce, jalapeño and cucumbers. Tahini sauce(contains yogurt, and sesame) hummus paste (made fresh).',
+        image: 'https://www.example.com/bacon-cheeseburger.jpg'
+    },
+    {
+        name: 'Can\'t Go Wrong (Hummus side)',
+        price: 8.00,
+        description: 'Made from fresh chickpeas, olive oil, tahini (has sesame), serrano peppers and parsley. Comes with one pita bread. Pickles of your choice 5 cents.',
+        image: 'https://www.example.com/chicken-tenders.jpg'
+    },
+    {
+        name: 'Dulma',
+        price: 4.00,
+        description: '3 stuffed grape leaves.',
+        image: 'https://www.example.com/mozzarella-sticks.jpg'
+    },
+    {
+        name: 'Rainbow Falafel Salad',
+        price: 10.00,
+        description: 'Contains 3 pieces of falafel, side of hummus, side of tahini sauce and side salad.',
+        image: 'https://www.example.com/caesar-salad.jpg'
+    },
+    {
+        name: 'Slice of Pita Bread',
+        price: 1.00,
+        description: 'One piece of pita bread.',
+        image: 'https://www.example.com/french-fries.jpg'
+    },
+    {
+        name: 'Bag of Pita Chips',
+        price: 2.00,
+    },
+    {
+        name: 'Can of Sprite',
+        price: 1.50,
+    },
+    {
+        name: 'Bottle of Water',
+        price: 1.50,
+    }
+]
+
+const photoData = [
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/burrito-1.webp',
+        group: 'Business'
+    },
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/burrito-2.webp',
+        group: 'Business'
+    },
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/frying-pan.webp',
+        group: 'Business'
+    },
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/hummus-2.webp',
+        group: 'Business'
+    },
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/family.webp',
+        group: 'Business'
+    },
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/burrito-3.webp',
+        group: 'Business'
+    },
+    {
+        alt: 'picture of falafels being fried',
+        url: 'images/frying.jpg',
+        group: 'Customer'
+    },
+    {
+        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
+        url: 'images/falafel-mix.jpg',
+        group: 'Customer'
+    },
+    {
+        alt: 'picture of falafel ingredients and hummus toppings',
+        url: 'images/toppings.jpg',
+        group: 'Customer'
+    }
+];
+
+async function seedModel(model, data, modelName) {
+    try {
+        const existingEntries = await model.find();
+        if (existingEntries.length > 0) {
+            console.log(`${modelName} table already seeded. No action taken.`);
+            return;
         }
 
-        for ( const data of eventData )
-        {
-            const event = new Event( data );
-            await event.save();
-            console.log( 'Event saved:', event.title );
+        for (const item of data) {
+            const entry = new model(item);
+            await entry.save();
+            console.log(`${modelName} saved:`, entry.title || entry.name || entry.alt);
         }
-    } catch ( err )
-    {
-        console.error( 'Error saving event:', err );
+    } catch (err) {
+        console.error(`Error saving ${modelName}:`, err);
     }
+}
+
+const insertData = async () => {
+    await seedModel(Event, eventData, 'Event');
+    await seedModel(MenuItem, menuItemData, 'MenuItem');
+    await seedModel(Photo, photoData, 'Photo');
 };
 
 export { insertData };

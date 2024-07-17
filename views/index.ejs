@@ -46,6 +46,8 @@
 
         <section class="gallery-section">
 
+            <a class="crud-btn create-btn" href="/photos/create">Add New Business Photo</a>
+
             <%- include ('partials/_business-snapshots.ejs') %>
 
         </section>
@@ -57,6 +59,8 @@
         <hr class="section-hr">
 
         <section class="menu-section">
+
+            <a class="crud-btn create-btn" href="/menu-items/create">Create New Menu Item</a>
 
             <%- include ('partials/_menu.ejs') %>
 
@@ -90,6 +94,8 @@
 
         <section class="snapshot-section">
 
+            <a class="crud-btn create-btn" href="/photos/create">Add New Customer Photo</a>
+
             <%- include ('partials/_customer-snapshots.ejs') %>
 
         </section>
@@ -114,7 +120,7 @@
 
         <section class="event-section">
 
-            <a hidden class="event-btn" href="/events/create">Create New Event</a>
+            <a class="crud-btn create-btn" href="/events/create">Create New Event</a>
 
             <%- include ('partials/_events.ejs') %>
 

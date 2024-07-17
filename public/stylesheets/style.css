@@ -517,10 +517,11 @@ section
     padding-left: 1rem;
 }
 
-.event-btn
+/* Edit & Delete Buttons */
+
+.crud-btn
 {
     display: inline-block;
-    background-color: #c47e43;
     color: white;
     border: none;
     border-radius: 4px;
@@ -534,9 +535,35 @@ section
     justify-content: center;
 }
 
-.event-btn:hover
+.create-btn
+{
+    background-color: #54c443;
+    margin-bottom: 1rem;
+}
+
+.create-btn:hover
+{
+    background-color: #6edf5f;
+}
+
+.edit-btn
+{
+    background-color: #c47e43;
+}
+
+.edit-btn:hover
 {
     background-color: #ec964f;
+}
+
+.delete-btn
+{
+    background-color: #ff0d00;
+}
+
+.delete-btn:hover
+{
+    background-color: #ff4d4d;
 }
 
 .button-group {

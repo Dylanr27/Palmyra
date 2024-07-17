@@ -45,6 +45,7 @@ nav h2
     flex-grow: 1; /* Allows the list to grow and occupy available space */
     transition: right 0.3s ease; /* Added transition for smooth animation */
     margin-right: 2rem;
+    gap: 1rem;
 }
 
 #nav-list li {
@@ -115,7 +116,8 @@ nav h2
     #burger {
       display: block;
       position: absolute;
-      right: 20%;
+      right: 18.5%;
+      padding: 0.3rem;
       cursor: pointer;
     }
 }

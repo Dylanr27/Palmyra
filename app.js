@@ -3,10 +3,15 @@ import express from 'express';
 import connectDB from './src/config/database.js';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
-import feedbackRouter from './src/routes/feedback.js';
 import { insertData } from './scripts/seedDb.js';
-import eventRoutes from './src/routes/event-routes.js';
 import eventController from './src/controllers/event-controller.js';
+import eventRoutes from './src/routes/event-routes.js';
+import menuItemController from './src/controllers/menu-item-controller.js';
+import menuItemRoutes from './src/routes/menu-item-routes.js';
+import Photo from './src/models/Photo.js';
+import photoController from './src/controllers/photo-controller.js';
+import photoRoutes from './src/routes/photo-routes.js';
+import feedbackRouter from './src/routes/feedback.js';
 
 config();
 connectDB().then( insertData );
@@ -21,6 +26,8 @@ app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 app.use( express.static( 'public' ) );
 app.use( '/events', eventRoutes );
+app.use( '/menu-items', menuItemRoutes );
+app.use( '/photos', photoRoutes );
 app.use( '/submit-feedback', feedbackRouter );
 
 // app.use( session({
@@ -35,10 +42,14 @@ app.get( '/', async ( req, res ) =>
     try
     {
         const events = await eventController.listEvents();
-        res.render( 'index', { events: events } );
+        const menuItems = await menuItemController.listMenuItems();
+        const businessPhotos = await Photo.find({ group: 'Business' });
+        const customerPhotos = await Photo.find({ group: 'Customer' });
+
+        res.render( 'index', { events: events, menuItems: menuItems, businessPhotos: businessPhotos, customerPhotos: customerPhotos } );
     } catch ( error )
     {
-        console.error( 'Failed to fetch events:', error );
+        console.error( 'Fetch Failed:', error );
         res.status( 500 ).send( 'Server error' );
     }
 } );

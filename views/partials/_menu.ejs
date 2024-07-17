@@ -1,10 +1,55 @@
 <ul>
 
-    <li>
+    <% menuItems.forEach(function(menuItem) { %>
+            
+        <li>
+
+            <div class="menu-listing-heading">
+
+                <h3><%= menuItem.name %></h3>
+
+                <div></div>
+
+                <h3>$<%= menuItem.price.toFixed(2); %></h3>
+
+            </div>
+
+            <% if(menuItem.description) { %>
+
+                <% menuItem.description.split(". ").forEach(function(sentence) { %>
+                    
+                    <% if(sentence.trim().length > 0) { %>
+                        
+                        <p><%= sentence %></p>
+                    
+                    <% } %>
+                
+                <% }); %>
+
+            <% } %>
+
+            <div class="button-group">
+                
+                <a href="/menu-items/<%= menuItem._id %>" class="crud-btn edit-btn">
+                    Edit
+                </a>
+
+                <button onClick="Delete('/menu-items/delete/<%= menuItem._id %>')" class="crud-btn delete-btn">
+                    Delete
+                </button>
+                
+            </div>
+
+        </li>
+<% }); %>
+
+</ul> 
+
+    <!-- <li>
 
         <div class="menu-listing-heading">
 
-            <h3>Mama Knows Best (Falafel Sandwich)</h3>
+            <h3></h3>
 
             <div></div>
 
@@ -127,6 +172,5 @@
 
         <h3>$1.50</h3>
 
-    </li>
+    </li>-->
 
-</ul>

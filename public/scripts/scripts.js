@@ -1,23 +1,16 @@
-toggleNavActive = () => 
-{
-    const list = document.getElementById( "nav-list" );
-
-    list.classList.toggle( "active" );
-}
-
-// Add event listener to the document
-document.addEventListener( 'click', function ( event )
-{
-    const list = document.getElementById( "nav-list" );
-
-    const burger = document.getElementById( "burger" );
-
-    // If the clicked element is not the navigation list and the list is active, remove the "active" class
-    if ( ( event.target !== list || event.target !== burger ) && classList.contains( "active" ) )
-    {
-        list.classList.remove( "active" );
+document.addEventListener('click', function(event) {
+    const list = document.getElementById("nav-list");
+    const burger = document.getElementById("burger");
+    // Check if the clicked element is not the list, not a child of the list, and not the burger
+    if (!list.contains(event.target) && !burger.contains(event.target)) {
+        list.classList.remove("active");
     }
-} );
+});
+
+toggleNavActive = () => {
+    const list = document.getElementById("nav-list");
+    list.classList.toggle("active");
+}
 
 document.addEventListener( 'DOMContentLoaded', function ()
 {

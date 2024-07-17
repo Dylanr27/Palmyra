@@ -1,23 +1,13 @@
-<img src="images/burrito-1.webp"
-alt="picture of a plate of falafel, hummus, and tabbouleh"
-class="gallery-image">
+<% businessPhotos.forEach(function(photo) { %>
 
-<img src="images/burrito-2.webp"
-alt="picture of a plate of falafel, hummus, and tabbouleh"
-class="gallery-image">
+    <div>
 
-<img src="images/frying-pan.webp"
-alt="picture of a plate of falafel, hummus, and tabbouleh"
-class="gallery-image">
+        <img src="<%= photo.url %>" alt="<%= photo.alt %>">
 
-<img src="images/hummus-2.webp"
-alt="picture of a plate of falafel, hummus, and tabbouleh"
-class="gallery-image">
+        <button onClick="Delete('/photos/delete/<%= photo._id %>')" class="crud-btn delete-btn">
+            Delete
+        </button>
 
-<img src="images/family.webp"
-alt="picture of a plate of falafel, hummus, and tabbouleh"
-class="gallery-image">
+    </div>
 
-<img src="images/burrito-3.webp"
-alt="picture of a plate of falafel, hummus, and tabbouleh"
-class="gallery-image">
+<% }); %>

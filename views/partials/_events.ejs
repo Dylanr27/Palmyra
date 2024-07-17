@@ -29,7 +29,7 @@
                     <% event.description.split(". ").forEach(function(sentence) { %>
                         <% if(sentence.trim().length > 0) { %>
 
-                            <p><%= sentence %>.</p>
+                            <p><%= sentence %></p>
 
                         <% } %>
 
@@ -56,12 +56,12 @@
 
         <div class="button-group">
                 
-                <a href="/events/<%= event._id %>" class="event-btn">
-                    Edit Event
+                <a href="/events/<%= event._id %>" class="crud-btn edit-btn">
+                    Edit
                 </a>
 
-                <button onClick="Delete('/events/delete/<%= event._id %>')" class="event-btn">
-                    Delete Event
+                <button onClick="Delete('/events/delete/<%= event._id %>')" class="crud-btn delete-btn">
+                    Delete
                 </button>
         </div>
 

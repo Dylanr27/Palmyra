@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof photo !== 'undefined' ? "Update Photo" : "Create Photo" %></title>
+    <link rel="stylesheet" href="/stylesheets/photo-styles.css">
+</head>
+<body>
+    <section class="form-section">
+        <h1><%= typeof photo !== 'undefined' ? "Update Photo" : "Create Photo" %></h1>
+        <form action="<%= typeof photo !== 'undefined' ? `/photos/update/${photo._id}` : '/photos/createPhoto' %>" method="POST">
+            <% if (typeof photo !== 'undefined') { %>
+                <input type="hidden" name="id" value="<%= photo._id %>">
+            <% } %>
+            <div class="form-group">
+                <label for="alt">Description:</label>
+                <textarea id="alt" name="alt" required><%= typeof photo !== 'undefined' ? photo.alt : '' %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="url">Image:</label>
+                <input type="file" id="url" name="url" required>
+            </div>
+            <div class="form-group">
+                <label for="group">Group:</label>
+                <select id="group" name="group" required>
+                    <option value="Customer" <%= typeof photo !== 'undefined' && photo.group === 'Customer' ? 'selected' : '' %>>Customer</option>
+                    <option value="Business" <%= typeof photo !== 'undefined' && photo.group === 'Business' ? 'selected' : '' %>>Business</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="form-button"><%= typeof photo !== 'undefined' ? "Update" : "Create" %></button>
+                <a href="/photos" class="cancel-button">Cancel</a>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

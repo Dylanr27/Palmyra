@@ -1,6 +1,13 @@
-<img src="images/frying.jpg" alt="picture of falafels being fried">
+<% customerPhotos.forEach(function(photo) { %>
 
-<img src="images/falafel-mix.jpg" alt="picture of the falafel">
+    <div>
 
-<img src="images/toppings.jpg"
-    alt="picture of falafel ingredients and hummus toppings">
+        <img src="<%= photo.url %>" alt="<%= photo.alt %>">
+
+        <button onClick="Delete('/photos/delete/<%= photo._id %>')" class="crud-btn delete-btn">
+            Delete
+        </button>
+
+    </div>
+
+<% }); %>
