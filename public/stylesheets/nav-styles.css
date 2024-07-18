@@ -38,6 +38,12 @@ nav h2
     font-style: italic;
 }
 
+.navbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
 #nav-list {
     display: flex;
     justify-content: space-between; /* This will spread the items */

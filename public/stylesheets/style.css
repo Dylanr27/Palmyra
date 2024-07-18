@@ -7,103 +7,7 @@
     font-size: 20px;
 }
 
-section
-{
-    padding: 20px;
-    /* Adds padding around the section */
-}
-
-/*header*/
-
-.header-container
-{
-    background-color: #161616;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    /* Centers the content */
-}
-
-/* Adjusted navbar CSS */
-.navbar {
-    display: flex;
-    justify-content: space-between; /* Adjusted to space-between to separate the three sections */
-    align-items: center; /* Vertically center items */
-    padding: 10px 20px;
-    background-color: #161616; /* Dark background for contrast */
-    color: white;
-}
-
-.navbar h1 {
-    flex: 1; /* Allows the h1 to take up space on the far left */
-    font-size: 1.5rem; /* Adjusted font size */
-}
-
-.navbar-center {
-    flex: 2; /* Empty space in the middle */
-    display: flex;
-    justify-content: center;
-}
-
-.navbar-list {
-    flex: 3; /* Container for links on the right */
-    display: flex;
-    justify-content: space-between; /* Aligns the links to the right */
-    list-style: none; /* Removes the bullet points */
-}
-
-.navbar-list li {
-    margin-right: 20px; /* Space between menu items */
-}
-
-/* Style navbar links */
-.navbar-link {
-    text-decoration: none;
-    color: #ffffff; /* Light text color for contrast */
-    padding: 10px 15px;
-    transition: color 0.3s ease;
-}
-
-.navbar-link:hover {
-    color: #c47e43; /* Highlight color on hover */
-}
-
-.menu-button
-{
-    padding: 10px 20px;
-    /* Adds padding around the button */
-    background-color: white;
-    /* Button background color */
-    color: black;
-    /* Button text color */
-    border: none;
-    /* Removes the border */
-    border-radius: 5px;
-    /* Rounds the corners of the button */
-    cursor: pointer;
-    /* Changes the cursor to a pointer on hover */
-    transition: background-color 0.3s ease;
-    /* Smooth transition for background color change */
-}
-
-.menu-button:hover
-{
-    background-color: #f2f2f2;
-    /* Lightens the button on hover */
-}
-
-/* Hero image parent selector */
-
-.image-container
-{
-    padding: 0;
-}
-
-.hero-image
-{
-    width: 100%;
-    height: auto;
-}
+/* Section Layout */
 
 .section-label
 {
@@ -122,38 +26,44 @@ section
 .section-hr
 {
     display: block;
-    /* Changed from inline-block to block */
     border-bottom-width: 2px;
     border-style: solid;
     width: 50px;
     border-color: rgb(218, 218, 218);
     margin: 0 auto;
-    /* Center the hr */
 }
 
-/* Story card layout */
+
+/* Hero Section */
+
+.image-container
+{
+    padding: 0;
+}
+
+.hero-image
+{
+    width: 100%;
+    height: auto;
+}
+
+
+/* About us Section */
 
 .story-container
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* two column by default */
     gap: 20px;
-    /* Space between grid items */
 }
 
 .story-card
 {
     padding: 20px;
-    /* Adds padding around the grid */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Adds a subtle shadow around each card */
     border-radius: 10px;
-    /* Rounds the corners of the cards */
     background-color: #fff;
-    /* Sets the background color of the cards */
     margin: 20px 0;
-    /* Adds margin to the top and bottom */
 }
 
 .story-container,
@@ -162,7 +72,6 @@ section
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    /* Smooth transition for fading out */
 }
 
 .story-container.visible,
@@ -174,18 +83,15 @@ section
 .story-card img
 {
     width: 100%;
-    /* Sets the width of the image to 100% of its container */
     height: auto;
-    /* Allows the image to maintain its aspect ratio */
     padding: 5px;
+    border-radius: 1rem 1rem 0 0;
 }
 
 .story-card h3
 {
     font-size: 1.5em;
-    /* Increases the font size */
     text-align: center;
-    /* Centers the text */
     padding: 5px;
 
 }
@@ -193,40 +99,30 @@ section
 .story-card p
 {
     font-size: 1.2em;
-    /* Increases the font size */
     text-align: center;
-    /* Centers the text */
     padding: 5px;
 }
 
-/* Gallery Layout */
+/* Gallery Section */
 
 .gallery-section
 {
     column-count: 3;
-    /* Creates two columns */
     column-gap: 10px;
-    /* Adds space between the columns */
     max-width: 70%;
-    /* Limits the width and ensures it's centered */
     margin: auto;
-    /* Centers the div horizontally */
     padding: 10px;
-    /* Adds padding around the grid */
 }
 
 .gallery-image
 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     width: 100%;
-    /* Makes images responsive to the size of their container */
     height: auto;
-    /* Maintains aspect ratio */
     display: inline-block;
-    /* Necessary for images to respect column layout */
     margin-bottom: 10px;
-    /* Adds space between the images vertically */
     break-inside: avoid;
-    /* Prevents images from being split across columns */
 }
 
 .gallery-image.visible
@@ -234,21 +130,15 @@ section
     animation: fadeIn 1s ease-out forwards;
 }
 
-/* Menu-Container */
+/* Menu Section */
 
 .menu-section ul
 {
     display: grid;
-    /* Displays the items in a row */
-    /* change whats below to make it so there it cant have more than 3 items in a row */
     grid-template-columns: repeat(2, minmax(200px, 1fr));
-    /* Creates a responsive grid */
     justify-content: center;
-    /* Centers the items horizontally */
     gap: 2rem;
-    /* Adds space between the items */
     list-style: none;
-    ;
 }
 
 .menu-listing-heading
@@ -261,13 +151,9 @@ section
 .menu-section ul li
 {
     border: 1px solid #e0e0e0;
-    /* Light grey border */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
     border-radius: 8px;
-    /* Rounded corners */
     padding: 1rem;
-    /* Spacing inside the card */
 }
 
 .menu-section ul p
@@ -275,7 +161,7 @@ section
     color: #666666;
 }
 
-/* contact-section */
+/* Contact-section */
 
 .contact-section
 {
@@ -301,7 +187,6 @@ section
 {
     width: 100%;
     border: 1px solid #e0e0e0;
-    /* Light grey border */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     padding: 28px 10px 10px 10px;
@@ -392,35 +277,14 @@ section
 
 .snapshot-section
 {
-    -webkit-column-count: 2;
-    /* Chrome, Safari, Opera */
-    -moz-column-count: 2;
-    /* Firefox */
     column-count: 2;
-    /* Standard syntax */
-    -webkit-column-gap: 10px;
-    /* Chrome, Safari, Opera */
-    -moz-column-gap: 10px;
-    /* Firefox */
     column-gap: 10px;
-    /* Standard syntax */
     max-width: 70%;
     margin: auto;
     padding: 10px;
 }
 
-.snapshot-section img
-{
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Changed from inline-block to block */
-    margin-bottom: 10px;
-    break-inside: avoid;
-    /* This will prevent the images from being split across columns */
-}
-
-/* Social */
+/* Social Section */
 
 .social-section
 {
@@ -445,7 +309,7 @@ section
 }
 
 
-/* events section */
+/* Event section */
 
 .event-row
 {
@@ -517,7 +381,7 @@ section
     padding-left: 1rem;
 }
 
-/* Edit & Delete Buttons */
+/* CRUD Buttons */
 
 .crud-btn
 {
@@ -539,6 +403,10 @@ section
 {
     background-color: #54c443;
     margin-bottom: 1rem;
+    width: 75%;
+    display: block;
+    margin: 1rem auto;
+
 }
 
 .create-btn:hover
@@ -573,7 +441,7 @@ section
     padding-bottom: 1rem;
 }
 
-[hidden] {
+.hidden {
     display: none;
 }
 

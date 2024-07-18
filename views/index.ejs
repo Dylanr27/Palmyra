@@ -44,16 +44,16 @@
 
         <hr class="section-hr">
 
-        <section class="gallery-section">
+        <a class="crud-btn create-btn" href="/photos/create?group=Business">Add New Business Photo</a>
 
-            <a class="crud-btn create-btn" href="/photos/create">Add New Business Photo</a>
+        <section class="gallery-section">
 
             <%- include ('partials/_business-snapshots.ejs') %>
 
         </section>
 
         <h2 class="section-label">
-            Our Delicious Food Menu
+            Food Menu
         </h2>
 
         <hr class="section-hr">
@@ -87,14 +87,14 @@
         </section>
 
         <h2 class="section-label">
-            Foodie Snapshots: A Glimpse of Our Delicious Dishes
+            Foodie Snapshots
         </h2>
 
         <hr class="section-hr">
 
-        <section class="snapshot-section">
+        <a class="crud-btn create-btn" href="/photos/create?group=Customer">Add New Customer Photo</a>
 
-            <a class="crud-btn create-btn" href="/photos/create">Add New Customer Photo</a>
+        <section class="snapshot-section">
 
             <%- include ('partials/_customer-snapshots.ejs') %>
 

@@ -12,8 +12,19 @@ toggleNavActive = () => {
     list.classList.toggle("active");
 }
 
+toggleCrudHidden = () => {
+    const crud = document.getElementsByClassName("crud-btn");
+    for (let i = 0; i < crud.length; i++) {
+        crud[i].classList.add("hidden");
+    }
+}
+
+
 document.addEventListener( 'DOMContentLoaded', function ()
 {
+
+    toggleCrudHidden();
+
     const observer = new IntersectionObserver( ( entries ) =>
     {
         entries.forEach( entry =>

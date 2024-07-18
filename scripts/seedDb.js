@@ -118,47 +118,56 @@ const photoData = [
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/burrito-1.webp',
-        group: 'Business'
+        group: 'Business',
+        gridOrder: 1
     },
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/burrito-2.webp',
-        group: 'Business'
+        group: 'Business',
+        gridOrder: 2
     },
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/frying-pan.webp',
-        group: 'Business'
+        group: 'Business',
+        gridOrder: 3
     },
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/hummus-2.webp',
-        group: 'Business'
+        group: 'Business',
+        gridOrder: 4
     },
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/family.webp',
-        group: 'Business'
+        group: 'Business',
+        gridOrder: 5
     },
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/burrito-3.webp',
-        group: 'Business'
+        group: 'Business',
+        gridOrder: 6
     },
     {
         alt: 'picture of falafels being fried',
         url: 'images/frying.jpg',
-        group: 'Customer'
+        group: 'Customer',
+        gridOrder: 1
     },
     {
         alt: 'picture of a plate of falafel, hummus, and tabbouleh',
         url: 'images/falafel-mix.jpg',
-        group: 'Customer'
+        group: 'Customer',
+        gridOrder: 2
     },
     {
         alt: 'picture of falafel ingredients and hummus toppings',
         url: 'images/toppings.jpg',
-        group: 'Customer'
+        group: 'Customer',
+        gridOrder: 3
     }
 ];
 

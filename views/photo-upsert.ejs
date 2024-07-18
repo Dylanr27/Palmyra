@@ -9,7 +9,7 @@
 <body>
     <section class="form-section">
         <h1><%= typeof photo !== 'undefined' ? "Update Photo" : "Create Photo" %></h1>
-        <form action="<%= typeof photo !== 'undefined' ? `/photos/update/${photo._id}` : '/photos/createPhoto' %>" method="POST">
+        <form action="<%= typeof photo !== 'undefined' ? `/photos/update/${photo._id}` : '/photos/createPhoto' %>" method="POST" enctype="multipart/form-data">
             <% if (typeof photo !== 'undefined') { %>
                 <input type="hidden" name="id" value="<%= photo._id %>">
             <% } %>
@@ -23,14 +23,24 @@
             </div>
             <div class="form-group">
                 <label for="group">Group:</label>
-                <select id="group" name="group" required>
-                    <option value="Customer" <%= typeof photo !== 'undefined' && photo.group === 'Customer' ? 'selected' : '' %>>Customer</option>
-                    <option value="Business" <%= typeof photo !== 'undefined' && photo.group === 'Business' ? 'selected' : '' %>>Business</option>
+                <input disabled type="text" id="group" name="group" value="<%= group %>" required>
+            </div>
+            <div class="form-group">
+                <label for="gridOrder">Order photo will appear in grid</label>
+                <select id="gridOrder" name="gridOrder" required>
+                    <% for(let i = 0; i < photoCount + 1; i++){ %>
+                        <% if(typeof photo === 'undefined' && i === photoCount) { %>
+                            <!-- In create mode, set the default selected option to photoCount + 1 -->
+                            <option value="<%= i %>" selected><%= i + 1 %></option>
+                        <% } else { %>
+                            <option value="<%= i %>" <%= typeof photo !== 'undefined' && photo.gridOrder === i ? 'selected' : '' %>><%= i + 1 %></option>
+                        <% } %>
+                    <% } %>
                 </select>
             </div>
             <div class="button-group">
                 <button type="submit" class="form-button"><%= typeof photo !== 'undefined' ? "Update" : "Create" %></button>
-                <a href="/photos" class="cancel-button">Cancel</a>
+                <a href="/" class="cancel-button">Cancel</a>
             </div>
         </form>
     </section>
