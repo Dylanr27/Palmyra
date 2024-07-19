@@ -48,3 +48,18 @@ textarea {
 .form-button:hover, .cancel-button:hover {
     opacity: 0.8;
 }
+
+@media screen and (max-width: 400px)
+{
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group textarea {
+        width: 100%;
+    }
+    .button-group {
+        flex-direction: column;
+    }
+    .form-button, .cancel-button {
+        width: 100%;
+    }
+}

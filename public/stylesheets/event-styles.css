@@ -82,3 +82,33 @@ textarea {
 .form-button:hover, .cancel-button:hover {
     opacity: 0.8;
 }
+
+@media screen and (max-width: 400px)
+{
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+    }
+    .button-group {
+        flex-direction: column;
+    }
+    .form-button, .cancel-button {
+        width: 100%;
+    }
+    .date-time-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .date-time-group .form-group{
+        width: 100%;
+    }
+    .location-fieldset {
+        width: 100%;
+    }
+    .location-group div
+    {
+        width: 100%;
+    }
+}

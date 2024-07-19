@@ -1,21 +1,39 @@
-document.addEventListener('click', function(event) {
-    const list = document.getElementById("nav-list");
-    const burger = document.getElementById("burger");
+document.addEventListener( 'click', function ( event )
+{
+    const list = document.getElementById( "nav-list" );
+    const burger = document.getElementById( "burger" );
     // Check if the clicked element is not the list, not a child of the list, and not the burger
-    if (!list.contains(event.target) && !burger.contains(event.target)) {
-        list.classList.remove("active");
+    if ( !list.contains( event.target ) && !burger.contains( event.target ) )
+    {
+        list.classList.remove( "active" );
     }
-});
+} );
 
-toggleNavActive = () => {
-    const list = document.getElementById("nav-list");
-    list.classList.toggle("active");
+toggleNavActive = () =>
+{
+    const list = document.getElementById( "nav-list" );
+    list.classList.toggle( "active" );
 }
 
-toggleCrudHidden = () => {
-    const crud = document.getElementsByClassName("crud-btn");
-    for (let i = 0; i < crud.length; i++) {
-        crud[i].classList.add("hidden");
+const navLinks = document.querySelectorAll( "#nav-list a" );
+
+// Attach a click event listener to each link
+navLinks.forEach( link =>
+{
+    link.addEventListener( 'click', () =>
+    {
+        // Remove the "active" class from the list when a link is clicked
+        const list = document.getElementById( "nav-list" );
+        list.classList.remove( "active" );
+    } );
+} );
+
+toggleCrudHidden = () =>
+{
+    const crud = document.getElementsByClassName( "crud-btn" );
+    for ( let i = 0; i < crud.length; i++ )
+    {
+        crud[ i ].classList.add( "hidden" );
     }
 }
 

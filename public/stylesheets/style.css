@@ -7,6 +7,11 @@
     font-size: 20px;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
 /* Section Layout */
 
 .section-label
@@ -21,6 +26,8 @@
 .section-label:first-of-type
 {
     padding-top: 0;
+    margin-top: -2rem;
+    z-index: 1;
 }
 
 .section-hr
@@ -30,7 +37,7 @@
     border-style: solid;
     width: 50px;
     border-color: rgb(218, 218, 218);
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
 }
 
 
@@ -39,6 +46,7 @@
 .image-container
 {
     padding: 0;
+    margin: 1.5rem 0;
 }
 
 .hero-image
@@ -60,7 +68,6 @@
 .story-card
 {
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: #fff;
     margin: 20px 0;
@@ -143,8 +150,8 @@
 
 .menu-listing-heading
 {
-    display: grid;
-    grid-template-columns: 60% 30% 10%;
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 0.5rem;
 }
 
@@ -154,6 +161,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 1rem;
+    margin: 0 1rem 0 1rem;
 }
 
 .menu-section ul p
@@ -450,11 +458,6 @@
 @media screen and (max-width: 900px)
 {
 
-    .image-container
-    {
-        margin-top: 2rem;
-    }
-
     .story-container
     {
         grid-template-columns: auto;
@@ -534,12 +537,146 @@
 
 @media screen and (max-width: 600px)
 {
-    .review-section
+    .image-container
     {
-        grid-template-columns: auto;
+        margin-top: 3rem;
     }
 
+    .story-card
+    {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .section-label
+    {
+        font-size: 1.5rem;
+    }
+
+    .gallery-section
+    {
+        max-width: 95%;
+    }
+
+    .snapshot-section
+    {
+        max-width: 95%;
+    }
 }
+
+@media screen and (max-width: 350px)
+{
+
+    * {
+        font-size: 16px;
+    }
+
+    .image-container
+    {
+        margin-top: 5rem;
+    }
+
+    .section-label
+    {
+        font-size: 1.3rem;
+    }
+
+    .story-card
+    {
+        padding: 0px 10px;
+        margin: 0px 10px;
+    }
+
+    .story-card h3
+    {
+        font-size: 1.2em;
+    }
+
+    .story-card p
+    {
+        font-size: 1em;
+    }
+
+    .gallery-section
+    {
+        column-count: 1;
+        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .snapshot-section
+    {
+        column-count: 1;
+        max-width: 100%;
+    }
+
+    .menu-section ul
+    {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+
+    .contact-section
+    {
+        grid-template-columns: auto;
+        gap: 3rem;
+        padding: 20px;
+    }
+
+    .contact-container h3
+    {
+        text-align: center;
+    }
+
+    .contact-container-info
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .contact-container-info h3,
+    .contact-container-info p,
+    .contact-container-info a
+    {
+        text-align: center;
+    }
+
+    .contact-container-info h3,
+    .contact-container-info p,
+    .contact-container-info a
+    {
+        margin-bottom: 0.5rem;
+    }
+
+    .event-row
+    {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .event-date
+    {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .event-body
+    {
+        padding: 0.4rem;
+        max-width: 95%;
+        justify-content: center;
+    }
+
+    .event-time
+    {
+        padding: 0;
+    }
+}
+
 
 /*Keyframes for animations*/
 
@@ -563,6 +700,9 @@
 
 @media (prefers-reduced-motion: reduce)
 {
+    html{
+        scroll-behavior: auto;
+    }
 
     .story-container,
     .story-container img,

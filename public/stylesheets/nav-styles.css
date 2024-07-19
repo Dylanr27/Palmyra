@@ -10,6 +10,7 @@ nav
     align-items: center;
     padding: 0.2rem;
     z-index: 1000;
+    min-height: 12%;
 }
 
 .logo
@@ -89,7 +90,7 @@ nav h2
     display: none;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 800px) {
     nav {
         position: fixed;
         top: 0;
@@ -100,10 +101,10 @@ nav h2
     #nav-list {
         position: fixed; /* Changed to fixed to ensure it's relative to the viewport */
         width: 43vw; /* Adjusted to take up half the screen for better visibility */
-        height: 92vh;
+        height: 90vh;
         overflow-y: auto; /* Allows scrolling within the ul if the content exceeds the max height */
         right: -43vw; /* Adjusted right position */
-        top: 8vh; /* Adjusted top position */
+        top: 12%;
         background-color: rgb(10, 10, 10);
         flex-direction: column;
         align-items: center;
@@ -116,7 +117,7 @@ nav h2
     }
 
     #nav-list a {
-      padding: 1rem 8rem;
+      padding: 1rem 12rem;
     }
 
     #burger {
@@ -128,37 +129,50 @@ nav h2
     }
 }
 
-/* burger animations */
-
-
-/* nav ul
+@media screen and (max-width: 600px)
 {
-  display: none;
+    .logo
+    {
+        padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+        margin: 0.5rem 0 0.5rem 1rem;
+    }
+
+    .logo h1
+    {
+        letter-spacing: 0.2rem;
+    }
+
+    .logo h2
+    {
+        letter-spacing: 0.05rem;
+    }
+
+    #nav-list {
+        width: 100vw;
+        right: -100vw;
+        top: 12%;
+    }
+
+    #nav-list a {
+        padding: 1rem 8rem;
+        font-size: x-large;
+    }
+
+    #burger {
+        right: 15%;
+    }
 }
 
-nav ul.active
+@media screen and (max-width: 350px)
 {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 60px;
-  background-color: black;
-  width: 100%;
-}
+    .logo
+    {
+        padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+        margin: 0.3rem 0 0.3rem 0.5rem;
+    }
 
-nav ul.active li
-{
-  padding: 10px;
+    #burger {
+        right: 8%;
+    }
 }
-
-nav ul.active li a
-{
-  padding: 10px;
-}
-
-.burger
-{
-  display: block;
-  cursor: pointer;
-} */
 
