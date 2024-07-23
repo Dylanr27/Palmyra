@@ -28,17 +28,22 @@
 
             <% } %>
 
-            <div class="button-group">
-                
-                <a href="/menu-items/<%= menuItem._id %>" class="crud-btn edit-btn">
-                    Edit
-                </a>
+            <% if(userIsAuthorized) { %>
 
-                <button onClick="Delete('/menu-items/delete/<%= menuItem._id %>')" class="crud-btn delete-btn">
-                    Delete
-                </button>
-                
-            </div>
+                <div class="button-group">
+                    
+                    <a href="/menu-items/<%= menuItem._id %>" class="crud-btn edit-btn">
+                        Edit
+                    </a>
+    
+                    <button onClick="Delete('/menu-items/delete/<%= menuItem._id %>')" class="crud-btn delete-btn">
+                        Delete
+                    </button>
+                    
+                </div>
+
+            <% } %>
+
 
         </li>
 <% }); %>

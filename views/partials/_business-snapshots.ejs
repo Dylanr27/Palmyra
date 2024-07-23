@@ -4,9 +4,13 @@
 
         <img src="<%= photo.url %>" alt="<%= photo.alt %>" class="gallery-image">
 
-        <button onClick="Delete('/photos/delete/<%= photo._id %>')" class="crud-btn delete-btn">
-            Delete
-        </button>
+        <% if(userIsAuthorized) { %>
+
+            <button onClick="Delete('/photos/delete/<%= photo._id %>')" class="crud-btn delete-btn">
+                Delete
+            </button>
+
+        <% } %>
 
     </div>
 

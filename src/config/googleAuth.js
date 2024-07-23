@@ -1,4 +1,3 @@
-// googleAuth.js
 import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { config } from 'dotenv';
@@ -6,25 +5,34 @@ import { config } from 'dotenv';
 config();
 
 export default function setupGoogleAuth(app) {
-    app.use(passport.initialize());
-    app.use(passport.session());
 
     passport.serializeUser((user, done) => {
-        done(null, user.id);
+        // Serialize the user session with a simple, static identifier
+        done(null, process.env.USER_EMAIL);
     });
-
-    passport.deserializeUser((id, done) => {
-        // Replace this with your user retrieval logic if necessary
-        done(null, id);
+    
+    passport.deserializeUser((email, done) => {
+        // Directly return the email as the user object for the session
+        if (email === process.env.USER_EMAIL) {
+            done(null, email);
+        } else {
+            done(new Error("User not found"), null);
+        }
     });
-
+    
     passport.use(new GoogleStrategy({
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: "http://localhost:3000/auth/google/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
-        // In a real application, you might save the profile information in a database
-        return cb(null, profile);
+
+        console.log("Logging in user's email:", profile.emails[0].value);
+
+        if (profile.emails && profile.emails[0].value === process.env.USER_EMAIL) {
+            return cb(null, profile);
+        } else {
+            return cb(null, false, { redirectTo: '/unauthorized' });
+        }
     }));
 }

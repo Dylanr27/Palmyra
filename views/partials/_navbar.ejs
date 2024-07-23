@@ -5,10 +5,14 @@
     </div>
     <div class="navbar-center"></div>
     <ul id="nav-list">
+        <% if(userIsAuthorized) { %>
+           <li><a href="/auth/logout">Logout</a></li>
+        <% } %>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#events">Events</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about-us">About Us</a></li>
+        <!-- <li><a href="/auth/google">Login</a></li> -->
     </ul>
     <div onclick="toggleNavActive()" id="burger">
         <div class="line1"></div>

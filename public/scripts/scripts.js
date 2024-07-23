@@ -41,7 +41,7 @@ toggleCrudHidden = () =>
 document.addEventListener( 'DOMContentLoaded', function ()
 {
 
-    toggleCrudHidden();
+    // toggleCrudHidden();
 
     const observer = new IntersectionObserver( ( entries ) =>
     {

@@ -15,7 +15,7 @@
 
 <body>
 
-    <%- include ('partials/_navbar.ejs') %>
+    <%- include ('partials/_navbar.ejs') %> 
     
     <section class="image-container">
 
@@ -44,7 +44,11 @@
 
         <hr class="section-hr">
 
-        <a class="crud-btn create-btn" href="/photos/create?group=Business">Add New Business Photo</a>
+        <% if(userIsAuthorized) { %>
+
+            <a class="crud-btn create-btn" href="/photos/create?group=Business">Add New Business Photo</a>
+
+        <% } %>
 
         <section class="gallery-section">
 
@@ -58,9 +62,13 @@
 
         <hr class="section-hr">
 
-        <section class="menu-section">
+        <% if(userIsAuthorized) { %>
 
             <a class="crud-btn create-btn" href="/menu-items/create">Create New Menu Item</a>
+
+        <% } %>
+
+        <section class="menu-section">
 
             <%- include ('partials/_menu.ejs') %>
 
@@ -92,7 +100,11 @@
 
         <hr class="section-hr">
 
-        <a class="crud-btn create-btn" href="/photos/create?group=Customer">Add New Customer Photo</a>
+        <% if(userIsAuthorized) { %>
+
+            <a class="crud-btn create-btn" href="/photos/create?group=Customer">Add New Customer Photo</a>
+
+        <% } %>
 
         <section class="snapshot-section">
 
@@ -118,9 +130,14 @@
 
         <hr class="section-hr">
 
-        <section class="event-section">
+        <% if(userIsAuthorized) { %>
 
             <a class="crud-btn create-btn" href="/events/create">Create New Event</a>
+
+        <% } %>
+
+        <section class="event-section">
+
 
             <%- include ('partials/_events.ejs') %>
 
