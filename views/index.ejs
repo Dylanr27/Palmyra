@@ -15,46 +15,26 @@
 
 <body>
 
-    <%- include ('partials/_navbar.ejs') %> 
-    
-    <section class="image-container">
-
-        <img class="hero-image"
-            src="https://img1.wsimg.com/isteam/ip/a1af8e8c-05e2-4da9-94ff-bea8f3f2e717/IMG_1823.jpg/:/rs=w:1279,m"
-            alt="Palmyra Authentic Mediterranean Food Logo">
-
-    </section>
+    <%- include ('partials/_navbar.ejs') %>
 
     <main>
 
-        <h2 id="about-us" class="section-label">Read about us!</h2>
+        <div id="nav-gap"></div>
 
-        <hr class="section-hr">
-
-        <section class="story-container">
-
-            <%- include ('partials/_about-us.ejs') %>
-
-        </section>
-
-        <h2 class="section-label">
-            Savor the Flavor: A Photo Journey Through
-            Palmyra's Delicious Dishes
-        </h2>
-
-        <hr class="section-hr">
-
-        <% if(userIsAuthorized) { %>
-
-            <a class="crud-btn create-btn" href="/photos/create?group=Business">Add New Business Photo</a>
-
-        <% } %>
-
-        <section class="gallery-section">
-
-            <%- include ('partials/_business-snapshots.ejs') %>
-
-        </section>
+        <div class="hero-container">
+            <div>
+                <img src="/images/owner.jpg" alt="">
+            </div>
+            <div>
+                <h2>Our Story</h2>
+                <p>Palmyra Mediterranean Food is a family-owned business that specializes in authentic Mediterranean
+                    cuisine. Our dishes are made with fresh, locally-sourced ingredients and are prepared with care and
+                    attention to detail. We take pride in offering our customers a taste of the Mediterranean right here
+                    in the heart of the Pacific Northwest. Whether you're looking for a quick and healthy meal on the go
+                    or a leisurely dining experience with friends and family, Palmyra Mediterranean Food has something for
+                    everyone. Come visit us today and experience the flavors of the Mediterranean for yourself!</p>
+            </div>
+        </div>
 
         <h2 id="menu" class="section-label">
             Food Menu
@@ -91,6 +71,25 @@
         <section class="contact-section">
 
             <%- include ('partials/_contact.ejs') %>
+
+        </section>
+
+        <h2 class="section-label">
+            Savor the Flavor: A Photo Journey Through
+            Palmyra's Delicious Dishes
+        </h2>
+
+        <hr class="section-hr">
+
+        <% if(userIsAuthorized) { %>
+
+            <a class="crud-btn create-btn" href="/photos/create?group=Business">Add New Business Photo</a>
+
+        <% } %>
+
+        <section class="gallery-section">
+
+            <%- include ('partials/_business-snapshots.ejs') %>
 
         </section>
 

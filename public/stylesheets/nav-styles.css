@@ -25,6 +25,7 @@ nav
 
 nav h1
 {
+    
     font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.5rem;
@@ -33,6 +34,7 @@ nav h1
 
 nav h2
 {
+    font-variant: small-caps;
     font-size: 0.5rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
@@ -90,7 +92,7 @@ nav h2
     display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 835px) {
     nav {
         position: fixed;
         top: 0;

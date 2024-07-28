@@ -12,6 +12,17 @@ html {
     scroll-padding-top: 5rem;
 }
 
+body
+{
+    background-color: #e2e1de;
+}
+
+#nav-gap
+{
+    width: 100%;
+    height: 100px;
+}
+
 /* Section Layout */
 
 .section-label
@@ -43,18 +54,48 @@ html {
 
 /* Hero Section */
 
-.image-container
+.hero-container
 {
-    padding: 0;
-    margin: 1.5rem 0;
+    margin: 5rem 0 8rem 0;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    gap: 2rem;
+
 }
 
-.hero-image
+.hero-container div
+{
+    width: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-container img
 {
     width: 100%;
-    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.hero-container h2
+{
+    font-size: 1.5rem;
+    text-align: center;
+    color: #c47e43;
+}
+
+.hero-container p
+{
+    font-size: 1rem;
+    text-align: center;
+    color: #666666;
+}
 
 /* About us Section */
 
@@ -62,14 +103,16 @@ html {
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 3rem;
+    padding: 3rem;
 }
 
 .story-card
 {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
+    background-color: #eeece7;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 1.2rem 1.2rem;
     margin: 20px 0;
 }
 
@@ -91,23 +134,22 @@ html {
 {
     width: 100%;
     height: auto;
-    padding: 5px;
     border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .story-card h3
 {
     font-size: 1.5em;
     text-align: center;
-    padding: 5px;
-
+    padding: 0.5rem 0 0.5rem 0;
 }
 
 .story-card p
 {
     font-size: 1.2em;
     text-align: center;
-    padding: 5px;
+    padding:  0 2rem 2rem 2rem;
 }
 
 /* Gallery Section */
@@ -157,6 +199,7 @@ html {
 
 .menu-section ul li
 {
+    background-color: #eeece7;
     border: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -179,9 +222,10 @@ html {
     padding: 40px;
 }
 
-.contact-container div
+.contact-container .input-field
 {
     position: relative;
+    background-color: #eeece7;
     margin-bottom: 20px;
 }
 
@@ -297,16 +341,37 @@ html {
 .social-section
 {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 20px;
     padding: 20px;
+
+}
+
+.social-links
+{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 2rem;
 }
 
 .social-section img
 {
-    width: 5rem;
-    height: 5rem;
+    width: 75px;
+    height: 75px;
 }
+
+/* Reel Section */
+
+.reel-container
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+} 
 
 /* Review Section */
 
@@ -454,6 +519,22 @@ html {
 }
 
 /* Responsive design */
+
+@media screen and  (max-width: 1100px)
+{
+
+    .hero-container
+    {
+        margin: 16rem 0 18rem 0;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero-container div
+    {
+        width: 100%;
+    }
+}
 
 @media screen and (max-width: 900px)
 {

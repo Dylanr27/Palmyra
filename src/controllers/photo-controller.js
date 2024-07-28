@@ -35,29 +35,32 @@ async function createPhoto ( req, res )
         console.log( 'req.body:', req.body );
         console.log( 'req.file:', req.file );
 
-        // Step 1: Check for an existing photo with the same gridOrder and group
-        const existingPhoto = await Photo.findOne( { gridOrder: req.body.gridOrder, group: req.body.group } );
+        const maxGridOrder = await Photo.findOne( { group: req.body.group } )
+            .sort( { gridOrder: -1 } )
+            .limit( 1 )
+            .select( 'gridOrder' );
 
-        // Step 2: If an existing photo is found, update its gridOrder to the size of the group + 1
-        if ( existingPhoto )
+        if ( maxGridOrder )
         {
-            const groupSize = await Photo.countDocuments( { group: req.body.group } );
-            await Photo.updateOne(
-                { _id: existingPhoto._id },
-                { $set: { gridOrder: groupSize + 1 } }
-            );
+            // Update in descending order
+            for ( let i = maxGridOrder.gridOrder; i > req.body.gridOrder; i-- )
+            {
+                await Photo.updateOne(
+                    { group: req.body.group, gridOrder: i },
+                    { $inc: { gridOrder: 1 } }
+                );
+            }
         }
 
-        // Step 3: Create and save the new photo with the intended gridOrder
         const newPhoto = new Photo( {
             alt: req.body.alt,
             group: req.body.group,
             gridOrder: req.body.gridOrder,
-            url: req.file.path
+            url: req.file.path.replace( 'public', '' )
         } );
         await newPhoto.save();
 
-        // Step 4: Redirect or respond
+        // Redirect or respond
         res.redirect( '/' );
     } catch ( error )
     {
