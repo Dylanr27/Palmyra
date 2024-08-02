@@ -20,7 +20,7 @@ body
 #nav-gap
 {
     width: 100%;
-    height: 100px;
+    height: 113px;
 }
 
 /* Section Layout */
@@ -34,13 +34,6 @@ body
     padding: 2rem;
 }
 
-.section-label:first-of-type
-{
-    padding-top: 0;
-    margin-top: -2rem;
-    z-index: 1;
-}
-
 .section-hr
 {
     display: block;
@@ -48,7 +41,7 @@ body
     border-style: solid;
     width: 50px;
     border-color: rgb(218, 218, 218);
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 1.5rem auto;
 }
 
 
@@ -56,14 +49,13 @@ body
 
 .hero-container
 {
-    margin: 5rem 0 8rem 0;
+    margin: 5rem 0 5rem 0;
     display: flex;
     height: 400px;
     justify-content: center;
     align-items: center;
     padding: 3rem;
     gap: 2rem;
-
 }
 
 .hero-container div
@@ -85,98 +77,16 @@ body
 
 .hero-container h2
 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
     color: #c47e43;
 }
 
 .hero-container p
 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
     color: #666666;
-}
-
-/* About us Section */
-
-.story-container
-{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding: 3rem;
-}
-
-.story-card
-{
-    background-color: #eeece7;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 1.2rem 1.2rem;
-    margin: 20px 0;
-}
-
-.story-container,
-.story-card
-{
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.story-container.visible,
-.story-card.visible
-{
-    animation: fadeIn 1s ease-out forwards;
-}
-
-.story-card img
-{
-    width: 100%;
-    height: auto;
-    border-radius: 1rem 1rem 0 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.story-card h3
-{
-    font-size: 1.5em;
-    text-align: center;
-    padding: 0.5rem 0 0.5rem 0;
-}
-
-.story-card p
-{
-    font-size: 1.2em;
-    text-align: center;
-    padding:  0 2rem 2rem 2rem;
-}
-
-/* Gallery Section */
-
-.gallery-section
-{
-    column-count: 3;
-    column-gap: 10px;
-    max-width: 70%;
-    margin: auto;
-    padding: 10px;
-}
-
-.gallery-image
-{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    margin-bottom: 10px;
-    break-inside: avoid;
-}
-
-.gallery-image.visible
-{
-    animation: fadeIn 1s ease-out forwards;
 }
 
 /* Menu Section */
@@ -188,6 +98,7 @@ body
     justify-content: center;
     gap: 2rem;
     list-style: none;
+    padding: 1rem;
 }
 
 .menu-listing-heading
@@ -199,7 +110,7 @@ body
 
 .menu-section ul li
 {
-    background-color: #eeece7;
+    background-color: #ffffff;
     border: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -216,17 +127,34 @@ body
 
 .contact-section
 {
+    width: 95%;
+    justify-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 40px;
+    margin: auto;
+}
+
+.contact-section h3
+{
+    font-size: larger;
+}
+
+.contact-section h3,
+.contact-section p
+{
+    text-align: center;
+    padding-bottom: 0.5rem;
 }
 
 .contact-container .input-field
 {
     position: relative;
-    background-color: #eeece7;
+    background-color: #ffffff;
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 
 .contact-container h3
@@ -311,6 +239,7 @@ body
 
 .contact-container-info
 {
+    margin-top: 2rem;
     padding-left: 20px;
 }
 
@@ -323,17 +252,10 @@ body
 
 .contact-container-info a
 {
+    display: block;
     color: #c47e43;
     text-decoration: none;
-}
-
-.snapshot-section
-{
-    column-count: 2;
-    column-gap: 10px;
-    max-width: 70%;
-    margin: auto;
-    padding: 10px;
+    text-align: center;
 }
 
 /* Social Section */
@@ -361,17 +283,6 @@ body
     width: 75px;
     height: 75px;
 }
-
-/* Reel Section */
-
-.reel-container
-{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
-} 
 
 /* Review Section */
 
@@ -520,12 +431,19 @@ body
 
 /* Responsive design */
 
-@media screen and  (max-width: 1100px)
+@media  screen and (max-width: 1300px) {
+    .hero-container p
+    {
+        font-size: 1rem;
+    }
+}
+
+@media screen and  (max-width: 1200px)
 {
 
     .hero-container
     {
-        margin: 16rem 0 18rem 0;
+        margin: 16em 0 15rem 0;
         flex-direction: column;
         gap: 2rem;
     }
@@ -538,18 +456,6 @@ body
 
 @media screen and (max-width: 900px)
 {
-
-    .story-container
-    {
-        grid-template-columns: auto;
-    }
-
-    .gallery-section
-    {
-        column-count: 2;
-        max-width: 90%;
-    }
-
     .menu-section ul
     {
         grid-template-columns: repeat(1, minmax(200px, 1fr));
@@ -618,78 +524,35 @@ body
 
 @media screen and (max-width: 600px)
 {
-    .image-container
-    {
-        margin-top: 3rem;
-    }
 
-    .story-card
+    .hero-container
     {
-        margin: 0 0 0.5rem 0;
+        margin: 15em 0 14rem 0;
     }
 
     .section-label
     {
-        font-size: 1.5rem;
-    }
-
-    .gallery-section
-    {
-        max-width: 95%;
-    }
-
-    .snapshot-section
-    {
-        max-width: 95%;
+        font-size: 2rem;
     }
 }
 
-@media screen and (max-width: 350px)
+@media screen and (max-width: 450px)
 {
 
-    * {
-        font-size: 16px;
+    * 
+    {
+        font-size: 18px;
     }
 
-    .image-container
+    #nav-gap
     {
-        margin-top: 5rem;
+        width: 100%;
+        height: 117px;
     }
 
-    .section-label
+    .hero-container
     {
-        font-size: 1.3rem;
-    }
-
-    .story-card
-    {
-        padding: 0px 10px;
-        margin: 0px 10px;
-    }
-
-    .story-card h3
-    {
-        font-size: 1.2em;
-    }
-
-    .story-card p
-    {
-        font-size: 1em;
-    }
-
-    .gallery-section
-    {
-        column-count: 1;
-        max-width: 100%;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .snapshot-section
-    {
-        column-count: 1;
-        max-width: 100%;
+        margin: 14em 0 11rem 0;
     }
 
     .menu-section ul
@@ -697,65 +560,6 @@ body
         grid-template-columns: repeat(1, minmax(200px, 1fr));
     }
 
-    .contact-section
-    {
-        grid-template-columns: auto;
-        gap: 3rem;
-        padding: 20px;
-    }
-
-    .contact-container h3
-    {
-        text-align: center;
-    }
-
-    .contact-container-info
-    {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 0;
-    }
-
-    .contact-container-info h3,
-    .contact-container-info p,
-    .contact-container-info a
-    {
-        text-align: center;
-    }
-
-    .contact-container-info h3,
-    .contact-container-info p,
-    .contact-container-info a
-    {
-        margin-bottom: 0.5rem;
-    }
-
-    .event-row
-    {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .event-date
-    {
-        max-width: 100%;
-        padding: 0;
-    }
-
-    .event-body
-    {
-        padding: 0.4rem;
-        max-width: 95%;
-        justify-content: center;
-    }
-
-    .event-time
-    {
-        padding: 0;
-    }
 }
 
 
@@ -776,31 +580,3 @@ body
     }
 }
 
-
-/* Reduced motion */
-
-@media (prefers-reduced-motion: reduce)
-{
-    html{
-        scroll-behavior: auto;
-    }
-
-    .story-container,
-    .story-container img,
-    .story-container h3,
-    .story-container p
-    {
-        animation: none !important;
-        /* Disables animations */
-        transition: none !important;
-        /* Disables transitions */
-    }
-
-    /* Reset any transform for elements that might have been animated */
-    .story-container img,
-    .story-container h3,
-    .story-container p
-    {
-        transform: none !important;
-    }
-}

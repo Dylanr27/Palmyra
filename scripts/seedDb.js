@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import Event from '../src/models/Event.js';
 import MenuItem from '../src/models/Menu-Item.js';
-import Photo from '../src/models/Photo.js';
 import { config } from 'dotenv';
 
 config();
@@ -114,85 +113,33 @@ const menuItemData = [
     }
 ]
 
-const photoData = [
+async function seedModel ( model, data, modelName )
+{
+    try
     {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/burrito-1.webp',
-        group: 'Business',
-        gridOrder: 1
-    },
-    {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/burrito-2.webp',
-        group: 'Business',
-        gridOrder: 2
-    },
-    {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/frying-pan.webp',
-        group: 'Business',
-        gridOrder: 3
-    },
-    {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/hummus-2.webp',
-        group: 'Business',
-        gridOrder: 4
-    },
-    {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/family.webp',
-        group: 'Business',
-        gridOrder: 5
-    },
-    {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/burrito-3.webp',
-        group: 'Business',
-        gridOrder: 6
-    },
-    {
-        alt: 'picture of falafels being fried',
-        url: 'images/frying.jpg',
-        group: 'Customer',
-        gridOrder: 1
-    },
-    {
-        alt: 'picture of a plate of falafel, hummus, and tabbouleh',
-        url: 'images/falafel-mix.jpg',
-        group: 'Customer',
-        gridOrder: 2
-    },
-    {
-        alt: 'picture of falafel ingredients and hummus toppings',
-        url: 'images/toppings.jpg',
-        group: 'Customer',
-        gridOrder: 3
-    }
-];
-
-async function seedModel(model, data, modelName) {
-    try {
         const existingEntries = await model.find();
-        if (existingEntries.length > 0) {
-            console.log(`${modelName} table already seeded. No action taken.`);
+        if ( existingEntries.length > 0 )
+        {
+            console.log( `${ modelName } table already seeded. No action taken.` );
             return;
         }
 
-        for (const item of data) {
-            const entry = new model(item);
+        for ( const item of data )
+        {
+            const entry = new model( item );
             await entry.save();
-            console.log(`${modelName} saved:`, entry.title || entry.name || entry.alt);
+            console.log( `${ modelName } saved:`, entry.title || entry.name || entry.alt );
         }
-    } catch (err) {
-        console.error(`Error saving ${modelName}:`, err);
+    } catch ( err )
+    {
+        console.error( `Error saving ${ modelName }:`, err );
     }
 }
 
-const insertData = async () => {
-    await seedModel(Event, eventData, 'Event');
-    await seedModel(MenuItem, menuItemData, 'MenuItem');
-    await seedModel(Photo, photoData, 'Photo');
+const insertData = async () =>
+{
+    await seedModel( Event, eventData, 'Event' );
+    await seedModel( MenuItem, menuItemData, 'MenuItem' );
 };
 
 export { insertData };

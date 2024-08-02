@@ -10,7 +10,9 @@ document.addEventListener( 'click', function ( event )
 
 toggleNavActive = () =>
 {
+    const burger = document.getElementById( "burger" );
     const list = document.getElementById( "nav-list" );
+    burger.classList.toggle( "toggle" );
     list.classList.toggle( "active" );
 }
 
@@ -28,22 +30,13 @@ navLinks.forEach( link =>
 
 document.addEventListener( 'DOMContentLoaded', function ()
 {
-    const observer = new IntersectionObserver( ( entries ) =>
+    // Add event listener to the link to remove the "active" class from the nav list
+    const link = document.querySelector( 'a' ); // Adjust the selector as needed
+    link.addEventListener( 'click', () =>
     {
-        entries.forEach( entry =>
-        {
-            if ( entry.isIntersecting )
-            {
-                entry.target.classList.add( 'visible' );
-            } else
-            {
-                entry.target.classList.remove( 'visible' );
-            }
-        } );
-    }, { threshold: 0.01 } );
-
-    const elements = document.querySelectorAll( '.story-container, .story-card, .gallery-image' );
-    elements.forEach( el => observer.observe( el ) );
+        const list = document.getElementById( "nav-list" );
+        list.classList.remove( "active" );
+    } );
 } );
 
 /*Google Reviews*/

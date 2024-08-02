@@ -1,7 +1,7 @@
 <nav>
     <div class="logo">
         <h1>Palmyra</h1>
-        <h2>Authentic Mediterranean Food</h2>
+        <h2>Authentic Syrian Food</h2>
     </div>
     <div class="navbar-center"></div>
     <ul id="nav-list">
@@ -9,10 +9,12 @@
            <li><a href="/auth/logout">Logout</a></li>
         <% } %>
         <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Catering</a></li>
+        <li><a href="#social">Social</a></li>
         <li><a href="#events">Events</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about-us">About Us</a></li>
-        <!-- <li><a href="/auth/google">Login</a></li> -->
+        <% if(userIsAuthorized){
+            <!-- <li><a href="/logout">Logout</a></li> -->
+        }%>
     </ul>
     <div onclick="toggleNavActive()" id="burger">
         <div class="line1"></div>

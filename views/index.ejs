@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/nav-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+BE+VLG:wght@100..400&family=Satisfy&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
         rel="stylesheet">
@@ -27,12 +28,8 @@
             </div>
             <div>
                 <h2>Our Story</h2>
-                <p>Palmyra Mediterranean Food is a family-owned business that specializes in authentic Mediterranean
-                    cuisine. Our dishes are made with fresh, locally-sourced ingredients and are prepared with care and
-                    attention to detail. We take pride in offering our customers a taste of the Mediterranean right here
-                    in the heart of the Pacific Northwest. Whether you're looking for a quick and healthy meal on the go
-                    or a leisurely dining experience with friends and family, Palmyra Mediterranean Food has something for
-                    everyone. Come visit us today and experience the flavors of the Mediterranean for yourself!</p>
+                <p>At Palmyra, we are passionate about creating delicious and healthy food options for our community. Our journey began amidst the challenges of the Syrian war, driven by a simple idea: to share the authentic flavors of our cherished family recipes with busy families and individuals who want to eat well but don't have the time or energy to cook. Starting from scratch, we have crafted a menu that honors our heritage and uses fresh, locally-sourced ingredients. With the help of our talented team, we have transformed this idea into a successful business that serves hundreds of happy customers every day. Come visit us today and experience the flavors of the Mediterranean for yourself!
+                </p>
             </div>
         </div>
 
@@ -64,16 +61,6 @@
 
         </section>
 
-        <h2 id="contact" class="section-label">Contact Us</h2>
-
-        <hr class="section-hr">
-
-        <section class="contact-section">
-
-            <%- include ('partials/_contact.ejs') %>
-
-        </section>
-
         <h2 class="section-label">
             Savor the Flavor: A Photo Journey Through
             Palmyra's Delicious Dishes
@@ -81,37 +68,9 @@
 
         <hr class="section-hr">
 
-        <% if(userIsAuthorized) { %>
+        <div class="embedsocial-hashtag" data-ref="e7600026c9d2c5ca18217161204f3825b5e52fc5"></div>
 
-            <a class="crud-btn create-btn" href="/photos/create?group=Business">Add New Business Photo</a>
-
-        <% } %>
-
-        <section class="gallery-section">
-
-            <%- include ('partials/_business-snapshots.ejs') %>
-
-        </section>
-
-        <h2 class="section-label">
-            Foodie Snapshots
-        </h2>
-
-        <hr class="section-hr">
-
-        <% if(userIsAuthorized) { %>
-
-            <a class="crud-btn create-btn" href="/photos/create?group=Customer">Add New Customer Photo</a>
-
-        <% } %>
-
-        <section class="snapshot-section">
-
-            <%- include ('partials/_customer-snapshots.ejs') %>
-
-        </section>
-
-        <h2 class="section-label">
+        <h2 id="social" class="section-label">
             Social
         </h2>
 
@@ -120,6 +79,16 @@
         <section class="social-section">
 
             <%- include ('partials/_social.ejs') %>
+
+        </section>
+
+        <h2 id="contact" class="section-label">Catering</h2>
+
+        <hr class="section-hr">
+
+        <section class="contact-section">
+
+            <%- include ('partials/_contact.ejs') %>
 
         </section>
 
