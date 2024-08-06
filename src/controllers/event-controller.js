@@ -1,13 +1,24 @@
 import Event from '../models/Event.js';
+import Address from '../models/Address.js';
 
-
-
-async function listEvents()
+export async function listEvents ( req, res )
 {
     try
     {
-        const events = await Event.find();
-        return events;
+        const events = await Event.findAll( {
+            include: [ {
+                model: Address,
+                as: 'location'
+            } ]
+        } );
+
+        const formattedEvents = events.map( event => ( {
+            ...event.dataValues,
+            formattedDate: event.formattedDate(),
+            location: event.location.toString()
+        } ) );
+
+        return formattedEvents;
     } catch ( error )
     {
         console.error( 'Failed to fetch events:', error );
@@ -15,39 +26,35 @@ async function listEvents()
     }
 }
 
-
-function adjustDateToUtcMidnight( dateString )
+export function adjustDateToUtcMidnight ( dateString )
 {
     const date = new Date( dateString );
     date.setMinutes( date.getMinutes() + date.getTimezoneOffset() );
     return date;
 }
 
-function createEventForm( req, res )
+export function createEventForm ( req, res )
 {
     try
     {
         res.render( 'event-upsert' );
     } catch ( error )
     {
-        console.error( 'Failed to create event:', error );
+        console.error( 'Failed to create event form:', error );
         res.status( 400 ).send( error );
     }
 }
 
-
-async function createEvent( req, res )
+export async function createEvent ( req, res )
 {
     try
     {
-        
         if ( req.body.date )
         {
             req.body.date = adjustDateToUtcMidnight( req.body.date );
         }
 
-        const newEvent = new Event( req.body );
-        await newEvent.save();
+        const newEvent = await Event.create( req.body );
         res.redirect( '/' );
     } catch ( error )
     {
@@ -56,12 +63,16 @@ async function createEvent( req, res )
     }
 }
 
-
-async function getEvent( req, res )
+export async function getEvent ( req, res )
 {
     try
     {
-        const event = await Event.findById( req.params.id );
+        const event = await Event.findByPk( req.params.id, {
+            include: [ {
+                model: Address,
+                as: 'location'
+            } ]
+        } );
         if ( !event )
         {
             return res.status( 404 ).send();
@@ -74,22 +85,26 @@ async function getEvent( req, res )
     }
 }
 
-
-async function updateEvent( req, res )
+export async function updateEvent ( req, res )
 {
     try
     {
-        
         if ( req.body.date )
         {
             req.body.date = adjustDateToUtcMidnight( req.body.date );
         }
 
-        const event = await Event.findByIdAndUpdate( req.params.id, req.body, { new: true, runValidators: true } );
-        if ( !event )
+        const [ updated ] = await Event.update( req.body, {
+            where: { id: req.params.id },
+            returning: true,
+            individualHooks: true
+        } );
+
+        if ( !updated )
         {
             return res.status( 404 ).send();
         }
+
         res.redirect( '/' );
     } catch ( error )
     {
@@ -98,16 +113,19 @@ async function updateEvent( req, res )
     }
 }
 
-
-async function deleteEvent( req, res )
+export async function deleteEvent ( req, res )
 {
     try
     {
-        const event = await Event.findByIdAndDelete( req.params.id );
-        if ( !event )
+        const deleted = await Event.destroy( {
+            where: { id: req.params.id }
+        } );
+
+        if ( !deleted )
         {
             return res.status( 404 ).send();
         }
+
         res.redirect( '/' );
     } catch ( error )
     {
@@ -115,6 +133,3 @@ async function deleteEvent( req, res )
         res.status( 500 ).send( error );
     }
 }
-
-
-export default { listEvents, createEventForm, createEvent, getEvent, updateEvent, deleteEvent };

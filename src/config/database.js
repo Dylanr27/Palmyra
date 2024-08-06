@@ -1,19 +1,18 @@
-import mongoose from 'mongoose';
-import { config } from 'dotenv';
+// FILE: database.js
+import sequelize from './sequelize.js';
 
-config();
-
-const connectDB = async () =>
+const connectDb = async () =>
 {
     try
     {
-        await mongoose.connect( process.env.MONGODB_URI );
-        console.log( 'MongoDB Connected...' );
-    } catch ( err )
+        await sequelize.authenticate();
+        console.log( 'MySQL Connected...' );
+    }
+    catch ( err )
     {
-        console.error( err.message );
+        console.error( 'Unable to connect to the database:', err );
         process.exit( 1 );
     }
 };
 
-export default connectDB;
+export default connectDb;

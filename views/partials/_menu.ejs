@@ -1,6 +1,6 @@
 <ul>
 
-    <% menuItems.forEach(function(menuItem) { %>
+    <% menuItems.forEach( menuItem => { %>
             
         <li>
 
@@ -32,11 +32,11 @@
 
                 <div class="button-group">
                     
-                    <a href="/menu-items/<%= menuItem._id %>" class="crud-btn edit-btn">
+                    <a href="/menu-items/<%= menuItem.id %>" class="crud-btn edit-btn">
                         Edit
                     </a>
     
-                    <button onClick="Delete('/menu-items/delete/<%= menuItem._id %>')" class="crud-btn delete-btn">
+                    <button onClick="Delete('/menu-items/delete/<%= menuItem.id %>')" class="crud-btn delete-btn">
                         Delete
                     </button>
                     

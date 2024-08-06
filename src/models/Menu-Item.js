@@ -1,24 +1,25 @@
-import mongoose from "mongoose";
+// FILE: models/MenuItem.js
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/sequelize.js';
 
-
-const menuItemSchema = new mongoose.Schema({
+const MenuItem = sequelize.define( 'MenuItem', {
     name: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
     price: {
-        type: Number,
-        required: true,
-        min: 0
+        type: DataTypes.FLOAT,
+        allowNull: false,
     },
     description: {
-        type: String,
-        required: false
+        type: DataTypes.TEXT,
+        allowNull: true,
     },
     image: {
-        type: String,
-        required: false
-    }
-});
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+} );
 
-export default mongoose.model("MenuItem", menuItemSchema);
+export default MenuItem;

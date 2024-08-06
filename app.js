@@ -2,20 +2,20 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
-import connectDB from './src/config/database.js';
-import { insertData } from './scripts/seedDb.js';
+import sequelize from './src/config/sequelize.js';
+import connectDb from './src/config/database.js';
 import passport from 'passport';
 import authRoutes from './src/routes/auth-routes.js';
-import eventController from './src/controllers/event-controller.js';
+import { listEvents } from './src/controllers/event-controller.js';
 import eventRoutes from './src/routes/event-routes.js';
-import menuItemController from './src/controllers/menu-item-controller.js';
+import { listMenuItems } from './src/controllers/menu-item-controller.js';
 import menuItemRoutes from './src/routes/menu-item-routes.js';
 import feedbackRouter from './src/routes/feedback.js';
 import setupGoogleAuth from './src/config/googleAuth.js';
 
 config();
 
-connectDB().then( insertData );
+connectDb();
 
 const app = express();
 app.use( express.json() );
@@ -54,8 +54,8 @@ app.get( '/', async ( req, res ) =>
 {
     try
     {
-        const events = await eventController.listEvents();
-        const menuItems = await menuItemController.listMenuItems();
+        const events = await listEvents();
+        const menuItems = await listMenuItems();
 
         const userIsAuthorized = req.isAuthenticated();
 
@@ -74,4 +74,16 @@ app.get( '/', async ( req, res ) =>
 } );
 
 const port = process.env.PORT || 3000;
-app.listen( port, () => console.log( `App listening at http://localhost:${ port }` ) );
+sequelize.authenticate()
+    .then( () =>
+    {
+        console.log( 'Connection has been established successfully.' );
+        app.listen( port, () =>
+        {
+            console.log( `App listening at http://localhost:${ port }` );
+        } );
+    } )
+    .catch( err =>
+    {
+        console.error( 'Unable to connect to the database:', err );
+    } );

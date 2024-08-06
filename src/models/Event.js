@@ -1,48 +1,32 @@
-// models/Event.js
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/sequelize.js';
+import Address from './Address.js';
 
-const addressSchema = new Schema( {
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    zipCode: { type: String, required: true },
-    country: { type: String, required: true }
+const Event = sequelize.define( 'Event', {
+    date: { type: DataTypes.DATE, allowNull: false },
+    title: { type: DataTypes.STRING, allowNull: false },
+    timeFrame: { type: DataTypes.STRING, allowNull: false },
+    description: { type: DataTypes.STRING, allowNull: false },
+    locationId: { type: DataTypes.INTEGER, allowNull: false }
+}, {
+    indexes: [
+        {
+            unique: true,
+            fields: [ 'date', 'title' ]
+        }
+    ]
 } );
 
-// Override toString for address
-addressSchema.methods.toString = function ()
+Event.prototype.formattedDate = function ()
 {
-    return `${ this.street }, ${ this.city }, ${ this.state }, ${ this.zipCode }`;
+    return this.date.toLocaleDateString( 'en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    } );
 };
 
-const eventSchema = new mongoose.Schema( {
-    date: {
-        type: Date,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    timeFrame: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    location: {
-        type: addressSchema,
-        required: true
-    }
-} );
+Event.belongsTo( Address, { as: 'location', foreignKey: 'locationId' } );
 
-// Override toString for date using a virtual since Date is a built-in type
-eventSchema.virtual( 'formattedDate' ).get( function ()
-{
-    return this.date.toLocaleDateString( 'en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' } );
-} );
-
-export default mongoose.model( 'Event', eventSchema );
+export default Event;

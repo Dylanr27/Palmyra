@@ -1,24 +1,40 @@
-import mongoose from 'mongoose';
+import sequelize from '../src/config/sequelize.js';
 import Event from '../src/models/Event.js';
 import MenuItem from '../src/models/Menu-Item.js';
+import Address from '../src/models/Address.js'; // Import Address model
 import { config } from 'dotenv';
 
 config();
 
-// MongoDB connection string
-const dbURI = process.env.MONGODB_URI;
+async function seedModel ( model, data, modelName )
+{
+    try
+    {
+        const existingEntries = await model.findAll();
+        if ( existingEntries.length > 0 )
+        {
+            console.log( `${ modelName } table already seeded. No action taken.` );
+            return;
+        }
 
-mongoose.connect( dbURI )
-    .then( () => console.log( 'MongoDB connected, seeding will commence next' ) )
-    .catch( err => console.log( err ) );
+        for ( const item of data )
+        {
+            const entry = await model.create( item );
+            console.log( `${ modelName } saved:`, entry.title || entry.name || entry.alt );
+        }
+    } catch ( err )
+    {
+        console.error( `Error saving ${ modelName }:`, err );
+    }
+}
 
-// Sample data to seed, including address
+// Sample data to seed
 const eventData = [
     {
         date: '2024-06-30',
         title: 'Spokane HoopFest',
         timeFrame: '7am-7pm',
-        description: 'Downtown Spokane. Riverfront park / Central Plaza operating booth 91. Located next to the Registration Tent. ',
+        description: 'Downtown Spokane. Riverfront park / Central Plaza operating booth 91. Located next to the Registration Tent.',
         location: {
             street: '421 W Riverside Ave #115',
             city: 'Spokane',
@@ -111,35 +127,31 @@ const menuItemData = [
         name: 'Bottle of Water',
         price: 1.50,
     }
-]
-
-async function seedModel ( model, data, modelName )
-{
-    try
-    {
-        const existingEntries = await model.find();
-        if ( existingEntries.length > 0 )
-        {
-            console.log( `${ modelName } table already seeded. No action taken.` );
-            return;
-        }
-
-        for ( const item of data )
-        {
-            const entry = new model( item );
-            await entry.save();
-            console.log( `${ modelName } saved:`, entry.title || entry.name || entry.alt );
-        }
-    } catch ( err )
-    {
-        console.error( `Error saving ${ modelName }:`, err );
-    }
-}
+];
 
 const insertData = async () =>
 {
-    await seedModel( Event, eventData, 'Event' );
-    await seedModel( MenuItem, menuItemData, 'MenuItem' );
+    try
+    {
+        await sequelize.sync( { force: true } );
+
+        for ( const event of eventData )
+        {
+            const address = await Address.create( event.location );
+            event.locationId = address.id;
+            delete event.location;
+        }
+
+        await seedModel( Event, eventData, 'Event' );
+        await seedModel( MenuItem, menuItemData, 'MenuItem' );
+        console.log( 'Database seeded successfully!' );
+    } catch ( err )
+    {
+        console.error( 'Error seeding database:', err );
+    } finally
+    {
+        await sequelize.close();
+    }
 };
 
-export { insertData };
+insertData();

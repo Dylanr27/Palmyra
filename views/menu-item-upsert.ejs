@@ -9,9 +9,9 @@
 <body>
     <section class="form-section">
         <h1><%= typeof menuItem !=='undefined' ? "Update Menu Item" : "Create Menu Item" %></h1>
-        <form action="<%= typeof menuItem !== 'undefined' ? `/menu-items/update/${menuItem._id}` : '/menu-items/createMenuItem' %>" method="POST">
+        <form action="<%= typeof menuItem !== 'undefined' ? `/menu-items/update/${menuItem.id}` : '/menu-items/createMenuItem' %>" method="POST">
             <% if (typeof menuItem !== 'undefined') { %>
-                <input type="hidden" name="id" value="<%= menuItem._id %>">
+                <input type="hidden" name="id" value="<%= menuItem.id %>">
             <% } %>
             <div class="form-group">
                 <label for="name">Name:</label>

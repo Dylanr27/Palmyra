@@ -9,9 +9,9 @@
     <body>
         <section class="form-section">
             <h1><%= typeof event !=='undefined' ? "Update Event" : "Create Event" %></h1>
-            <form action="<%= typeof event !== 'undefined' ? `/events/update/${event._id}` : '/events/createEvent' %>" method="POST">
+            <form action="<%= typeof event !== 'undefined' ? `/events/update/${event.id}` : '/events/createEvent' %>" method="POST">
                 <% if (typeof event !== 'undefined') { %>
-                    <input type="hidden" name="id" value="<%= event._id %>">
+                    <input type="hidden" name="id" value="<%= event.id %>">
                 <% } %>
                 <div class="form-group">
                     <label for="title">Title:</label>
