@@ -5,6 +5,7 @@ document.addEventListener( 'click', function ( event )
     if ( !list.contains( event.target ) && !burger.contains( event.target ) )
     {
         list.classList.remove( "active" );
+        burger.classList.remove( "active" );
     }
 } );
 
@@ -12,7 +13,7 @@ toggleNavActive = () =>
 {
     const burger = document.getElementById( "burger" );
     const list = document.getElementById( "nav-list" );
-    burger.classList.toggle( "toggle" );
+    burger.classList.toggle( "active" );
     list.classList.toggle( "active" );
 }
 
@@ -24,6 +25,7 @@ navLinks.forEach( link =>
     {
         const list = document.getElementById( "nav-list" );
         list.classList.remove( "active" );
+        burger.classList.remove( "active" );
     } );
 } );
 
