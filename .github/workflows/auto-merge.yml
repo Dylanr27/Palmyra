@@ -36,8 +36,16 @@ jobs:
     - name: Merge main into deployment
       run: |
         git merge main --allow-unrelated-histories || true
-        git restore --source=HEAD --staged .gitignore node_modules/ .env *.log build/ README.md src/utils .ejsbrc.json .github/
-        git commit -m "Merge main into deployment, excluding specified files"
+        git restore --source=HEAD --staged .gitignore || true
+        git restore --source=HEAD --staged node_modules/ || true
+        git restore --source=HEAD --staged .env || true
+        git restore --source=HEAD --staged *.log || true
+        git restore --source=HEAD --staged build/ || true
+        git restore --source=HEAD --staged README.md || true
+        git restore --source=HEAD --staged src/utils || true
+        git restore --source=HEAD --staged .ejsbrc.json || true
+        git restore --source=HEAD --staged .github/ || true
+        git commit -m "Merge main into deployment, excluding specified files" || true
         git push origin deployment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
