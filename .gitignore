@@ -9,3 +9,12 @@ node_modules/
 
 # Build output
 build/
+
+# Readme
+README.md
+
+# setup files
+/src/utils
+
+# ide formatting
+.ejsbrc.json
