@@ -1,0 +1,41 @@
+name: Auto Merge Main to Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: List all branches
+      run: git branch -a
+
+    - name: Fetch all branches
+      run: git fetch origin
+
+    - name: Checkout deployment branch
+      run: git checkout deployment
+
+    - name: Merge main into deployment
+      run: |
+        git merge main --allow-unrelated-histories || true
+        git checkout --ours .gitignore
+        git add .gitignore
+        git commit -m "Preserve .gitignore from deployment branch"
+        git push origin deployment
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
