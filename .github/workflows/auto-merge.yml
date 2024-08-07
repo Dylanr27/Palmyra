@@ -29,7 +29,10 @@ jobs:
 
     - name: Merge main into deployment
       run: |
-        git merge main --allow-unrelated-histories
+        git merge main --allow-unrelated-histories || true
+        git checkout --ours .gitignore
+        git add .gitignore
+        git commit -m "Preserve .gitignore from deployment branch"
         git push origin deployment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
