@@ -29,7 +29,7 @@ jobs:
 
     - name: Merge main into deployment
       run: |
-        git merge main
+        git merge main --allow-unrelated-histories
         git push origin deployment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
