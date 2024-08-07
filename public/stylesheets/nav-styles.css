@@ -25,11 +25,10 @@ nav
 
 nav h1
 {
-    font-family: "Playwrite BE VLG", cursive;
-    font-size: 1.5rem;
+    font-family: "Comic Neue", cursive;
+    font-size: 2rem;
     font-weight: 400;
     letter-spacing: 0.5rem;
-    font-style: italic;
 }
 
 nav h2
