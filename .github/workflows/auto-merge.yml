@@ -18,9 +18,17 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+    - name: List all branches
+      run: git branch -a
+
+    - name: Fetch all branches
+      run: git fetch origin
+
+    - name: Checkout deployment branch
+      run: git checkout deployment
+
     - name: Merge main into deployment
       run: |
-        git checkout deployment
         git merge main
         git push origin deployment
       env:
