@@ -33,9 +33,9 @@ jobs:
     - name: Merge main into deployment
       run: |
         git merge main --allow-unrelated-histories || true
-        git checkout --ours .gitignore
-        git add .gitignore
-        git commit -m "Preserve .gitignore from deployment branch"
+        git checkout --ours .gitignore node_modules/ .env *.log build/ README.md src/utils .ejsbrc.json .github/
+        git add .gitignore node_modules/ .env *.log build/ README.md src/utils .ejsbrc.json .github/
+        git commit -m "Preserve specified files from deployment branch"
         git push origin deployment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
