@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -33,9 +36,8 @@ jobs:
     - name: Merge main into deployment
       run: |
         git merge main --allow-unrelated-histories || true
-        git checkout --ours .gitignore node_modules/ .env *.log build/ README.md src/utils .ejsbrc.json .github/
-        git add .gitignore node_modules/ .env *.log build/ README.md src/utils .ejsbrc.json .github/
-        git commit -m "Preserve specified files from deployment branch"
+        git restore --source=HEAD --staged .gitignore node_modules/ .env *.log build/ README.md src/utils .ejsbrc.json .github/
+        git commit -m "Merge main into deployment, excluding specified files"
         git push origin deployment
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
