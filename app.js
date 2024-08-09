@@ -74,16 +74,21 @@ app.get( '/', async ( req, res ) =>
 } );
 
 const port = process.env.PORT || 8080;
-sequelize.authenticate()
-    .then( () =>
-    {
-        console.log( 'Connection has been established successfully.' );
-        app.listen( port, () =>
-        {
-            console.log( `App listening at http://localhost:${ port }` );
-        } );
-    } )
-    .catch( err =>
-    {
-        console.error( 'Unable to connect to the database:', err );
-    } );
+app.listen( port, () =>
+{
+    console.log( `App listening at http://localhost:${ port }` );
+} );
+
+// sequelize.authenticate()
+//     .then( () =>
+//     {
+//         console.log( 'Connection has been established successfully.' );
+//         app.listen( port, () =>
+//         {
+//             console.log( `App listening at http://localhost:${ port }` );
+//         } );
+//     } )
+//     .catch( err =>
+//     {
+//         console.error( 'Unable to connect to the database:', err );
+//     } );
