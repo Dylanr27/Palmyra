@@ -154,4 +154,4 @@ const insertData = async () =>
     }
 };
 
-insertData();
+export default insertData();

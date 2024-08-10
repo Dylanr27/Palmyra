@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 import sequelize from './src/config/sequelize.js';
 import connectDb from './src/config/database.js';
+import insertData from './scripts/seedDb.js';
 import passport from 'passport';
 import authRoutes from './src/routes/auth-routes.js';
 import { listEvents } from './src/controllers/event-controller.js';
@@ -15,7 +16,7 @@ import setupGoogleAuth from './src/config/googleAuth.js';
 
 config();
 
-// connectDb();
+connectDb().then( insertData() );
 
 const app = express();
 app.use( express.json() );
@@ -78,6 +79,10 @@ app.get( '/', async ( req, res ) =>
 const port = process.env.PORT || 8080;
 app.listen( port, () =>
 {
+    console.log( "DB: " + process.env.MYSQL_DATABASE );
+    console.log( "USER: " + process.env.MYSQL_USER );
+    console.log( "PASSWORD: " + process.env.MYSQL_PASSWORD );
+    console.log( "HOST: " + process.env.MYSQL_HOST );
     console.log( `App listening at http://localhost:${ port }` );
 } );
 
