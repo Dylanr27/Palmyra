@@ -15,7 +15,7 @@ import setupGoogleAuth from './src/config/googleAuth.js';
 
 config();
 
-connectDb();
+// connectDb();
 
 const app = express();
 app.use( express.json() );
@@ -54,8 +54,8 @@ app.get( '/', async ( req, res ) =>
 {
     try
     {
-        const events = await listEvents();
-        const menuItems = await listMenuItems();
+        // const events = await listEvents();
+        // const menuItems = await listMenuItems();
 
         // const userIsAuthorized = req.isAuthenticated();
 
@@ -63,10 +63,9 @@ app.get( '/', async ( req, res ) =>
 
         res.render( 'index',
             {
-                events: events,
-                menuItems: menuItems
+                // events: events,
                 // menuItems: menuItems,
-                // userIsAuthorized: userIsAuthorized
+                userIsAuthorized: true
             }
         );
     } catch ( error )
