@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - development-palmyra
+name: Build and deploy Node.js app to Azure Web App - palmyra-development
 
 on:
   push:
@@ -56,15 +56,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_73F15CC7A62E4845AE0376D76B219A11 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F787C13847D740A1B5060966E6F36F77 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6A76E90B889D4B64B69A680F7FC1274F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_11F80DE88F234E40B9354D870DCD2698 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_52707ABF49294E3B992D3D68FAD52FC1 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_94AD20CFBDA04596979C294869A89AB1 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'development-palmyra'
+          app-name: 'palmyra-development'
           slot-name: 'Production'
           package: .
           
