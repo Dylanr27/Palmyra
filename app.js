@@ -2,7 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
-import sequelize from './src/config/sequelize.js';
+import sequelizeInstance from './src/config/sequelize.js';
 import connectDb from './src/config/database.js';
 import insertData from './scripts/seedDb.js';
 import passport from 'passport';
@@ -86,7 +86,7 @@ app.listen( port, () =>
     console.log( `App listening at http://localhost:${ port }` );
 } );
 
-// sequelize.authenticate()
+// sequelizeInstance.authenticate()
 //     .then( () =>
 //     {
 //         console.log( 'Connection has been established successfully.' );

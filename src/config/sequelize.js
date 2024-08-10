@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 
 config();
 
-const connectDb = new Sequelize(
+const sequelizeInstance = new Sequelize(
     process.env.MYSQL_DATABASE,
     process.env.MYSQL_USER,
     process.env.MYSQL_PASSWORD,
@@ -13,4 +13,4 @@ const connectDb = new Sequelize(
     }
 );
 
-export default connectDb;
+export default sequelizeInstance;

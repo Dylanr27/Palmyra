@@ -1,11 +1,11 @@
 // FILE: database.js
-import sequelize from './sequelize.js';
+import sequelizeInstance from './sequelize.js';
 
 const connectDb = async () =>
 {
     try
     {
-        await sequelize.authenticate();
+        await sequelizeInstance.authenticate();
         console.log( 'MySQL Connected...' );
     }
     catch ( err )
