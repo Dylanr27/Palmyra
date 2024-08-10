@@ -16,7 +16,12 @@ import setupGoogleAuth from './src/config/googleAuth.js';
 
 config();
 
-connectDb().then( insertData() );
+console.log( "DB: " + process.env.MYSQL_DATABASE );
+console.log( "USER: " + process.env.MYSQL_USER );
+console.log( "PASSWORD: " + process.env.MYSQL_PASSWORD );
+console.log( "HOST: " + process.env.MYSQL_HOST );
+
+connectDb().then( insertData );
 
 const app = express();
 app.use( express.json() );
@@ -79,10 +84,6 @@ app.get( '/', async ( req, res ) =>
 const port = process.env.PORT || 8080;
 app.listen( port, () =>
 {
-    console.log( "DB: " + process.env.MYSQL_DATABASE );
-    console.log( "USER: " + process.env.MYSQL_USER );
-    console.log( "PASSWORD: " + process.env.MYSQL_PASSWORD );
-    console.log( "HOST: " + process.env.MYSQL_HOST );
     console.log( `App listening at http://localhost:${ port }` );
 } );
 
