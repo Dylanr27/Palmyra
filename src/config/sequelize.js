@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize';
 import { config } from 'dotenv';
+import path from 'path';
 import fs from 'fs';
 
 config();
