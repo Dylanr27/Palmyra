@@ -81,5 +81,5 @@ app.get( '/', async ( req, res ) =>
 
 app.listen( 8080, () =>
 {
-    console.log( `App listening at http://localhost:${ port }` );
+    console.log( `App listening at http://localhost:${ 8080 }` );
 } );
