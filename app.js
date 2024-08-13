@@ -60,6 +60,9 @@ app.get( '/', async ( req, res ) =>
         const events = await listEvents();
         const menuItems = await listMenuItems();
 
+        console.log( 'Events:', events );
+        console.log( 'Menu Items:', menuItems );
+
         // const userIsAuthorized = req.isAuthenticated();
 
         // console.log( 'User is authorized:', userIsAuthorized );
@@ -78,8 +81,8 @@ app.get( '/', async ( req, res ) =>
     }
 } );
 
-
-app.listen( 8080, () =>
+sequelizeInstance.sync().then( () =>
 {
-    console.log( `App listening at http://localhost:${ 8080 }` );
+    console.log( 'Database & tables created!' );
+    app.listen( 8080, () => console.log( 'Server running on http://localhost:8080' ) );
 } );
