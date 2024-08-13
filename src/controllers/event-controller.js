@@ -54,7 +54,7 @@ export async function createEvent ( req, res )
             req.body.date = adjustDateToUtcMidnight( req.body.date );
         }
 
-        const newEvent = await Event.create( req.body );
+        await Event.create( req.body );
         res.redirect( '/' );
     } catch ( error )
     {

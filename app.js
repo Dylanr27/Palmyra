@@ -16,11 +16,6 @@ import setupGoogleAuth from './src/config/googleAuth.js';
 
 config();
 
-console.log( "DB: " + process.env.MYSQL_DATABASE );
-console.log( "USER: " + process.env.MYSQL_USER );
-console.log( "PASSWORD: " + process.env.MYSQL_PASSWORD );
-console.log( "HOST: " + process.env.MYSQL_HOST );
-
 connectDb().then( insertData );
 
 const app = express();
@@ -60,8 +55,8 @@ app.get( '/', async ( req, res ) =>
 {
     try
     {
-        // const events = await listEvents();
-        // const menuItems = await listMenuItems();
+        const events = await listEvents();
+        const menuItems = await listMenuItems();
 
         // const userIsAuthorized = req.isAuthenticated();
 
@@ -69,8 +64,8 @@ app.get( '/', async ( req, res ) =>
 
         res.render( 'index',
             {
-                // events: events,
-                // menuItems: menuItems,
+                events: events,
+                menuItems: menuItems,
                 userIsAuthorized: true
             }
         );
@@ -82,21 +77,17 @@ app.get( '/', async ( req, res ) =>
 } );
 
 const port = process.env.MYSQL_PORT || 8080;
-app.listen( port, () =>
-{
-    console.log( `App listening at http://localhost:${ port }` );
-} );
 
-// sequelizeInstance.authenticate()
-//     .then( () =>
-//     {
-//         console.log( 'Connection has been established successfully.' );
-//         app.listen( port, () =>
-//         {
-//             console.log( `App listening at http://localhost:${ port }` );
-//         } );
-//     } )
-//     .catch( err =>
-//     {
-//         console.error( 'Unable to connect to the database:', err );
-//     } );
+sequelizeInstance.authenticate()
+    .then( () =>
+    {
+        console.log( 'Connection has been established successfully.' );
+        app.listen( port, () =>
+        {
+            console.log( `App listening at http://localhost:${ port }` );
+        } );
+    } )
+    .catch( err =>
+    {
+        console.error( 'Unable to connect to the database:', err );
+    } );
