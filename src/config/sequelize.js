@@ -21,7 +21,8 @@ const sequelizeInstance = new Sequelize(
         host: process.env.MYSQL_HOST,
         dialect: 'mysql',
         dialectOptions: {
-            ssl: { ca: fs.readFileSync( certPath ) }
+            ssl: { ca: fs.readFileSync( certPath ) },
+            rejectUnauthorized: false // This setting is temporary and should be removed once the CA is properly configured
         }
     }
 );
