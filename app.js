@@ -18,6 +18,8 @@ config();
 
 connectDb().then( insertData );
 
+console.log( "*************** MADE IT HERE ************" );
+
 const app = express();
 app.use( express.json() );
 app.use( bodyParser.json() );
