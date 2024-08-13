@@ -78,9 +78,8 @@ app.get( '/', async ( req, res ) =>
     }
 } );
 
-const port = process.env.PORT || 8080;
 
-app.listen( port, () =>
+app.listen( 8080, () =>
 {
     console.log( `App listening at http://localhost:${ port }` );
 } );
