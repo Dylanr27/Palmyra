@@ -3,16 +3,15 @@ import sequelizeInstance from './sequelize.js';
 
 const connectDb = async () =>
 {
-    try
-    {
-        await sequelizeInstance.authenticate();
-        console.log( 'MySQL Connected...' );
-    }
-    catch ( err )
-    {
-        console.error( 'Unable to connect to the database:', err );
-        process.exit( 1 );
-    }
+    await sequelizeInstance.authenticate()
+        .then( () =>
+        {
+            console.log( 'Connection has been established successfully.' );
+        } )
+        .catch( err =>
+        {
+            console.error( 'Unable to connect to the database:', err );
+        } );
 };
 
 export default connectDb;

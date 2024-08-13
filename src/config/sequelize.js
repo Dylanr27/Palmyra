@@ -13,6 +13,12 @@ const __dirname = path.dirname( __filename );
 // Resolve the absolute path to the certificate file
 const certPath = path.resolve( __dirname, '../../certs/ca-cert.pem' );
 
+console.log( 'Connecting to database with the following details:' );
+console.log( `Host: ${ process.env.MYSQL_HOST }` );
+console.log( `Database: ${ process.env.MYSQL_DATABASE }` );
+console.log( `User: ${ process.env.MYSQL_USER }` );
+console.log( `Password: ${ process.env.MYSQL_PASSWORD }` );
+
 const sequelizeInstance = new Sequelize(
     process.env.MYSQL_DATABASE,
     process.env.MYSQL_USER,
