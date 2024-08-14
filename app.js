@@ -2,7 +2,6 @@ import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
-import sequelizeInstance from './src/config/sequelize.js';
 import connectDb from './src/config/database.js';
 import insertData from './scripts/seedDb.js';
 import passport from 'passport';
@@ -27,31 +26,31 @@ app.use( bodyParser.urlencoded( { extended: true } ) );
 app.use( express.static( 'public' ) );
 app.set( 'view engine', 'ejs' );
 
-// app.use( session( {
-//     secret: process.env.SESSION_SECRET_KEY,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: { secure: false } // Note: In production, set secure to true
-// } ) );
+app.use( session( {
+    secret: process.env.SESSION_SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Note: In production, set secure to true
+} ) );
 
-// app.use( passport.initialize() );
-// app.use( passport.session() );
+app.use( passport.initialize() );
+app.use( passport.session() );
 
-// setupGoogleAuth( app );
+setupGoogleAuth( app );
 
-// function isUserAuthenticated ( req, res, next )
-// {
-//     if ( req.isAuthenticated() )
-//     {
-//         return next();
-//     }
-//     return res.redirect( '/' );
-// }
+function isUserAuthenticated ( req, res, next )
+{
+    if ( req.isAuthenticated() )
+    {
+        return next();
+    }
+    return res.redirect( '/' );
+}
 
-// app.use( '/auth', authRoutes );
-// app.use( '/events', isUserAuthenticated, eventRoutes );
-// app.use( '/menu-items', isUserAuthenticated, menuItemRoutes );
-// app.use( '/submit-feedback', feedbackRouter );
+app.use( '/auth', authRoutes );
+app.use( '/events', isUserAuthenticated, eventRoutes );
+app.use( '/menu-items', isUserAuthenticated, menuItemRoutes );
+app.use( '/submit-feedback', feedbackRouter );
 
 app.get( '/', async ( req, res ) =>
 {
@@ -63,15 +62,15 @@ app.get( '/', async ( req, res ) =>
         console.log( 'Events:', events );
         console.log( 'Menu Items:', menuItems );
 
-        // const userIsAuthorized = req.isAuthenticated();
+        const userIsAuthorized = req.isAuthenticated();
 
-        // console.log( 'User is authorized:', userIsAuthorized );
+        console.log( 'User is authorized:', userIsAuthorized );
 
         res.render( 'index',
             {
                 events: events,
                 menuItems: menuItems,
-                userIsAuthorized: false
+                userIsAuthorized: userIsAuthorized
             }
         );
     } catch ( error )
