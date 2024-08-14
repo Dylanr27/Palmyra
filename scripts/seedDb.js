@@ -165,9 +165,6 @@ const insertData = async () =>
     } catch ( err )
     {
         console.error( 'Error seeding database:', err );
-    } finally
-    {
-        await sequelize.close();
     }
 };
 

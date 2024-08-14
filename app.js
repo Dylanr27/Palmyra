@@ -81,8 +81,5 @@ app.get( '/', async ( req, res ) =>
     }
 } );
 
-sequelizeInstance.sync().then( () =>
-{
-    console.log( 'Database & tables created!' );
-    app.listen( 8080, () => console.log( 'Server running on http://localhost:8080' ) );
-} );
+
+app.listen( 8080, () => console.log( 'Server running on http://localhost:8080' ) );
