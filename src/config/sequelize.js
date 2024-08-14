@@ -11,7 +11,7 @@ const __filename = fileURLToPath( import.meta.url );
 const __dirname = path.dirname( __filename );
 
 // Resolve the absolute path to the certificate file
-const certPath = path.resolve( __dirname, '../../certs/ca-cert.pem' );
+const certPath = path.resolve( __dirname, '../../certs/DigiCertGlobalRootCA.crt.pem' );
 
 console.log( 'Connecting to database with the following details:' );
 console.log( `Host: ${ process.env.MYSQL_HOST }` );
