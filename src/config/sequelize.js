@@ -11,7 +11,7 @@ const __filename = fileURLToPath( import.meta.url );
 const __dirname = path.dirname( __filename );
 
 // Resolve the absolute path to the certificate file
-const certPath = path.resolve( __dirname, '../../certs/ca-cert.pem' );
+const certPath = path.resolve( __dirname, '' );
 
 console.log( 'Connecting to database with the following details:' );
 console.log( `Host: ${ process.env.MYSQL_HOST }` );
@@ -29,8 +29,7 @@ const sequelizeInstance = new Sequelize(
         dialectOptions: {
             ssl:
             {
-                ca: fs.readFileSync( certPath ),
-                rejectUnauthorized: false // This setting is temporary and should be removed once the CA is properly configured
+                ca: fs.readFileSync( certPath )
             }
 
         }
