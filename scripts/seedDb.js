@@ -133,17 +133,34 @@ const insertData = async () =>
 {
     try
     {
-        await sequelize.sync( { force: true } );
+        await sequelize.sync();
 
-        for ( const event of eventData )
+        // Check if Event table is already seeded
+        const existingEvents = await Event.findAll();
+        if ( existingEvents.length === 0 )
         {
-            const address = await Address.create( event.location );
-            event.locationId = address.id;
-            delete event.location;
+            for ( const event of eventData )
+            {
+                const address = await Address.create( event.location );
+                event.locationId = address.id;
+                delete event.location;
+            }
+            await seedModel( Event, eventData, 'Event' );
+        } else
+        {
+            console.log( 'Event table already seeded. No action taken.' );
         }
 
-        await seedModel( Event, eventData, 'Event' );
-        await seedModel( MenuItem, menuItemData, 'MenuItem' );
+        // Check if MenuItem table is already seeded
+        const existingMenuItems = await MenuItem.findAll();
+        if ( existingMenuItems.length === 0 )
+        {
+            await seedModel( MenuItem, menuItemData, 'MenuItem' );
+        } else
+        {
+            console.log( 'MenuItem table already seeded. No action taken.' );
+        }
+
         console.log( 'Database seeded successfully!' );
     } catch ( err )
     {
