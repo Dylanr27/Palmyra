@@ -71,7 +71,7 @@ app.get( '/', async ( req, res ) =>
             {
                 events: events,
                 menuItems: menuItems,
-                userIsAuthorized: true
+                userIsAuthorized: false
             }
         );
     } catch ( error )
