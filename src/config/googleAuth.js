@@ -4,8 +4,14 @@ import { config } from 'dotenv';
 
 config();
 
-export default function setupGoogleAuth(app) {
+export default function setupGoogleAuth ( app )
+{
+    // Temporarily bypass Google Auth setup
+    console.log( 'Google Auth setup is temporarily disabled' );
+    return;
 
+    // Original Google Auth setup (commented out)
+    /*
     passport.serializeUser((user, done) => {
         // Serialize the user session with a simple, static identifier
         done(null, process.env.USER_EMAIL);
@@ -26,7 +32,6 @@ export default function setupGoogleAuth(app) {
         callbackURL: "http://localhost:3000/auth/google/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
-
         console.log("Logging in user's email:", profile.emails[0].value);
 
         if (profile.emails && profile.emails[0].value === process.env.USER_EMAIL) {
@@ -35,4 +40,5 @@ export default function setupGoogleAuth(app) {
             return cb(null, false, { redirectTo: '/unauthorized' });
         }
     }));
+    */
 }

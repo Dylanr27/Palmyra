@@ -51,10 +51,9 @@ body
 {
     margin: 5rem 0 5rem 0;
     display: flex;
-    height: 400px;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
+    padding: 0 3rem;
     gap: 2rem;
 }
 
@@ -443,7 +442,7 @@ body
 
     .hero-container
     {
-        margin: 16em 0 15rem 0;
+        margin: 3em 0;
         flex-direction: column;
         gap: 2rem;
     }
@@ -527,7 +526,7 @@ body
 
     .hero-container
     {
-        margin: 15em 0 14rem 0;
+        margin: 3em 0;
     }
 
     .section-label
@@ -552,7 +551,7 @@ body
 
     .hero-container
     {
-        margin: 14em 0 11rem 0;
+        margin: 3em 0;
     }
 
     .menu-section ul
