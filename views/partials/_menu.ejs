@@ -1,181 +1,58 @@
 <ul>
 
-    <% menuItems.forEach( menuItem => { %>
-            
+    <% menuItems.forEach( menuItem=> { %>
+
         <li>
 
             <div class="menu-listing-heading">
 
-                <h3><%= menuItem.name %></h3>
+                <h3>
+                    <%= menuItem.name %>
+                </h3>
 
                 <div></div>
 
-                <h3>$<%= menuItem.price.toFixed(2); %></h3>
+                <h3>$<%= menuItem.price.toFixed(2) %>
+                </h3>
 
             </div>
 
             <% if(menuItem.description) { %>
 
-                <% menuItem.description.split(". ").forEach(function(sentence) { %>
-                    
-                    <% if(sentence.trim().length > 0) { %>
+                <div class="menu-description">
+
+                    <% menuItem.description.split(". ").forEach(function(sentence) { %>
                         
-                        <p><%= sentence %></p>
+                        <% if(sentence.trim().length > 0) { %>
+                            
+                            <p><%= sentence.trim() %>.</p>
+                        
+                        <% } %>
                     
-                    <% } %>
-                
-                <% }); %>
+                    <% }); %>
+
+                </div>
 
             <% } %>
 
             <% if(userIsAuthorized) { %>
 
-                <div class="button-group">
-                    
-                    <a href="/menu-items/<%= menuItem.id %>" class="crud-btn edit-btn">
-                        Edit
-                    </a>
-    
-                    <button onClick="Delete('/menu-items/delete/<%= menuItem.id %>')" class="crud-btn delete-btn">
-                        Delete
-                    </button>
-                    
+                <div class=" button-group">
+
+                        <a href="/menu-items/<%= menuItem.id %>" class="crud-btn edit-btn">
+                            Edit
+                        </a>
+
+                        <button onClick="Delete('/menu-items/delete/<%= menuItem.id %>')" class="crud-btn delete-btn">
+                            Delete
+                        </button>
+
                 </div>
 
-            <% } %>
+                <% } %>
 
 
         </li>
-<% }); %>
+        <% }); %>
 
-</ul> 
-
-    <!-- <li>
-
-        <div class="menu-listing-heading">
-
-            <h3></h3>
-
-            <div></div>
-
-            <h3>$13</h3>
-
-        </div>
-
-        <p>Made from scratch, contains chickpeas, spices, fresh
-            onion and garlic.
-        </p>
-
-        <p>Comes with tomatoes, pickles( cucumbers, turnips)
-            lettuce, jalapeño and cucumbers.
-        </p>
-
-        <p>Tahini sauce(contains yogurt, and sesame)
-            hummus paste (made fresh).
-        </p>
-
-    </li>
-
-    <li>
-
-        <div class="menu-listing-heading">
-
-            <h3>Can't Go Wrong (Hummus side)</h3>
-
-            <div></div>
-
-            <h3>$8</h3>
-
-        </div>
-
-        <p>Made from fresh chickpeas, olive oil, tahini (has
-            sesame), serrano peppers and parsley.
-        </p>
-
-        <p>Comes with one pita bread.</p>
-
-        <p>Pickles of your choice 5 cents.</p>
-
-    </li>
-
-    <li>
-
-        <div class="menu-listing-heading">
-
-            <h3>Dulma</h3>
-
-            <div></div>
-
-            <h3>$4</h3>
-
-        </div>
-
-        <p>3 stuffed grape leaves.</p>
-
-    </li>
-
-    <li>
-
-        <div class="menu-listing-heading">
-
-            <h3>Rainbow Falafel Salad</h3>
-
-            <div></div>
-
-            <h3>$10</h3>
-
-        </div>
-
-        <p>Contains 3 pieces of falafel, side of hummus, side of
-            tahini sauce and side salad.
-        </p>
-
-    </li>
-
-    <li>
-
-        <div class="menu-listing-heading">
-
-            <h3>Slice of Pita bread</h3>
-
-            <div></div>
-
-            <h3>$1</h3>
-
-        </div>
-
-        <p>One piece of pita bread for the hummus or the falafel
-        </p>
-
-    </li>
-
-    <li class="menu-listing-heading">
-
-        <h3>Bag of Pita Chips</h3>
-
-        <div></div>
-
-        <h3>$1.50</h3>
-
-    </li>
-
-    <li class="menu-listing-heading">
-
-        <h3>Can of Sprite</h3>
-
-        <div></div>
-
-        <h3>$1.90</h3>
-
-    </li>
-
-    <li class="menu-listing-heading">
-
-        <h3>Bottle of Water</h3>
-
-        <div></div>
-
-        <h3>$1.50</h3>
-
-    </li>-->
-
+</ul>
