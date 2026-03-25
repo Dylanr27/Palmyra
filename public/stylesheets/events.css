@@ -74,3 +74,17 @@
     }
 
 }
+
+@media screen and (max-width: 600px)
+{
+    .event-row
+    {
+        max-width: 100%;
+        margin: 0 1rem
+    }
+    .event-body
+    {
+        max-width: 100%;
+    }
+    
+}
