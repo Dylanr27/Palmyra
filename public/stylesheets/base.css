@@ -7,13 +7,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "DM Sans", sans-serif;
-    font-size: 20px;
-    font-variant-numeric: tabular-nums;
 }
 
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+    font-size: 20px;
 }
 
 body
@@ -34,7 +33,6 @@ button{
 
 /* Paragraph Styles */
 p {
-    font-size: 0.9rem;
     line-height: 1.4;
 }
 
@@ -45,6 +43,7 @@ footer{
     padding: 1rem 0;
     position: sticky;
     bottom: 0;
+    height: 10vh;
     width: 100%;
     border-top: #c47e43 2px solid;
 }
@@ -163,13 +162,13 @@ footer{
     }
 
     footer{
-        padding: 0;
+        padding: 0.5rem;
+        height: 12vh;
     }
 
     .footer-content {
         flex-direction: column;
         gap: 0.5rem;
-        padding: 0.5rem 1rem;
         text-align: center;
     }
 

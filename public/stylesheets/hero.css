@@ -4,13 +4,15 @@
 {
     margin: 1.5rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
 }
 
 .hero-container div
 {
-    width: 50%;
+    width: 45%;
 }
 
 #story {
@@ -25,7 +27,6 @@
     height: auto;
     width: 100%;
     max-width: 100%;
-    object-fit: contain;
     border-radius:0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -35,6 +36,7 @@
     width: 100%;
     padding: 0.2rem 0;
     background-color: rgba(0, 0, 0);
+    border-bottom: 2px solid #c47e43;
     border-radius: 0.5rem 0.5rem 0 0;
     font-size: 1.7rem;
     text-align: center;
@@ -45,17 +47,39 @@
 {
     background-color: #ffffff;
     border-radius: 0 0 0.5rem 0.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
     border-color: #666666;
     text-align: center;
     color: #666666;
     flex-grow: 1;
     display: flex;
-    align-items: center;
 }
 
 /* Responsive Hero Styles */
-@media screen and (max-width: 900px)
+@media screen and (max-width: 1400px)
+{
+    #story p, p{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 1250px)
+{
+    #story p, p{
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 1150px)
+{
+    #story p, p{
+        font-size: 0.9rem;
+    }
+}
+
+
+@media screen and (max-width: 1050px)
 {
     .hero-container
     {
@@ -68,8 +92,7 @@
 
     .hero-container div
     {
-        width: 100%;
-        max-width: 100%;
+        width: 80%;
     }
 
     #logo img

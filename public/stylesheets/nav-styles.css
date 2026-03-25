@@ -6,7 +6,8 @@ nav
     overflow: hidden;
     position: sticky;
     top: 0;
-    height: 12.5%;
+    height: 12.5vh;
+    min-height: 96px;
     width: 100%;
     align-items: center;
     justify-content: space-between;
@@ -19,15 +20,14 @@ nav
     display: flex;
     justify-self: flex-start;
     flex-direction: column;
-    height: 100%;
-    margin: 0.3rem 0 0.3rem 3rem;
+    margin: 0.3rem 0 0.3rem 4rem;
     align-items: center;
 }
 
 nav h1
 {
     font-family: "Gloria Hallelujah", cursive;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 0.4rem;
 }
@@ -35,7 +35,7 @@ nav h1
 nav h2
 {
     font-variant: small-caps;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: 0.1rem;
     font-style: italic;
@@ -62,6 +62,7 @@ nav h2
     padding: 0 1rem ;
     height: 100%;
     display: flex;
+    font-size: 1.1rem;
     align-items: center;
     font-style: italic;
     white-space: nowrap;
@@ -101,7 +102,7 @@ nav h2
     transform: rotate(45deg) translate(-5px, -5px);
 }
 
-@media screen and (max-width: 835px) {
+@media screen and (max-width: 950px) {
     nav {
         position: sticky;
         top: 0;
@@ -128,7 +129,7 @@ nav h2
         justify-content: space-evenly;
         margin-right: 0;
         border-bottom: 2px solid #c47e43;
-        transition: right 0.3s ease, opacity 0.3s ease;
+        transition: right 0.3s ease, opacity 0.2s ease;
     }
 
     #nav-list.active {
@@ -152,6 +153,10 @@ nav h2
 
 @media screen and (max-width: 600px)
 {
+    .logo{
+        margin: 0rem 0 0.3rem 2rem;
+    }
+
     #nav-list {
         width: 100vw;
         right: -100vw;
