@@ -181,7 +181,7 @@
     .contact-section
     {
         flex-direction: column;
-        padding: 1rem;
+        padding: 0 1rem;
     }
 
     .contact-section > div

@@ -28,8 +28,7 @@ body
 }
 
 main {
-    flex: 1;
-    padding-bottom: 10vh;
+    padding-bottom: 12vh;
 }
 
 button{
@@ -163,10 +162,6 @@ footer{
 
 @media screen and (max-width: 600px)
 {
-    main {
-        padding-bottom: 12vh;
-    }
-
     p {
         font-size: 0.9rem;
     }
@@ -187,8 +182,8 @@ footer{
     }
 
     .footer-social-links img {
-        width: 35px;
-        height: 35px;
+        width: 30px;
+        height: 30px;
     }
 }
 
