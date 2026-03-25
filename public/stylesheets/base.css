@@ -13,6 +13,8 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     font-size: 20px;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body
@@ -21,6 +23,8 @@ body
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 main {
