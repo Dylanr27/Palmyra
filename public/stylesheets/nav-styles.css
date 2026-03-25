@@ -4,31 +4,32 @@ nav
     color: #ffffff;
     display: flex;
     overflow: hidden;
-    position: fixed;
+    position: sticky;
     top: 0;
+    height: 12.5%;
     width: 100%;
     align-items: center;
-    padding: 0.2rem;
+    justify-content: space-between;
     z-index: 1000;
-    min-height: 12%;
+    border-bottom: 2px solid #c47e43;
 }
 
 .logo
 {
     display: flex;
+    justify-self: flex-start;
     flex-direction: column;
-    border: #ffffff 1px solid;
-    padding: 0.3rem 1rem 0.3rem 1rem;
-    margin: 0.5rem 0 0.5rem 2rem;
+    height: 100%;
+    margin: 0.3rem 0 0.3rem 3rem;
     align-items: center;
 }
 
 nav h1
 {
     font-family: "Gloria Hallelujah", cursive;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.4rem;
 }
 
 nav h2
@@ -36,45 +37,40 @@ nav h2
     font-variant: small-caps;
     font-size: 0.7rem;
     font-weight: 400;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     font-style: italic;
 }
 
-.navbar-center {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-}
-
-#nav-list {
+#nav-list{
     display: flex;
-    justify-content: space-between; /* This will spread the items */
+    justify-self: flex-end;
     list-style: none;
-    flex-grow: 1; /* Allows the list to grow and occupy available space */
-    transition: right 0.3s ease; /* Added transition for smooth animation */
+    transition: right 0.3s ease;
+    height: 100%;
     margin-right: 2rem;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 #nav-list li {
-    /* Ensure list items align properly with transformed links */
     align-items: center;
-    display: flex;
+    height: 100%;
 }
 
 #nav-list a {
-    color: #ffffff; /* Light text color for contrast */
+    color: #ffffff;
     text-decoration: none;
-    padding: 1rem;
-    display: inline-block; /* Ensure transform applies correctly */
+    padding: 0 1rem ;
+    height: 100%;
+    display: flex;
+    align-items: center;
     font-style: italic;
-    white-space: nowrap; /* Prevents text wrapping */
-    transition: background-color 0.1s ease, transform 0.1s ease; /* Added transition for smooth animation */
+    white-space: nowrap;
+    transition: background-color 0.1s ease, transform 0.1s ease;
 }
 
 #nav-list a:hover {
-    background-color: #c47e43; /* Highlight color on hover */
-    transform: scale(1.2); /* Scales up the link on hover */
+    background-color: #c47e43;
+    transform: scale(1.1);
 }
 
 #burger div
@@ -107,28 +103,38 @@ nav h2
 
 @media screen and (max-width: 835px) {
     nav {
-        position: fixed;
+        position: sticky;
         top: 0;
         width: 100%;
-        overflow: auto; /* Allows scrolling within the nav if needed */
+        overflow: visible;
+    }
+    
+    body {
+        overflow-x: hidden;
     }
 
     #nav-list {
-        position: fixed; /* Changed to fixed to ensure it's relative to the viewport */
-        width: 43vw; /* Adjusted to take up half the screen for better visibility */
+        display: flex;
+        opacity: 0;
+        position: absolute;
+        width: 43vw;
         height: 90vh;
-        overflow-y: auto; /* Allows scrolling within the ul if the content exceeds the max height */
-        right: -43vw; /* Adjusted right position */
-        top: 14.5%;
+        overflow-y: auto;
+        right: -43vw;
+        top: 100%;
         background-color: rgb(10, 10, 10);
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         margin-right: 0;
+        border-bottom: 2px solid #c47e43;
+        transition: right 0.3s ease, opacity 0.3s ease;
     }
 
     #nav-list.active {
-      right: 0; /* Adjusted to show the menu */
+        right: 0;
+        opacity: 1;
+        border-top: #c47e43 2px solid;
     }
 
     #nav-list a {
@@ -146,26 +152,10 @@ nav h2
 
 @media screen and (max-width: 600px)
 {
-    .logo
-    {
-        padding: 0.4rem 0.6rem 0.4rem 0.6rem;
-        margin: 0.5rem 0 0.5rem 1rem;
-    }
-
-    .logo h1
-    {
-        letter-spacing: 0.2rem;
-    }
-
-    .logo h2
-    {
-        letter-spacing: 0.05rem;
-    }
-
     #nav-list {
         width: 100vw;
         right: -100vw;
-        top: 15%;
+        top: 100%;
     }
 
     #nav-list a {
@@ -180,12 +170,6 @@ nav h2
 
 @media screen and (max-width: 350px)
 {
-    .logo
-    {
-        padding: 0.3rem 0.5rem 0.3rem 0.5rem;
-        margin: 0.3rem 0 0.3rem 0.5rem;
-    }
-
     #burger {
         right: 8%;
     }

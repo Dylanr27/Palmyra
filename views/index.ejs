@@ -4,117 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palmyra Mediterranean Food</title>
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/base.css">
     <link rel="stylesheet" href="stylesheets/nav-styles.css">
+    <link rel="stylesheet" href="stylesheets/hero.css">
+    <link rel="stylesheet" href="stylesheets/menu.css">
+    <link rel="stylesheet" href="stylesheets/reviews.css">
+    <link rel="stylesheet" href="stylesheets/catering.css">
+    <link rel="stylesheet" href="stylesheets/events.css">
+    <link rel="stylesheet" href="stylesheets/buttons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Condiment&family=Gloria+Hallelujah&family=Kaushan+Script&family=Playwrite+RO:wght@100..400&family=Sacramento&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <%- include ('partials/_navbar.ejs') %>
 
-    <main>
+        <main>
 
-        <div id="nav-gap"></div>
-
-        <div class="hero-container">
-            <div>
-                <img src="/images/owner.jpg" alt="">
+            <div class="hero-container">
+                <div id="logo">
+                    <img src="/images/owner.jpg" alt="">
+                </div>
+                <div id="story">
+                    <h2>A Bit About Us</h2>
+                    <p>At Palmyra, we are passionate about creating delicious and healthy food options for our community. Our journey began amidst the challenges of the Syrian war, driven by a simple idea: to share the authentic flavors of our cherished family recipes with busy families and individuals who want to eat well but don't have the time or energy to cook. Starting from scratch, we have crafted a menu that honors our heritage and uses fresh, locally-sourced ingredients. With the help of our talented team, we have transformed this idea into a successful business that serves hundreds of happy customers every day. Come visit us today and experience the flavors of the Mediterranean for yourself!
+                    </p>
+                </div>
             </div>
-            <div>
-                <h2>Our Story</h2>
-                <p>At Palmyra, we are passionate about creating delicious and healthy food options for our community. Our journey began amidst the challenges of the Syrian war, driven by a simple idea: to share the authentic flavors of our cherished family recipes with busy families and individuals who want to eat well but don't have the time or energy to cook. Starting from scratch, we have crafted a menu that honors our heritage and uses fresh, locally-sourced ingredients. With the help of our talented team, we have transformed this idea into a successful business that serves hundreds of happy customers every day. Come visit us today and experience the flavors of the Mediterranean for yourself!
-                </p>
+
+            <h2 id="menu" class="section-label">
+                Our Delicious Food Menu
+            </h2>
+
+            <hr class="section-hr">
+
+            <% if(userIsAuthorized) { %>
+
+                <a class="crud-btn create-btn" href="/menu-items/create">
+                    Create New Menu Item
+                </a>
+
+                <% } %>
+
+                    <section class="menu-section">
+
+                        <%- include ('partials/_menu.ejs') %>
+
+                    </section>
+
+                    <h2 id="reviews" class="section-label">See What Our Customers Are Saying</h2>
+
+                    <hr class="section-hr">
+
+                    <section class="review-section">
+
+                        <%- include ('partials/_review-widget.ejs') %>
+
+                    </section>
+
+                    <h2 id="contact" class="section-label">We Do Catering!</h2>
+
+                    <hr class="section-hr">
+
+                    <section class="contact-section">
+
+                        <%- include ('partials/_contact.ejs') %>
+
+                    </section>
+
+                    <h2 id="events" class="section-label">
+                        Upcoming Events
+                    </h2>
+
+                    <hr class="section-hr">
+
+                    <% if(userIsAuthorized) { %>
+
+                        <a class="crud-btn create-btn" href="/events/create">Create New Event</a>
+
+                        <% } %>
+
+                            <section class="event-section">
+
+
+                                <%- include ('partials/_events.ejs') %>
+
+                            </section>
+
+        </main>
+        <footer>
+            <div class="footer-content">
+                <p>Copyright &copy; 2024 Palmyra LLC</p>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/palmyraLLC?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                        <img src="images/facebook-logo.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/palmyrallcfoodservice/" target="_blank" rel="noopener noreferrer">
+                        <img src="images/instagram-logo.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@palmyra904?_t=8oIsBj0bwU6&_r=1" target="_blank" rel="noopener noreferrer">
+                        <img src="/images/tiktok-logo.png" alt="TikTok">
+                    </a>
+                </div>
             </div>
-        </div>
-
-        <h2 id="menu" class="section-label">
-            Food Menu
-        </h2>
-
-        <hr class="section-hr">
-
-        <% if(userIsAuthorized) { %>
-
-            <a class="crud-btn create-btn" href="/menu-items/create">Create New Menu Item</a>
-
-        <% } %>
-
-        <section class="menu-section">
-
-            <%- include ('partials/_menu.ejs') %>
-
-        </section>
-
-        <h2 class="section-label">Reviews</h2>
-
-        <hr class="section-hr">
-
-        <section class="review-section">
-
-            <%- include ('partials/_review-widget.ejs') %>
-
-        </section>
-
-        <h2 class="section-label">
-            Savor the Flavor: A Photo Journey Through
-            Palmyra's Delicious Dishes
-        </h2>
-
-        <hr class="section-hr">
-
-        <div class="embedsocial-hashtag" data-ref="e7600026c9d2c5ca18217161204f3825b5e52fc5"></div>
-
-        <h2 id="social" class="section-label">
-            Social
-        </h2>
-
-        <hr class="section-hr">
-
-        <section class="social-section">
-
-            <%- include ('partials/_social.ejs') %>
-
-        </section>
-
-        <h2 id="contact" class="section-label">Catering</h2>
-
-        <hr class="section-hr">
-
-        <section class="contact-section">
-
-            <%- include ('partials/_contact.ejs') %>
-
-        </section>
-
-        <h2 id="events" class="section-label">
-            Events
-        </h2>
-
-        <hr class="section-hr">
-
-        <% if(userIsAuthorized) { %>
-
-            <a class="crud-btn create-btn" href="/events/create">Create New Event</a>
-
-        <% } %>
-
-        <section class="event-section">
-
-
-            <%- include ('partials/_events.ejs') %>
-
-        </section>
-
-    </main>
+        </footer>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="scripts/scripts.js"></script>
+
 </html>

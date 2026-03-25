@@ -1,0 +1,58 @@
+/* CRUD Button Styles */
+
+.crud-btn
+{
+    display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+}
+
+.create-btn
+{
+    background-color: #54c443;
+    margin-bottom: 1rem;
+    width: 75%;
+    display: block;
+    margin: 1rem auto;
+}
+
+.create-btn:hover
+{
+    background-color: #6edf5f;
+}
+
+.edit-btn
+{
+    background-color: #c47e43;
+}
+
+.edit-btn:hover
+{
+    background-color: #ec964f;
+}
+
+.delete-btn
+{
+    background-color: #ff0d00;
+}
+
+.delete-btn:hover
+{
+    background-color: #ff4d4d;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 1rem;
+}

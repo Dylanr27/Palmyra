@@ -1,0 +1,76 @@
+/* Events Section Styles */
+
+.event-row
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0.5rem;
+}
+
+.event-row:first-child{
+    padding-top: 0;
+}
+
+.event-date
+{
+    text-align: left;
+    color: #666666;
+}
+
+.event-body
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 70%;
+}
+
+.event-title
+{
+    margin-bottom: 1rem;
+}
+
+
+.event-body p:last-of-type 
+{
+    margin-bottom: 1rem;
+}
+
+.event-location
+{
+    color: #c47e43;
+    text-decoration: none;
+}
+
+.event-location:hover
+{
+    color: #ec964f;
+}
+
+.event-time
+{
+    text-align: right;
+    white-space: nowrap;
+    color: #666666;
+}
+
+/* Responsive Event Styles */
+@media screen and (max-width: 900px)
+{
+    .event-row
+    {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .event-date,
+    .event-body,
+    .event-time{
+        text-align: center;
+    }
+
+}

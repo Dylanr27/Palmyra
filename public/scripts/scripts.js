@@ -39,6 +39,7 @@ document.addEventListener( 'DOMContentLoaded', function ()
         const list = document.getElementById( "nav-list" );
         list.classList.remove( "active" );
     } );
+
 } );
 
 /*Google Reviews*/

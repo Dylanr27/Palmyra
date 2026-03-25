@@ -1,0 +1,196 @@
+/* Base Styles - Foundational CSS for the entire site */
+
+/* CSS Reset and Base Elements */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    font-variant-numeric: tabular-nums;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body
+{
+    background-color: #e2e1de;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+button{
+    background-color: #c47e43;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Footer Styles */
+footer{
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    padding: 1rem 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    border-top: #c47e43 2px solid;
+}
+
+.footer-content
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    max-width: 100%;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer-social-links a {
+    transition: transform 0.2s ease;
+}
+
+.footer-social-links a:hover {
+    transform: scale(1.15);
+}
+
+.footer-social-links img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Section Layout Patterns */
+.section-label
+{
+    background-color: #000000;
+    border-top: 2px solid #c47e43;
+    border-bottom: 2px solid #c47e43;
+    text-align: center;
+    color: #c47e43;
+    font-size: 2rem;
+    font-style: bold;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+}
+
+.section-hr
+{
+    display: block;
+    border-bottom-width: 2px;
+    border-style: solid;
+    width: 50px;
+    border-color: rgb(181, 181, 181);
+    margin: 0 auto 1.5rem auto;
+}
+
+.section-hr:nth-of-type(2){
+    margin: 0 auto;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn
+{
+    from
+    {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1100px) {
+    p{
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    p{
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    h2,
+    .section-label
+    {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    p {
+        font-size: 0.9rem;
+    }
+
+    footer{
+        padding: 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    .footer-social-links {
+        gap: 1.5rem;
+    }
+
+    .footer-social-links img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+    * 
+    {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+}

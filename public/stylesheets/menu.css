@@ -1,0 +1,50 @@
+/* Menu Section Styles */
+
+.menu-section ul
+{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    justify-content: center;
+    list-style: none;
+    gap: 2rem 0;
+    padding: 0 1rem 1rem;
+}
+
+.menu-listing-heading
+{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+
+.menu-section ul li
+{
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0 1rem 0 1rem;
+}
+
+.menu-section ul p
+{
+    color: #666666;
+}
+
+/* Responsive Menu Styles */
+@media screen and (max-width: 900px)
+{
+    .menu-section ul
+    {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 450px)
+{
+    .menu-section ul
+    {
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+}

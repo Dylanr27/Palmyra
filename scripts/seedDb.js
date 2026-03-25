@@ -110,21 +110,21 @@ const menuItemData = [
         image: 'https://www.example.com/caesar-salad.jpg'
     },
     {
-        name: 'Slice of Pita Bread',
-        price: 1.00,
-        description: 'One piece of pita bread.',
+        name: 'Pita Bread',
+        price: 1.50,
+        description: 'One slice of pita bread.',
         image: 'https://www.example.com/french-fries.jpg'
     },
     {
-        name: 'Bag of Pita Chips',
+        name: 'Small Bag of Pita Chips',
         price: 2.00,
     },
     {
-        name: 'Can of Sprite',
+        name: '12oz Can of Sprite',
         price: 1.50,
     },
     {
-        name: 'Bottle of Water',
+        name: '16oz Bottle of Water',
         price: 1.50,
     }
 ];

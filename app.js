@@ -73,6 +73,7 @@ app.get( '/', async ( req, res ) =>
             menuItems: menuItems,
             userIsAuthorized: userIsAuthorized
         } );
+
     } catch ( error )
     {
         console.error( 'Fetch Failed:', error );

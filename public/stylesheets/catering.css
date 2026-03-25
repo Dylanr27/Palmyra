@@ -1,0 +1,191 @@
+/* Catering and Contact Section Styles */
+
+.contact-section
+{
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.contact-section > div
+{
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+}
+
+.contact-section h3
+{
+    font-size: 1.3rem;
+    color: #c47e43;
+    background-color: #000000;
+    border-bottom: 2px solid #c47e43;
+    border-radius: 0.5rem 0.5rem 0 0;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.contact-section h4
+{
+    font-size: 1.1rem;
+    color: #c47e43;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.contact-section p
+{
+    color: #666666;
+    text-align: center;
+}
+
+/* Catering Form */
+
+.catering-form form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.form-field
+{
+    position: relative;
+    background-color: #ffffff;
+}
+
+.form-field input,
+.form-field textarea
+{
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: #474747;
+    background-color: #ffffff;
+    font-size: 0.8rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus
+{
+    outline: none;
+    border-color: #c47e43;
+}
+
+.form-field textarea
+{
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-field label
+{
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #999999;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background-color: #ffffff;
+    padding: 0 0.25rem;
+}
+
+.form-field textarea + label
+{
+    top: 1.5rem;
+    transform: translateY(0);
+}
+
+.form-field input:focus + label,
+.form-field textarea:focus + label,
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:not(:placeholder-shown) + label
+{
+    top: 0;
+    left: 1rem;
+    color: #c47e43;
+    font-size: 0.85rem;
+    transform: translateY(-50%);
+}
+
+.form-submit-btn
+{
+    background-color: #c47e43;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-submit-btn:hover
+{
+    background-color: #ec964f;
+    transform: translateY(-2px);
+}
+
+/* Catering Info */
+
+.catering-info {
+    padding-bottom: 1rem;
+}
+
+.catering-info h4 {
+    margin-bottom: 0.75rem;
+    margin-top: 0;
+}
+
+.catering-info p {
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+}
+
+.catering-info p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.phone-link
+{
+    display: block;
+    color: #c47e43;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.phone-link:hover
+{
+    color: #ec964f;
+}
+
+/* Responsive Catering Section */
+@media screen and (max-width: 900px)
+{
+    .contact-section
+    {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .contact-section > div
+    {
+        width: 100%;
+    }
+}

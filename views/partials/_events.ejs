@@ -1,30 +1,24 @@
 <ul>
 
-    <% events.forEach(event => { %>
+    <% events.forEach(event=> { %>
 
         <li class="event-row">
             <div class="event-date">
-                <% console.log(event); %> <!-- Debug statement -->
-                <% if (event.formattedDate) { %>
-                    <% const parts = event.formattedDate.split(", "); %>
-                    <% parts.forEach(function(part, index) { %>
-                        <% if(part.trim().length > 0) { %>
-                            <h3>
-                                <%= part %><%= index < parts.length - 1 ? ',' : '' %>
-                            </h3>
-                        <% } %>
-                    <% }); %>
-                <% } else { %>
-                    <p>No formatted date available</p>
-                <% } %>
-            </div>
-                <div class="event-body">
-
-                    <h3 class="event-title">
-                        <%= event.title %>
+                <% if (event.date) { %>
+                    <h3>
+                        <%= new Date(event.date).toLocaleDateString('en-US', { month: '2-digit' , day: '2-digit' , year: 'numeric' }) %>
                     </h3>
+                    <% } else { %>
+                        <p>No date available</p>
+                        <% } %>
+            </div>
+            <div class=" event-body">
 
-                    <% event.description.split(". ").forEach(function(sentence) { %>
+                <h3 class="event-title">
+                    <%= event.title %>
+                </h3>
+
+                <% event.description.split(". ").forEach(function(sentence) { %>
                         <% if(sentence.trim().length > 0) { %>
 
                             <p><%= sentence %></p>
@@ -33,11 +27,11 @@
 
                     <% }); %>
 
-                    <div class="location-container">
-                        <a class="event-location" href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(event.location.toString()) %>" target="_blank">
-                            <%= event.location.toString() %>
-                        </a>
-                    </div>
+                    <div class=" location-container">
+                    <a class="event-location" href="https://www.google.com/maps/search/?api=1&query=<%= encodeURIComponent(event.location.toString()) %>" target="_blank">
+                        <%= event.location.toString() %>
+                    </a>
+            </div>
 
             </div>
 
@@ -54,20 +48,20 @@
         <% if(userIsAuthorized) { %>
 
             <div class="button-group">
-                    
-                    <a href="/events/<%= event.id %>" class="crud-btn edit-btn">
-                        Edit
-                    </a>
-    
-                    <button onClick="Delete('/events/delete/<%= event.id %>')" class="crud-btn delete-btn">
-                        Delete
-                    </button>
+
+                <a href="/events/<%= event.id %>" class="crud-btn edit-btn">
+                    Edit
+                </a>
+
+                <button onClick="Delete('/events/delete/<%= event.id %>')" class="crud-btn delete-btn">
+                    Delete
+                </button>
             </div>
 
-        <% } %>
+            <% } %>
 
-        <hr>
+                <hr>
 
-    <% }); %>
+                <% }); %>
 
 </ul>
