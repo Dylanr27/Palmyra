@@ -176,15 +176,25 @@
 }
 
 /* Responsive Catering Section */
-@media screen and (max-width: 900px)
+@media screen and (max-width: 1050px)
 {
     .contact-section
     {
         flex-direction: column;
         padding: 0 1rem;
+        width: 80%;
+        margin: 0 auto;
     }
 
     .contact-section > div
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .contact-section
     {
         width: 100%;
     }

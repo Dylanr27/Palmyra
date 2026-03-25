@@ -4,7 +4,7 @@ nav
     color: #ffffff;
     display: flex;
     overflow: hidden;
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 12.5vh;
     min-height: 96px;
@@ -104,7 +104,7 @@ nav h2
 
 @media screen and (max-width: 950px) {
     nav {
-        position: sticky;
+        position: fixed;
         top: 0;
         width: 100%;
         overflow: visible;
