@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palmyra Mediterranean Food</title>
+    <link rel="stylesheet" href="../public/stylesheets/base.css">
+    <link rel="stylesheet" href="../public/stylesheets/nav-styles.css">
+    <link rel="stylesheet" href="../public/stylesheets/hero.css">
+    <link rel="stylesheet" href="../public/stylesheets/menu.css">
+    <link rel="stylesheet" href="../public/stylesheets/reviews.css">
+    <link rel="stylesheet" href="../public/stylesheets/catering.css">
+    <link rel="stylesheet" href="../public/stylesheets/events.css">
+    <link rel="stylesheet" href="../public/stylesheets/buttons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Condiment&family=Gloria+Hallelujah&family=Kaushan+Script&family=Playwrite+RO:wght@100..400&family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <h1>Palmyra</h1>
+            <h2>Authentic Syrian Food</h2>
+        </div>
+        <ul id="nav-list">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Catering</a></li>
+            <li><a href="#events">Events</a></li>
+        </ul>
+        <div onclick="toggleNavActive()" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="hero-container">
+            <div id="logo">
+                <img src="../public/images/owner.jpg" alt="">
+            </div>
+            <div id="story">
+                <h2>A Bit About Us</h2>
+                <p>At Palmyra, we are passionate about creating delicious and healthy food options for our community. Our journey began amidst the challenges of the Syrian war, driven by a simple idea: to share the authentic flavors of our cherished family recipes with busy families and individuals who want to eat well but don't have the time or energy to cook. Starting from scratch, we have crafted a menu that honors our heritage and uses fresh, locally-sourced ingredients. With the help of our talented team, we have transformed this idea into a successful business that serves hundreds of happy customers every day. Come visit us and experience the flavors of the Mediterranean for yourself!
+                </p>
+            </div>
+        </div>
+
+        <h2 id="menu" class="section-label">
+            Our Delicious Food Menu
+        </h2>
+
+        <hr class="section-hr">
+
+        <section class="menu-section">
+            <ul>
+                <li>
+                    <div class="menu-listing-heading">
+                        <h3>Mama Knows Best (Falafel Sandwich)</h3>
+                        <div></div>
+                        <h3>$13.00</h3>
+                    </div>
+                    <p>Made from scratch, contains chickpeas, spices, fresh onion and garlic</p>
+                    <p>Comes with tomatoes, pickles( cucumbers, turnips) lettuce, jalapeño and cucumbers</p>
+                    <p>Tahini sauce(contains yogurt, and sesame) hummus paste (made fresh)</p>
+                </li>
+
+                <li>
+                    <div class="menu-listing-heading">
+                        <h3>Can't Go Wrong (Hummus side)</h3>
+                        <div></div>
+                        <h3>$8.00</h3>
+                    </div>
+                    <p>Made from fresh chickpeas, olive oil, tahini (has sesame), serrano peppers and parsley</p>
+                    <p>Comes with one pita bread</p>
+                    <p>Pickles of your choice 5 cents</p>
+                </li>
+
+                <li>
+                    <div class="menu-listing-heading">
+                        <h3>Dulma</h3>
+                        <div></div>
+                        <h3>$4.00</h3>
+                    </div>
+                    <p>3 stuffed grape leaves</p>
+                </li>
+
+                <li>
+                    <div class="menu-listing-heading">
+                        <h3>Rainbow Falafel Salad</h3>
+                        <div></div>
+                        <h3>$10.00</h3>
+                    </div>
+                    <p>Contains 3 pieces of falafel, side of hummus, side of tahini sauce and side salad</p>
+                </li>
+
+                <li>
+                    <div class="menu-listing-heading">
+                        <h3>Pita Bread</h3>
+                        <div></div>
+                        <h3>$1.50</h3>
+                    </div>
+                    <p>One slice of pita bread</p>
+                </li>
+
+                <li class="menu-listing-heading">
+                    <h3>Small Bag of Pita Chips</h3>
+                    <div></div>
+                    <h3>$2.00</h3>
+                </li>
+
+                <li class="menu-listing-heading">
+                    <h3>12oz Can of Sprite</h3>
+                    <div></div>
+                    <h3>$1.50</h3>
+                </li>
+
+                <li class="menu-listing-heading">
+                    <h3>16oz Bottle of Water</h3>
+                    <div></div>
+                    <h3>$1.50</h3>
+                </li>
+            </ul>
+        </section>
+
+        <h2 id="reviews" class="section-label">See What Our Customers Are Saying</h2>
+
+        <hr class="section-hr">
+
+        <section class="review-section">
+            <div class="embedsocial-widget review-widget" data-ref="bc76810a17253eccad357e47fcb16bc0">
+                <a href="https://embedsocial.com/google-reviews-widget/" title="Add Google reviews on a website" target="_blank" class="powered-by-es es-slider">
+                    <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial">
+                    <span> Google reviews widget </span>
+                </a>
+            </div>
+        </section>
+
+        <h2 id="contact" class="section-label">We Do Catering!</h2>
+
+        <hr class="section-hr">
+
+        <section class="contact-section">
+            <div class="catering-form">
+                <h3>Reach out to make plans!</h3>
+                <form id="contact-form" action="/submit-feedback" method="POST">
+                    <div class="form-field">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-field">
+                        <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Send Email</button>
+                </form>
+            </div>
+
+            <div class="catering-info">
+                <h3>Enjoy Palmyra at your next event!</h3>
+                <h4>Hummus & Falafel Bar</h4>
+                <p>Includes House-made hummus, falafels, rainbow falafel salad, pita bread, and a variety of toppings and sauces.</p>
+                <h4>Pricing</h4>
+                <p>$13/head plus sales tax, $400 minimum</p>
+                <p>We cater events of all sizes, indoor or outdoor. Contact us to discuss your needs and preferences. We look forward to serving you!</p>
+                <a href="tel:+1.971.589.19803" class="phone-link">+1.971.589.19803</a>
+            </div>
+        </section>
+
+        <h2 id="events" class="section-label">
+            Upcoming Events
+        </h2>
+
+        <hr class="section-hr">
+
+        <section class="event-section">
+            <ul>
+                <li class="event-row">
+                    <div class="event-date">
+                        <h3>06/30/2024</h3>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">Spokane HoopFest</h3>
+                        <p>Downtown Spokane</p>
+                        <p>Riverfront park / Central Plaza operating booth 91</p>
+                        <p>Located next to the Registration Tent</p>
+                        <div class="location-container">
+                            <a class="event-location" href="https://www.google.com/maps/search/?api=1&query=421+W+Riverside+Ave+%23115%2C+Spokane%2C+WA+99201%2C+USA" target="_blank">
+                                421 W Riverside Ave #115, Spokane, WA 99201, USA
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="event-time">7am-7pm</h3>
+                    </div>
+                </li>
+                <hr>
+
+                <li class="event-row">
+                    <div class="event-date">
+                        <h3>07/03/2024</h3>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">Delridge Farmer's Market</h3>
+                        <p>Small business, Farmers' market in Seattle, Washington</p>
+                        <div class="location-container">
+                            <a class="event-location" href="https://www.google.com/maps/search/?api=1&query=9421+18th+ave+SW%2C+Seattle%2C+WA+98106%2C+USA" target="_blank">
+                                9421 18th ave SW, Seattle, WA 98106, USA
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="event-time">10am-2pm</h3>
+                    </div>
+                </li>
+                <hr>
+
+                <li class="event-row">
+                    <div class="event-date">
+                        <h3>07/13/2024</h3>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">Delridge Farmer's Market</h3>
+                        <p>Small business, Farmers' market in Seattle, Washington</p>
+                        <div class="location-container">
+                            <a class="event-location" href="https://www.google.com/maps/search/?api=1&query=9421+18th+ave+SW%2C+Seattle%2C+WA+98106%2C+USA" target="_blank">
+                                9421 18th ave SW, Seattle, WA 98106, USA
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="event-time">10am-2pm</h3>
+                    </div>
+                </li>
+                <hr>
+
+                <li class="event-row">
+                    <div class="event-date">
+                        <h3>08/04/2024</h3>
+                    </div>
+                    <div class="event-body">
+                        <h3 class="event-title">Jet City Lab</h3>
+                        <p>Jet City Laboratory is a cultural incubator & 1500sq foot creative space located in the heart of West Seattle's Alaska Junction</p>
+                        <div class="location-container">
+                            <a class="event-location" href="https://www.google.com/maps/search/?api=1&query=4547+California+Ave+SW+Suite+A%2C+Seattle%2C+WA+98116%2C+USA" target="_blank">
+                                4547 California Ave SW Suite A, Seattle, WA 98116, USA
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="event-time">10am-2pm</h3>
+                    </div>
+                </li>
+                <hr>
+            </ul>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>Copyright &copy; 2024 Palmyra LLC</p>
+            <div class="footer-social-links">
+                <a href="https://www.facebook.com/palmyraLLC?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                    <img src="../public/images/facebook-logo.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/palmyrallcfoodservice/" target="_blank" rel="noopener noreferrer">
+                    <img src="../public/images/instagram-logo.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@palmyra904?_t=8oIsBj0bwU6&_r=1" target="_blank" rel="noopener noreferrer">
+                    <img src="../public/images/tiktok-logo.png" alt="TikTok">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="public/scripts/scripts.js"></script>
+<script>
+    ( function ( d, s, id )
+    {
+        var js;
+        if ( d.getElementById( id ) )
+        {
+            return;
+        }
+        js = d.createElement( s );
+        js.id = id;
+        js.src = "https://embedsocial.com/cdn/aht.js";
+        d.getElementsByTagName( "head" )[ 0 ].appendChild( js );
+    }( document, "script", "EmbedSocialWidgetScript" ) );
+</script>
+
+</html>
