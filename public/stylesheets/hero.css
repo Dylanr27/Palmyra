@@ -34,7 +34,7 @@
 #story h2
 {
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     background-color: rgba(0, 0, 0);
     border-bottom: 3px solid #c47e43;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -49,8 +49,8 @@
 {
     background-color: #ffffff;
     border-radius: 0 0 0.5rem 0.5rem;
-    padding: 1.5rem 2rem;
-    font-size: 1.1rem;
+    padding:  1rem 1.5rem 1.5rem;
+    font-size: 1rem;
     color: #444444;
     flex-grow: 1;
     line-height: 1.5;
